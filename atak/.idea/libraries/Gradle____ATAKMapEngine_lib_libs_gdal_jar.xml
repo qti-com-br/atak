@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./ATAKMapEngine/lib/libs/gdal.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ATAKMapEngine/lib/libs/gdal.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
