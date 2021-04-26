@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.18.1)
+cmake_minimum_required(VERSION 3.10.2)
 
-project(Main-Bridge)
+project(VIN-Bridge)
 
 set(PROJECT_APP ${CMAKE_SOURCE_DIR})
 set(INCLUDE_DIR ${PROJECT_APP}/include)
@@ -131,12 +131,12 @@ set_target_properties(qtoken PROPERTIES IMPORTED_LOCATION
 # -------------------------------------------- QToken --
 
 # -- Main Bridge ---------------------------------------
-add_library(main-bridge SHARED main-bridge.cpp)
+add_library(vin-bridge SHARED vin-bridge.cpp)
 
-target_include_directories(main-bridge PUBLIC ${INCLUDE_DIR}/Poco)
+target_include_directories(vin-bridge PUBLIC ${INCLUDE_DIR}/Poco)
 
 target_link_libraries(
-        main-bridge
+        vin-bridge
 
         config++
         crypto

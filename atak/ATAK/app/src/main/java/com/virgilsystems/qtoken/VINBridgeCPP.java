@@ -19,7 +19,7 @@ package com.virgilsystems.qtoken;
 import android.content.Context;
 
 
-public class MainBridgeCPP {
+public class VINBridgeCPP {
 
 
 
