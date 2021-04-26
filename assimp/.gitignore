@@ -1,0 +1,6 @@
+build-android-x86
+build-android-arm
+build
+port/jassimp/dist/
+port/jassimp/doc/
+port/jassimp/jassimp/bin/

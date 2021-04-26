@@ -1,0 +1,2 @@
+com/atakmap/BuildConfig.java
+ com.atakmap.BuildConfig

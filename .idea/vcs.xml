@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/takengine/thirdparty/stlsoft" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/takthirdparty/builds/android-arm64-v8a-release/pdfium" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/takthirdparty/builds/android-armeabi-v7a-release/pdfium" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/takthirdparty/builds/android-x86-release/pdfium" vcs="Git" />
+  </component>
+</project>

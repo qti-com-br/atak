@@ -1,0 +1,22 @@
+{
+  "buildFiles": [
+    "/home/carlos/atak-civ/atak/ATAKMapEngine/cmake/android.toolchain.cmake",
+    "/home/carlos/atak-civ/atak/ATAKMapEngine/CMakeLists.txt",
+    "/home/carlos/atak-civ/atak/ATAKMapEngine/lib/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-civ/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/x86\" clean"
+  ],
+  "buildTargetsCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/carlos/atak-civ/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "atakjni-Debug-x86": {
+      "artifactName": "atakjni",
+      "buildCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-civ/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/x86\" atakjni",
+      "abi": "x86",
+      "output": "/home/carlos/atak-civ/atak/ATAKMapEngine/lib/build/intermediates/cmake/civDebug/obj/x86/libatakjni.so",
+      "runtimeFiles": [
+        "/home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/libgnustl_static.a"
+      ]
+    }
+  }
+}

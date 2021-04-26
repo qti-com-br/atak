@@ -1,0 +1,2 @@
+ninja: Entering directory `/home/carlos/atak-civ/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a'
+ninja: no work to do.

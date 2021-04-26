@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a69cfe90-1629-4bc8-96f1-c78c2e9d1889" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-arm64-v8a-release/pdfium/build/standalone.gypi" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-arm64-v8a-release/pdfium/build/standalone.gypi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-arm64-v8a-release/pdfium/core/src/fxge/android/fpf_skiafontmgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-arm64-v8a-release/pdfium/core/src/fxge/android/fpf_skiafontmgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-arm64-v8a-release/pdfium/pdfium.gyp" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-arm64-v8a-release/pdfium/pdfium.gyp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-armeabi-v7a-release/pdfium/build/standalone.gypi" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-armeabi-v7a-release/pdfium/build/standalone.gypi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-armeabi-v7a-release/pdfium/core/src/fxge/android/fpf_skiafontmgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-armeabi-v7a-release/pdfium/core/src/fxge/android/fpf_skiafontmgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-armeabi-v7a-release/pdfium/pdfium.gyp" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-armeabi-v7a-release/pdfium/pdfium.gyp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-x86-release/pdfium/build/standalone.gypi" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-x86-release/pdfium/build/standalone.gypi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-x86-release/pdfium/core/src/fxge/android/fpf_skiafontmgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-x86-release/pdfium/core/src/fxge/android/fpf_skiafontmgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/takthirdparty/builds/android-x86-release/pdfium/pdfium.gyp" beforeDir="false" afterPath="$PROJECT_DIR$/takthirdparty/builds/android-x86-release/pdfium/pdfium.gyp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rhgqLKaHdxPA3f3ZxRpcExfE46" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/atak" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a69cfe90-1629-4bc8-96f1-c78c2e9d1889" name="Default Changelist" comment="" />
+      <created>1619433924983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619433924983</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="295" y="718" width="424" height="491" key="FileChooserDialogImpl" timestamp="1619434110105">
+      <screen x="0" y="27" width="1080" height="1893" />
+    </state>
+    <state x="295" y="718" width="424" height="491" key="FileChooserDialogImpl/1080.0.1920.1080/0.27.1080.1893@0.27.1080.1893" timestamp="1619434110105" />
+  </component>
+</project>
