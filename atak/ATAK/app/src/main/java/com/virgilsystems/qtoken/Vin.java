@@ -30,8 +30,6 @@ import 	java.net.UnknownHostException;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.atakmap.app.R;
