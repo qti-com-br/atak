@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "applicationId": "com.atakmap.mapcoreinterfaces",
+  "variantType": "LIBRARY",
+  "elements": [
+    {
+      "outputType": {
+        "type": "MERGED_MANIFESTS"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": -1,
+        "outputFile": "lib-civ-debug.aar",
+        "fullName": "civDebug",
+        "baseName": "civ-debug",
+        "dirName": ""
+      },
+      "path": "../../library_manifest/civDebug/AndroidManifest.xml",
+      "properties": {
+        "packageId": "com.atakmap.mapcoreinterfaces",
+        "split": ""
+      }
+    }
+  ]
+}

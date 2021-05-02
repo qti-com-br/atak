@@ -1,0 +1,5 @@
+/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/x86/CMakeFiles/rebuild_cache.dir
+/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/x86/CMakeFiles/edit_cache.dir
+/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/x86/mapengine/CMakeFiles/rebuild_cache.dir
+/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/x86/mapengine/CMakeFiles/edit_cache.dir
+/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/x86/mapengine/CMakeFiles/takengine.dir

@@ -1,0 +1,7 @@
+Executable : /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/arm64-v8a
+takengine
+jvmArgs : 
+

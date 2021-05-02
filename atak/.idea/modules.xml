@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/atak.iml" filepath="$PROJECT_DIR$/.idea/modules/atak.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ATAK/atak.ATAK.iml" filepath="$PROJECT_DIR$/.idea/modules/ATAK/atak.ATAK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ATAK/app/atak.ATAK.app.iml" filepath="$PROJECT_DIR$/.idea/modules/ATAK/app/atak.ATAK.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ATAKMapEngine/atak.ATAKMapEngine.iml" filepath="$PROJECT_DIR$/.idea/modules/ATAKMapEngine/atak.ATAKMapEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ATAKMapEngine/lib/atak.ATAKMapEngine.lib.iml" filepath="$PROJECT_DIR$/.idea/modules/ATAKMapEngine/lib/atak.ATAKMapEngine.lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MapCoreInterfaces/atak.MapCoreInterfaces.iml" filepath="$PROJECT_DIR$/.idea/modules/MapCoreInterfaces/atak.MapCoreInterfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MapCoreInterfaces/lib/atak.MapCoreInterfaces.lib.iml" filepath="$PROJECT_DIR$/.idea/modules/MapCoreInterfaces/lib/atak.MapCoreInterfaces.lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/577327389/atak.libtakengine.iml" filepath="$PROJECT_DIR$/.idea/modules/577327389/atak.libtakengine.iml" />
+    </modules>
+  </component>
+</project>

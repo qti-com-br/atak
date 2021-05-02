@@ -15,6 +15,7 @@ import com.atakmap.android.contact.TadilJContact;
 import com.atakmap.android.cot.CotMapComponent;
 import com.atakmap.android.ipc.AtakBroadcast;
 import com.atakmap.android.maps.MapView;
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.comms.CotServiceRemote;
 import com.atakmap.comms.CotServiceRemote.ConnectionListener;
@@ -451,6 +452,11 @@ public final class GeoChatService implements
                             .dispatchToContact(
                                     cotEvent, destination);
                 }
+
+                String message = cotMessage.getString("message");
+                Log.d("### VIN", "message: " + message);
+                ATAKActivity.VIN.put(message);
+
             } else {
                 Log.w(TAG, "Could not create CotEvent from Bundle: "
                         + cotMessage);

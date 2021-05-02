@@ -253,12 +253,27 @@ android {
         // appropriate checks are in place to allow for correct behavior 
         // on versions 21 and up.
 
-        targetSdkVersion 29   
+        targetSdkVersion 29
         minSdkVersion 21
         multiDexEnabled true
         applicationId = "com.atakmap.app"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters 'arm64-v8a'/*, 'armeabi-v7a', 'x86_64', 'x86'*/
+            stl 'c++_shared'
+            ldLibs "log"
+        }
+
+        ndkVersion "21.4.7075529"
+    }
+
+    externalNativeBuild {
+        cmake {
+            version "3.10.2"
+            path "src/main/cpp/CMakeLists.txt"
+        }
     }
 
     flavorDimensions "application"
@@ -270,7 +285,7 @@ android {
             applicationIdSuffix = ".civ"
             manifestPlaceholders = [atakApiVersion: "com.atakmap.app@" + ATAK_VERSION + ".CIV"]
             buildConfigField 'String', 'REDEPLOY_VERSION', '"430a"'
-            ndk { abiFilters "armeabi-v7a", "arm64-v8a", "x86" }
+            ndk { abiFilters "arm64-v8a"/*, "armeabi-v7a", "x86"*/ }
         }
 
         civSmall {
@@ -437,12 +452,12 @@ android {
     touch('ATAKMapEngine/lib/src/main/jniLibs/arm64-v8a/libtakengine.so')
     touch('ATAKMapEngine/lib/src/main/jniLibs/arm64-v8a/libgdal.so')
     touch('ATAKMapEngine/lib/src/main/jniLibs/arm64-v8a/libspatialite.so')
-    touch('ATAKMapEngine/lib/src/main/jniLibs/armeabi-v7a/libtakengine.so')
-    touch('ATAKMapEngine/lib/src/main/jniLibs/armeabi-v7a/libgdal.so')
-    touch('ATAKMapEngine/lib/src/main/jniLibs/armeabi-v7a/libspatialite.so')
-    touch('ATAKMapEngine/lib/src/main/jniLibs/x86/libtakengine.so')
-    touch('ATAKMapEngine/lib/src/main/jniLibs/x86/libgdal.so')
-    touch('ATAKMapEngine/lib/src/main/jniLibs/x86/libspatialite.so')
+//    touch('ATAKMapEngine/lib/src/main/jniLibs/armeabi-v7a/libtakengine.so')
+//    touch('ATAKMapEngine/lib/src/main/jniLibs/armeabi-v7a/libgdal.so')
+//    touch('ATAKMapEngine/lib/src/main/jniLibs/armeabi-v7a/libspatialite.so')
+//    touch('ATAKMapEngine/lib/src/main/jniLibs/x86/libtakengine.so')
+//    touch('ATAKMapEngine/lib/src/main/jniLibs/x86/libgdal.so')
+//    touch('ATAKMapEngine/lib/src/main/jniLibs/x86/libspatialite.so')
 }
 
 // NDK build external dependency install
@@ -459,36 +474,36 @@ task installDepends {
             // always overwrite
             duplicatesStrategy 'include'
         }
-        copy {
-            from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/') {
-                include 'libcommoncommojni.so'
-            }
-            into projectDir.getAbsolutePath() + '/src/main/jniLibs/armeabi-v7a/'
-
-            // always overwrite
-            duplicatesStrategy 'include'
-        }
-        copy {
-            from('../../../takthirdparty/builds/android-x86-release/lib/') {
-                include 'libcommoncommojni.so'
-            }
-            into projectDir.getAbsolutePath() + '/src/main/jniLibs/x86/'
-
-             // always overwrite
-            duplicatesStrategy 'include'
-        }
-
-        // install TAK Third Party JARs
-        copy {
-            from('../../../takthirdparty/builds/android-x86-release/java/') {
-                include 'jcommoncommo.jar'
-            }
-
-            into projectDir.getAbsolutePath() + '/libs/'
-
-             // always overwrite
-            duplicatesStrategy 'include'
-        }
+//        copy {
+//            from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/') {
+//                include 'libcommoncommojni.so'
+//            }
+//            into projectDir.getAbsolutePath() + '/src/main/jniLibs/armeabi-v7a/'
+//
+//            // always overwrite
+//            duplicatesStrategy 'include'
+//        }
+//        copy {
+//            from('../../../takthirdparty/builds/android-x86-release/lib/') {
+//                include 'libcommoncommojni.so'
+//            }
+//            into projectDir.getAbsolutePath() + '/src/main/jniLibs/x86/'
+//
+//             // always overwrite
+//            duplicatesStrategy 'include'
+//        }
+//
+//        // install TAK Third Party JARs
+//        copy {
+//            from('../../../takthirdparty/builds/android-x86-release/java/') {
+//                include 'jcommoncommo.jar'
+//            }
+//
+//            into projectDir.getAbsolutePath() + '/libs/'
+//
+//             // always overwrite
+//            duplicatesStrategy 'include'
+//        }
     }
 }
 

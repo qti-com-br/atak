@@ -1,0 +1,23 @@
+#
+# Java Stuff
+
+#JAVA_HOME = "C:\Program Files\Java\jdk1.6.0_16"
+#JAVA_HOME = /usr/lib/jvm/java-6-openjdk/
+#JAVA_HOME = /usr/lib/jvm/java-7-openjdk-amd64/
+
+OS=$(shell uname -s)
+ifeq ($(OS),Darwin)
+    JAVA_HOME?=$(shell /usr/libexec/java_home)
+    JAVA_INCLUDE=-I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/darwin
+else ifeq ($(OS),Linux)
+    JAVA_HOME?=/usr/lib/jvm/java-openjdk
+    JAVA_INCLUDE=-I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
+else # Assume \/\/indoze
+    JAVA_HOME?="C:\Program Files\Java\jre7"
+    JAVA_INCLUDE=-I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/win32
+endif
+
+JAVADOC=$(JAVA_HOME)/bin/javadoc
+JAVAC=$(JAVA_HOME)/bin/javac
+JAVA=$(JAVA_HOME)/bin/java
+JAR=$(JAVA_HOME)/bin/jar

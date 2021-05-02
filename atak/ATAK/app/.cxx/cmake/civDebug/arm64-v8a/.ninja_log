@@ -1,0 +1,5 @@
+# ninja log v5
+0	1902	1619967237	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	92b679411a79fdec
+1903	2010	1619967237	/home/carlos/atak-vin/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	5d8f64e4675e04b2
+2	1895	1619987271	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	92b679411a79fdec
+1896	1998	1619987271	/home/carlos/atak-vin/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	5d8f64e4675e04b2

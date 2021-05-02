@@ -1,0 +1,2 @@
+ninja: Entering directory `/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/arm64-v8a'
+ninja: no work to do.

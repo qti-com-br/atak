@@ -131,6 +131,8 @@ import com.atakmap.spatial.SpatialCalculator;
 import com.atakmap.util.ConfigOptions;
 
 import com.atakmap.util.zip.IoUtils;
+import com.virgilsystems.qtoken.VINBridgeCPP;
+
 import org.xml.sax.SAXException;
 
 import java.io.File;
@@ -153,6 +155,8 @@ public class ATAKActivity extends MapActivity implements
         OnSharedPreferenceChangeListener {
 
     public static final String TAG = "ATAKActivity";
+
+    public static VINBridgeCPP VIN;
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -1960,6 +1964,24 @@ public class ATAKActivity extends MapActivity implements
 
         if (!acceptedPermissions)
             return;
+
+        // -- Initialization of VIN ----------------------------------- //
+        VIN = new VINBridgeCPP();
+
+        VIN.run("192.168.1.11", "/sdcard");
+
+        Log.d("### VIN", "ATAKActivity.onCreate sleep");
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        Log.d("### VIN", "ATAKActivity.onCreate put before");
+//        VIN.put();
+//        Log.d("### VIN", "ATAKActivity.onCreate put after");
+        // ----------------------------------- Initialization of VIN -- //
 
     }
 

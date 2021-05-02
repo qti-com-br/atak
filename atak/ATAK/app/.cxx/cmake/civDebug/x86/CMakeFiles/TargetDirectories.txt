@@ -1,0 +1,3 @@
+/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/x86/CMakeFiles/rebuild_cache.dir
+/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/x86/CMakeFiles/edit_cache.dir
+/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/x86/CMakeFiles/vin-bridge.dir

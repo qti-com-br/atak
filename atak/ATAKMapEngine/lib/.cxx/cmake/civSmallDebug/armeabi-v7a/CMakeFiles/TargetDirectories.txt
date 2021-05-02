@@ -1,0 +1,5 @@
+/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civSmallDebug/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civSmallDebug/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civSmallDebug/armeabi-v7a/lib/src/main/cpp/CMakeFiles/rebuild_cache.dir
+/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civSmallDebug/armeabi-v7a/lib/src/main/cpp/CMakeFiles/edit_cache.dir
+/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civSmallDebug/armeabi-v7a/lib/src/main/cpp/CMakeFiles/atakjni.dir

@@ -1,0 +1,22 @@
+{
+  "buildFiles": [
+    "/home/carlos/atak-vin/takengine/cmake/android.toolchain.cmake",
+    "/home/carlos/atak-vin/takengine/CMakeLists.txt",
+    "/home/carlos/atak-vin/takengine/mapengine/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "takengine-Debug-arm64-v8a": {
+      "artifactName": "takengine",
+      "buildCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/arm64-v8a\" takengine",
+      "abi": "arm64-v8a",
+      "output": "/home/carlos/atak-vin/takengine/mapengine/android/build/intermediates/cmake/civDebug/obj/arm64-v8a/libtakengine.so",
+      "runtimeFiles": [
+        "/home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/libgnustl_static.a"
+      ]
+    }
+  }
+}

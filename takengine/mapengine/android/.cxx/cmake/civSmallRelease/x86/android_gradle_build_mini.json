@@ -1,0 +1,22 @@
+{
+  "buildFiles": [
+    "/home/carlos/atak-vin/takengine/cmake/android.toolchain.cmake",
+    "/home/carlos/atak-vin/takengine/CMakeLists.txt",
+    "/home/carlos/atak-vin/takengine/mapengine/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSmallRelease/x86\" clean"
+  ],
+  "buildTargetsCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSmallRelease/x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "takengine-Release-x86": {
+      "artifactName": "takengine",
+      "buildCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSmallRelease/x86\" takengine",
+      "abi": "x86",
+      "output": "/home/carlos/atak-vin/takengine/mapengine/android/build/intermediates/cmake/civSmallRelease/obj/x86/libtakengine.so",
+      "runtimeFiles": [
+        "/home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/libgnustl_static.a"
+      ]
+    }
+  }
+}
