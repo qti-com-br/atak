@@ -1970,17 +1970,14 @@ public class ATAKActivity extends MapActivity implements
 
         VIN.run("192.168.1.11", "/sdcard");
 
-        Log.d("### VIN", "ATAKActivity.onCreate sleep");
+        Log.d("### VIN", "ATAKActivity.onCreate");
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
-//        Log.d("### VIN", "ATAKActivity.onCreate put before");
-//        VIN.put();
-//        Log.d("### VIN", "ATAKActivity.onCreate put after");
         // ----------------------------------- Initialization of VIN -- //
 
     }

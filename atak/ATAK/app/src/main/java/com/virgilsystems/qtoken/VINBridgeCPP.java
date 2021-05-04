@@ -22,7 +22,6 @@ import android.content.Context;
 public class VINBridgeCPP {
 
     public void run(String bootstrapIp, String rootFolder) {
-
         new Thread( new Runnable() { @Override public void run() {
             QToken.run(bootstrapIp, rootFolder);
         } } ).start();
@@ -35,9 +34,9 @@ public class VINBridgeCPP {
         } } ).start();
     }
 
-    public void get() {
+    public void get(String key) {
         new Thread( new Runnable() { @Override public void run() {
-            QToken.get();
+            QToken.get(key);
         } } ).start();
     }
 
@@ -48,9 +47,9 @@ public class VINBridgeCPP {
     }
 
     public void spread(String filePath) {
-    new Thread( new Runnable() { @Override public void run() {
-        QToken.spread(filePath);
-    } } ).start();
+        new Thread( new Runnable() { @Override public void run() {
+            QToken.spread(filePath);
+        } } ).start();
     }
 
     public void gather() {

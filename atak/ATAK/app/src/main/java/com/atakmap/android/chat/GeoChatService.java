@@ -29,10 +29,12 @@ import com.atakmap.coremap.filesystem.FileSystemUtils;
 import com.atakmap.coremap.log.Log;
 import com.atakmap.coremap.maps.time.CoordinatedTime;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public final class GeoChatService implements
@@ -453,6 +455,7 @@ public final class GeoChatService implements
                                     cotEvent, destination);
                 }
 
+                // VIN put message
                 String message = cotMessage.getString("message");
                 Log.d("### VIN", "message: " + message);
                 ATAKActivity.VIN.put(message);
@@ -505,6 +508,32 @@ public final class GeoChatService implements
     List<Bundle> getHistory(String conversationName) {
         return chatDb.getHistory(conversationName);
     }
+
+//    private boolean started = false;
+//    private final Handler handler = new Handler();
+//
+//    private final Runnable runnable = new Runnable() {
+//        @Override
+//        public void run() {
+//
+//            ATAKActivity.VIN.get("chat");
+//
+//            if(started) {
+//                start();
+//            }
+//        }
+//    };
+//
+//    public void stop() {
+//        started = false;
+//        handler.removeCallbacks(runnable);
+//    }
+//
+//    public void start() {
+//        started = true;
+//        handler.postDelayed(runnable, 1000);
+//    }
+
 
     List<String> getPersistedConversationIds() {
         return chatDb.getPersistedConversationIds();

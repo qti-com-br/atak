@@ -823,6 +823,10 @@ public class ChatDatabase {
                     ret.add(cursorToBundle(cursor));
                 } while (cursor.moveToNext());
             }
+
+            //ret.add();
+
+
         } catch (IllegalStateException e) {
             String name = "<UNKNOWN>";
             Contact contact = Contacts.getInstance().getContactByUuid(

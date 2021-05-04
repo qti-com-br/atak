@@ -20,7 +20,7 @@ public class QToken {
 
     public static native void put(String message);
 
-    public static native void get();
+    public static native void get(String key);
 
     public static native void share(String filePath);
 

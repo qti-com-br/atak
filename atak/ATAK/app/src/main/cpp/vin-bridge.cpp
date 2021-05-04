@@ -51,10 +51,10 @@ extern "C" {
                                              jstring root_folder) {
 
         const char *booststrap_ip_chars = env->GetStringUTFChars(booststrap_ip, NULL);
-        booststrap_ip_str.append(booststrap_ip_chars);
+        booststrap_ip_str = booststrap_ip_chars;
 
         const char *root_folder_chars = env->GetStringUTFChars(root_folder, NULL);
-        root_folder_str.append(root_folder_chars);
+        root_folder_str = root_folder_chars;
 
         string node_port = "8083";
         string receipt_port = "9093";
@@ -123,7 +123,7 @@ extern "C" {
      * @param clazz Class that call this function
      */
     JNIEXPORT void JNICALL
-    Java_com_virgilsystems_qtoken_QToken_get(JNIEnv *env, jclass clazz) {
+    Java_com_virgilsystems_qtoken_QToken_get(JNIEnv *env, jclass clazz, jstring key) {
         try {
             node->doGet("Hello");
 
