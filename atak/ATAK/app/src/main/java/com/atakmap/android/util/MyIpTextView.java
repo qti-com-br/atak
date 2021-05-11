@@ -1,11 +1,13 @@
 
 package com.atakmap.android.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.comms.NetworkUtils;
 import com.atakmap.comms.NetworkUtils.NetRestartNotification;
@@ -26,10 +28,14 @@ public class MyIpTextView extends TextView {
         init();
     }
 
+    @SuppressLint("SetTextI18n")
     private void init() {
 
         final String PREFACE = ctx.getString(R.string.my_ip) + ": ";
-        setText(PREFACE + NetworkUtils.getIP());
+
+        setText(PREFACE + NetworkUtils.getIP() +
+                " P: " + ATAKActivity.nodePort + "  R: " + ATAKActivity.receiptPort);
+
         NetworkUtils.registerNetRestartNotification(
                 NetworkUtils.ALL_CONNECTIONS, new NetRestartNotification() {
                     @Override

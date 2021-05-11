@@ -35,7 +35,7 @@ android {
         minSdkVersion 21
         ndk {
             moduleName 'atakjni'
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
+            abiFilters 'arm64-v8a' /*'armeabi-v7a', 'x86' */
         }
     }
 
@@ -110,13 +110,13 @@ android {
     // fail on the duplicate files. instruct a 'pickFirst' strategy on the
     // duplicates.
     packagingOptions {
-        pickFirst 'lib/x86/libgdal.so'
-        pickFirst 'lib/x86/libspatialite.so'
-        pickFirst 'lib/x86/libtakengine.so'
-
-        pickFirst 'lib/armeabi-v7a/libgdal.so'
-        pickFirst 'lib/armeabi-v7a/libspatialite.so'
-        pickFirst 'lib/armeabi-v7a/libtakengine.so'
+//        pickFirst 'lib/x86/libgdal.so'
+//        pickFirst 'lib/x86/libspatialite.so'
+//        pickFirst 'lib/x86/libtakengine.so'
+//
+//        pickFirst 'lib/armeabi-v7a/libgdal.so'
+//        pickFirst 'lib/armeabi-v7a/libspatialite.so'
+//        pickFirst 'lib/armeabi-v7a/libtakengine.so'
 
         pickFirst 'lib/arm64-v8a/libgdal.so'
         pickFirst 'lib/arm64-v8a/libspatialite.so'
@@ -266,48 +266,48 @@ task installDepends {
             // always overwrite
             duplicatesStrategy 'include'
         }
-        copy {
-            from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/') {
-                include 'libassimp.so'
-                include 'libcharset.so'
-                include 'libgdal.so'
-                include 'libgdalalljni.so'
-                include 'libiconv.so'
-                include 'libjassimp.so'
-                include 'libltidsdk.so' // only available if DSDK present for build
-                include 'libogdi.so'
-                include 'libproj.so'
-                include 'libspatialite.so'
-            }
-            from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/ogdi') {
-                include 'libogdi.so'
-            }
-            into projectDir.getAbsolutePath() + '/src/main/jniLibs/armeabi-v7a/'
-
-            // always overwrite
-            duplicatesStrategy 'include'
-        }
-        copy {
-            from('../../../takthirdparty/builds/android-x86-release/lib/') {
-                include 'libassimp.so'
-                include 'libcharset.so'
-                include 'libgdal.so'
-                include 'libgdalalljni.so'
-                include 'libiconv.so'
-                include 'libjassimp.so'
-                include 'libltidsdk.so' // only available if DSDK present for build
-                include 'libogdi.so'
-                include 'libproj.so'
-                include 'libspatialite.so'
-            }
-            from('../../../takthirdparty/builds/android-x86-release/lib/ogdi') {
-                include 'libogdi.so'               
-            }
-            into projectDir.getAbsolutePath() + '/src/main/jniLibs/x86/'
-
-             // always overwrite
-            duplicatesStrategy 'include'
-        }
+//        copy {
+//            from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/') {
+//                include 'libassimp.so'
+//                include 'libcharset.so'
+//                include 'libgdal.so'
+//                include 'libgdalalljni.so'
+//                include 'libiconv.so'
+//                include 'libjassimp.so'
+//                include 'libltidsdk.so' // only available if DSDK present for build
+//                include 'libogdi.so'
+//                include 'libproj.so'
+//                include 'libspatialite.so'
+//            }
+//            from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/ogdi') {
+//                include 'libogdi.so'
+//            }
+//            into projectDir.getAbsolutePath() + '/src/main/jniLibs/armeabi-v7a/'
+//
+//            // always overwrite
+//            duplicatesStrategy 'include'
+//        }
+//        copy {
+//            from('../../../takthirdparty/builds/android-x86-release/lib/') {
+//                include 'libassimp.so'
+//                include 'libcharset.so'
+//                include 'libgdal.so'
+//                include 'libgdalalljni.so'
+//                include 'libiconv.so'
+//                include 'libjassimp.so'
+//                include 'libltidsdk.so' // only available if DSDK present for build
+//                include 'libogdi.so'
+//                include 'libproj.so'
+//                include 'libspatialite.so'
+//            }
+//            from('../../../takthirdparty/builds/android-x86-release/lib/ogdi') {
+//                include 'libogdi.so'
+//            }
+//            into projectDir.getAbsolutePath() + '/src/main/jniLibs/x86/'
+//
+//             // always overwrite
+//            duplicatesStrategy 'include'
+//        }
 
         // install TAK Third Party JARs
         copy {

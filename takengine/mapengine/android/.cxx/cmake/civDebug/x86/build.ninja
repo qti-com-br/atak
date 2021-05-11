@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/x86 && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin/takengine -B/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/x86
+  COMMAND = cd /home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/x86 && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin-2/takengine -B/home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/x86
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -44,13 +44,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/x86 && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/x86 && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 build edit_cache: phony CMakeFiles/edit_cache.util
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /home/carlos/atak-vin/takengine/CMakeLists.txt
+# /home/carlos/atak-vin-2/takengine/CMakeLists.txt
 # =============================================================================
 
 
@@ -58,7 +58,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build mapengine/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/x86/mapengine && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin/takengine -B/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/x86
+  COMMAND = cd /home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/x86/mapengine && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin-2/takengine -B/home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/x86
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -68,7 +68,7 @@ build mapengine/rebuild_cache: phony mapengine/CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build mapengine/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/x86/mapengine && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/x86/mapengine && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 build mapengine/edit_cache: phony mapengine/CMakeFiles/edit_cache.util
@@ -2063,7 +2063,7 @@ build ../../../../build/intermediates/cmake/civDebug/obj/x86/libtakengine.so: CX
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -fexceptions -frtti -O0 -O0  -O3
   LINK_FLAGS = -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now
   LINK_LIBRARIES = -lspatialite -lgdal -llog -lGLESv3 -lm "/home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/libgnustl_static.a"
-  LINK_PATH = -L/home/carlos/atak-vin/takengine/mapengine/../../takthirdparty/builds/android-x86-release/lib
+  LINK_PATH = -L/home/carlos/atak-vin-2/takengine/mapengine/../../takthirdparty/builds/android-x86-release/lib
   OBJECT_DIR = mapengine/CMakeFiles/takengine.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -2084,7 +2084,7 @@ build takengine: phony ../../../../build/intermediates/cmake/civDebug/obj/x86/li
 # =============================================================================
 
 #############################################
-# Folder: /home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/x86/mapengine
+# Folder: /home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/x86/mapengine
 
 build  mapengine/all: phony takengine
 # =============================================================================

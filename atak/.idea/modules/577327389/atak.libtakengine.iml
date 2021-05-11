@@ -10,7 +10,8 @@
     </facet>
     <facet type="native-android-gradle" name="Native-Android-Gradle">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="civDebug-arm64-v8a" />
+        <option name="SELECTED_ABI" />
+        <option name="SELECTED_VARIANT" />
       </configuration>
     </facet>
     <facet type="android" name="Android">
@@ -41,8 +42,17 @@
       <excludeFolder url="file://$MODULE_DIR$/../../../../takengine/mapengine/android/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../../takengine/mapengine/android/build" />
     </content>
+    <content url="file://$MODULE_DIR$/../../../../takengine/mapengine/gl/khronos/EGL/api">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../takengine/mapengine/gl/khronos/EGL/api" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../../takengine/mapengine/gl/khronos/OpenGL/api">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../takengine/mapengine/gl/khronos/OpenGL/api" />
+    </content>
     <content url="file://$MODULE_DIR$/../../../../takengine/mapengine/sdk/src">
-      <sourceFolder url="file://$MODULE_DIR$/../../../../takengine/mapengine/sdk/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../../takengine/mapengine/sdk/src" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../../takengine/thirdparty/stlsoft/include">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../takengine/thirdparty/stlsoft/include" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

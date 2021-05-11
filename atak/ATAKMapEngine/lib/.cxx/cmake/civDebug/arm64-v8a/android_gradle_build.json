@@ -1,593 +1,593 @@
 {
   "stringTable": {
-    "0": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a",
+    "0": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a",
     "1": "--sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 -DRTTI_ENABLED -DTE_GLES_VERSION=3 -Datakjni_EXPORTS -I../../../../src/main/cpp/. -I../../../../src/main/cpp/../../../../../../takthirdparty/builds/android-arm64-v8a-release/include -I../../../../src/main/cpp/../../../../../../takengine/mapengine/sdk/src -I../../../../src/main/cpp/../../../../../../takengine/thirdparty -I../../../../src/main/cpp/../../../../../../takengine/include/json -isystem /home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/include -isystem /home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/include/backward -isystem /home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/include -isystem /home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/include/backward -isystem /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/include -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -fexceptions -frtti -O0 -O0 -O3 -fPIC -std=gnu++11"
   },
   "buildFiles": [
-    "/home/carlos/atak-vin/atak/ATAKMapEngine/cmake/android.toolchain.cmake",
-    "/home/carlos/atak-vin/atak/ATAKMapEngine/CMakeLists.txt",
-    "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/CMakeLists.txt"
+    "/home/carlos/atak-vin-2/atak/ATAKMapEngine/cmake/android.toolchain.cmake",
+    "/home/carlos/atak-vin-2/atak/ATAKMapEngine/CMakeLists.txt",
+    "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a\" clean"
+    "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a\" clean"
   ],
-  "buildTargetsCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "atakjni-Debug-arm64-v8a": {
-      "buildCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a\" atakjni",
+      "buildCommand": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a\" atakjni",
       "buildType": "debug",
       "toolchain": "1069994800",
       "abi": "arm64-v8a",
       "artifactName": "atakjni",
       "files": [
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/common.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/common.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/atakjni.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/atakjni.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jattributeset.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jattributeset.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jconfigoptions.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jconfigoptions.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jdatabaseimpl.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jdatabaseimpl.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jdatatype.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jdatatype.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jdrginfo.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jdrginfo.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jegm96.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jegm96.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jelevationmanager.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jelevationmanager.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jelevationsourcemanager.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jelevationsourcemanager.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jelmgrterrainrenderservice.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jelmgrterrainrenderservice.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jfeature.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jfeature.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jfrustum.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jfrustum.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgdallibrary.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgdallibrary.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgeometry.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgeometry.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgeometryfactory.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgeometryfactory.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgeocalculations.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgeocalculations.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgeomagneticfield.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgeomagneticfield.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jglobe.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jglobe.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jglmapview.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jglmapview.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jglquadtilenode2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jglquadtilenode2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jglrenderbatch2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jglrenderbatch2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jglninepatch.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jglninepatch.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgllayerfactory.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgllayerfactory.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgllinebatch.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgllinebatch.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jgltext.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jgltext.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jioproviderfactory.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jioproviderfactory.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jmapprojectiondisplaymodel.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jmapprojectiondisplaymodel.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jmapscenemodel.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jmapscenemodel.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jmatrix.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jmatrix.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jmesh.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jmesh.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jmodelbuilder.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jmodelbuilder.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jmodels.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jmodels.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jmsaccessdatabasefactory.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jmsaccessdatabasefactory.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativeelevationchunk.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativeelevationchunk.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativeelevationsource.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativeelevationsource.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativeelevationsourcecursor.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativeelevationsourcecursor.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturecursor.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturecursor.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturesetcursor.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturesetcursor.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturedatasource.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturedatasource.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturedatastore.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativefeaturedatastore.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativefilecursor.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativefilecursor.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativegeometrymodel.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativegeometrymodel.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativegllayer3.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativegllayer3.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativegllayerspi2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativegllayerspi2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativeglmaprenderable2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativeglmaprenderable2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativelayer.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativelayer.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativemodel.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativemodel.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativeprojection.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativeprojection.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jnativerunnable.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jnativerunnable.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/josrutils.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/josrutils.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jprojectionfactory.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jprojectionfactory.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jqueryimpl.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jqueryimpl.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jrendercontextinterop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jrendercontextinterop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jstatementimpl.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jstatementimpl.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jstyle.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jstyle.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/junsafe.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/junsafe.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jpersistentdatasourcefeaturedatastore2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jpersistentdatasourcefeaturedatastore2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jpersistentrasterdatastore.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jpersistentrasterdatastore.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jskirt.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jskirt.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jtessellate.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jtessellate.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/jvertexdatalayout.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/jvertexdatalayout.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/vsi_jfile.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/vsi_jfile.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIStringUTF.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIStringUTF.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIByteArray.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIByteArray.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIDoubleArray.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIDoubleArray.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIFloatArray.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIFloatArray.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIIntArray.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNIIntArray.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNILongArray.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNILongArray.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNINotifyCallback.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/JNINotifyCallback.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/Pointer.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/Pointer.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/Interop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/Interop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedDatabaseProvider.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedDatabaseProvider.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedDatabase2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedDatabase2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedStatement.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedStatement.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedQuery.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/db/ManagedQuery.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/Interop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/Interop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedLayer.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedLayer.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedProjection.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedProjection.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedRenderContext.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedRenderContext.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedVisibilityListener.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/core/ManagedVisibilityListener.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/elevation/Interop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/elevation/Interop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/elevation/ManagedElevationChunk.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/elevation/ManagedElevationChunk.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/elevation/ManagedElevationSource.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/elevation/ManagedElevationSource.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/feature/Interop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/feature/Interop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/feature/ManagedFeatureDataSource2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/feature/ManagedFeatureDataSource2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNICollection.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNICollection.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIEnum.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIEnum.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNILocalRef.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNILocalRef.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIPair.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIPair.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIPrimitive.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIPrimitive.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIRunnable.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/java/JNIRunnable.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/math/Interop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/math/Interop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/math/ManagedGeometryModel.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/math/ManagedGeometryModel.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/model/Interop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/model/Interop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/ManagedTextFormat2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/ManagedTextFormat2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/Interop.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/Interop.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/ManagedGLLayer2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/ManagedGLLayer2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/ManagedGLLayerSpi2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/ManagedGLLayerSpi2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/ManagedGLMapRenderable2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/renderer/core/ManagedGLMapRenderable2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/util/ManagedDataInput2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/util/ManagedDataInput2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/interop/util/ManagedDataOutput2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/interop/util/ManagedDataOutput2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/ManagedModel.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/ManagedModel.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/jgltf.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/jgltf.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTF.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTF.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFRenderer.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFRenderer.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFRenderer_v1.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFRenderer_v1.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFRenderer_v2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFRenderer_v2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFv1.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFv1.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFv2.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/GLTFv2.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/shaders.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/shaders.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/tiny_gltf.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/tiny_gltf.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/tiny_gltf_loader.cpp",
+          "src": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/c3dt/tiny_gltf_loader.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [],
-      "output": "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/build/intermediates/cmake/civDebug/obj/arm64-v8a/libatakjni.so",
+      "output": "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/build/intermediates/cmake/civDebug/obj/arm64-v8a/libatakjni.so",
       "runtimeFiles": [
         "/home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/libgnustl_static.a"
       ]

@@ -1,6 +1,7 @@
 
 package com.atakmap.android.chat;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import com.atakmap.android.maps.AbstractMapComponent;
 import com.atakmap.android.maps.MapView;
 import com.atakmap.android.util.NotificationUtil;
 import com.atakmap.annotations.ModifierApi;
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.app.preferences.ToolsPreferenceFragment;
 import com.atakmap.comms.CotServiceRemote;
@@ -40,6 +42,7 @@ import com.atakmap.coremap.filesystem.FileSystemUtils;
 import com.atakmap.coremap.locale.LocaleUtil;
 import com.atakmap.coremap.log.Log;
 import com.atakmap.coremap.maps.time.CoordinatedTime;
+import com.virgilsystems.qtoken.ChatAsyncTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +68,7 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
     private static SharedPreferences chatPrefs;
     private MapView _mapView;
 
-    private Context _context;
+    public static Context _context;
 
     private ChatMesssageRenderer chatMesssageRenderer;
 
@@ -298,7 +301,7 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
     /**
      * @return true if added, false if ack'ed
      */
-    private boolean addMessageToConversation(final Bundle message) {
+    public boolean addMessageToConversation(final Bundle message) {
         if (shouldIgnoreMessage(message))
             return false;
 
@@ -593,7 +596,7 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
         }
     }
 
-    private ConversationFragment getOrCreateFragment(
+    public ConversationFragment getOrCreateFragment(
             final String conversationId,
             String conversationName,
             MessageDestination destination) {
@@ -619,30 +622,30 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                     return toDisplay;
             }
 
-            if (conversationName.toLowerCase(LocaleUtil.getCurrent()).equals(
-                    _mapView.getDeviceCallsign().toLowerCase(
-                            LocaleUtil.getCurrent()))) {
-                String name = "";
-                Contact contact = Contacts.getInstance().getContactByUuid(
-                        conversationId);
-
-                if (contact != null) {
-                    name = contact.getName();
-                    //                    if (contact instanceof IndividualContact) {
-                    //                        connector = ((IndividualContact) contact)
-                    //                                .getConnector(IndividualContact.ConnectorType.PLUGIN);
-                    //                    }
-                    //} else {
-                    // the sender is not in our contact list.  We should try to add him to the contact
-                    // list when we get this, but we can't because we don't know the other properties
-                    // (role, team).  So for now, punt.
-                }
-
-                //TODO: deal with null name by looking at the chat message
-                toDisplay.setTitle(name);
-            } else {
+//            if (conversationName.toLowerCase(LocaleUtil.getCurrent()).equals(
+//                    _mapView.getDeviceCallsign().toLowerCase(
+//                            LocaleUtil.getCurrent()))) {
+//                String name = "";
+//                Contact contact = Contacts.getInstance().getContactByUuid(
+//                        conversationId);
+//
+//                if (contact != null) {
+//                    name = contact.getName();
+//                    //                    if (contact instanceof IndividualContact) {
+//                    //                        connector = ((IndividualContact) contact)
+//                    //                                .getConnector(IndividualContact.ConnectorType.PLUGIN);
+//                    //                    }
+//                    //} else {
+//                    // the sender is not in our contact list.  We should try to add him to the contact
+//                    // list when we get this, but we can't because we don't know the other properties
+//                    // (role, team).  So for now, punt.
+//                }
+//
+//                //TODO: deal with null name by looking at the chat message
+//                toDisplay.setTitle(name);
+//            } else {
                 toDisplay.setTitle(conversationName);
-            }
+//            }
 
             //TODO: isGroup ?
             final ConversationFragment finalToDisplay = toDisplay;
@@ -1209,6 +1212,33 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                 .addContactHandler(_geoChatHandler);
 
         Contacts.getInstance().updateTotalUnreadCount();
+
+
+
+        new Thread(new Runnable() {
+            public void run() {
+
+                ChatManagerMapComponent.sleep(5000);
+
+                while (true) {
+
+                    // VIN get last message
+                    android.util.Log.d("### VIN","ChatManagerMapComponent: get");
+                    ATAKActivity.VIN.get("chat");
+
+                    ChatManagerMapComponent.sleep(2000);
+                }
+            }
+        }).start();
+
+    }
+
+    public static void sleep(int mili) {
+        try {
+            Thread.sleep(mili);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static GeoChatService getChatService() {

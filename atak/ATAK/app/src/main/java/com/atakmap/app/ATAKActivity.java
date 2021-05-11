@@ -149,6 +149,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class ATAKActivity extends MapActivity implements
@@ -157,6 +158,10 @@ public class ATAKActivity extends MapActivity implements
     public static final String TAG = "ATAKActivity";
 
     public static VINBridgeCPP VIN;
+
+    public static String nodePort = "";
+    public static String receiptPort = "";
+
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -1968,7 +1973,11 @@ public class ATAKActivity extends MapActivity implements
         // -- Initialization of VIN ----------------------------------- //
         VIN = new VINBridgeCPP();
 
-        VIN.run("192.168.1.11", "/sdcard");
+        Random r = new Random();
+        nodePort = String.valueOf(r.nextInt(8999) + 8002);
+        receiptPort = String.valueOf(r.nextInt(8999) + 8002);
+
+        VIN.run("192.168.1.11", nodePort, receiptPort, "/sdcard");
 
         Log.d("### VIN", "ATAKActivity.onCreate");
 

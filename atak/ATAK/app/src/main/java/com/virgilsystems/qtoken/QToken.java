@@ -1,6 +1,8 @@
 package com.virgilsystems.qtoken;
 
 
+import java.util.Vector;
+
 public class QToken {
 
     static {
@@ -16,11 +18,12 @@ public class QToken {
         System.loadLibrary("vin-bridge");
     }
 
-    public static native void run(String bootstrapIp, String rootFolder);
+    public static native void run(String bootstrapIp, String nodePort,
+                                  String receiptPort, String rootFolder);
 
     public static native void put(String message);
 
-    public static native void get(String key);
+    public static native String get(String key);
 
     public static native void share(String filePath);
 

@@ -36,7 +36,7 @@ android {
         minSdkVersion 21
         ndk {
             moduleName 'takengine'
-            abiFilters 'armeabi-v7a', 'x86', 'arm64-v8a'
+            abiFilters 'arm64-v8a' /*'armeabi-v7a', 'x86'*/
         }
 		
 		externalNativeBuild {
@@ -98,8 +98,8 @@ clean {
     // JNI headers
     // external unpacks
     delete 'thirdparty/android-arm64-v8a-release'
-    delete 'thirdparty/android-armeabi-v7a-release'
-    delete 'thirdparty/android-x86-release'
+//    delete 'thirdparty/android-armeabi-v7a-release'
+//    delete 'thirdparty/android-x86-release'
 }
 
 // NDK build output installation
@@ -115,28 +115,28 @@ android.libraryVariants.all { variant ->
             println 'Installing libtakengine.so into ' + jniLibsOutputDir
 
             // copy built .so's into the 'jniLibs' directory
-            copy {
-                from(buildDir.getAbsolutePath() + "/intermediates/cmake/" + variant.name + "/obj/armeabi-v7a/") {
-                    include 'libtakengine.so'
-                }
-                from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/') {
-                    include 'libassimp.so'
-                    include 'libcharset.so'
-                    include 'libgdal.so'
-                    include 'libgdalalljni.so'
-                    include 'libiconv.so'
-                    include 'libjassimp.so'
-                    include 'libltidsdk.so' // only available if DSDK present for build
-                    include 'libogdi.so'
-                    include 'libproj.so'
-                    include 'libspatialite.so'
-               }
-
-                into jniLibsOutputDir + '/armeabi-v7a/'
-
-                // always overwrite
-                duplicatesStrategy 'include'
-            }
+//            copy {
+//                from(buildDir.getAbsolutePath() + "/intermediates/cmake/" + variant.name + "/obj/armeabi-v7a/") {
+//                    include 'libtakengine.so'
+//                }
+//                from('../../../takthirdparty/builds/android-armeabi-v7a-release/lib/') {
+//                    include 'libassimp.so'
+//                    include 'libcharset.so'
+//                    include 'libgdal.so'
+//                    include 'libgdalalljni.so'
+//                    include 'libiconv.so'
+//                    include 'libjassimp.so'
+//                    include 'libltidsdk.so' // only available if DSDK present for build
+//                    include 'libogdi.so'
+//                    include 'libproj.so'
+//                    include 'libspatialite.so'
+//               }
+//
+//                into jniLibsOutputDir + '/armeabi-v7a/'
+//
+//                // always overwrite
+//                duplicatesStrategy 'include'
+//            }
             copy {
                 from(buildDir.getAbsolutePath() + "/intermediates/cmake/" + variant.name + "/obj/arm64-v8a/") {
                     include 'libtakengine.so'
@@ -160,28 +160,28 @@ android.libraryVariants.all { variant ->
                 // always overwrite
                 duplicatesStrategy 'include'
             }
-            copy {
-                from(buildDir.getAbsolutePath() + "/intermediates/cmake/" + variant.name + "/obj/x86/") {
-                    include 'libtakengine.so'
-                }
-                from('../../../takthirdparty/builds/android-armeabi-x86/lib/') {
-                    include 'libassimp.so'
-                    include 'libcharset.so'
-                    include 'libgdal.so'
-                    include 'libgdalalljni.so'
-                    include 'libiconv.so'
-                    include 'libjassimp.so'
-                    include 'libltidsdk.so' // only available if DSDK present for build
-                    include 'libogdi.so'
-                    include 'libproj.so'
-                    include 'libspatialite.so'
-               }
-
-                into jniLibsOutputDir + '/x86/'
-
-                // always overwrite
-                duplicatesStrategy 'include'
-            }
+//            copy {
+//                from(buildDir.getAbsolutePath() + "/intermediates/cmake/" + variant.name + "/obj/x86/") {
+//                    include 'libtakengine.so'
+//                }
+//                from('../../../takthirdparty/builds/android-armeabi-x86/lib/') {
+//                    include 'libassimp.so'
+//                    include 'libcharset.so'
+//                    include 'libgdal.so'
+//                    include 'libgdalalljni.so'
+//                    include 'libiconv.so'
+//                    include 'libjassimp.so'
+//                    include 'libltidsdk.so' // only available if DSDK present for build
+//                    include 'libogdi.so'
+//                    include 'libproj.so'
+//                    include 'libspatialite.so'
+//               }
+//
+//                into jniLibsOutputDir + '/x86/'
+//
+//                // always overwrite
+//                duplicatesStrategy 'include'
+//            }
 
             if(project.hasProperty("includes.outputDir")) {
                 copy {
@@ -192,15 +192,15 @@ android.libraryVariants.all { variant ->
 
                     duplicatesStrategy 'include'
                 }
-                copy {
-                    from('thirdparty/android-armeabi-v7a-release') {
-                        include 'ttp-include.zip'
-
-                    }
-                    into project.property('includes.outputDir') + '/ttp'
-
-                    duplicatesStrategy 'include'
-                }
+//                copy {
+//                    from('thirdparty/android-armeabi-v7a-release') {
+//                        include 'ttp-include.zip'
+//
+//                    }
+//                    into project.property('includes.outputDir') + '/ttp'
+//
+//                    duplicatesStrategy 'include'
+//                }
 
                 println 'Installing TAK Engine headers into ' + project.property('includes.outputDir')
             } else {

@@ -11,7 +11,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
 
-The C compiler identification is GNU, found in "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.o"
+The C compiler identification is GNU, found in "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.o"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++ 
@@ -24,22 +24,22 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
 
-The CXX compiler identification is GNU, found in "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.o"
+The CXX compiler identification is GNU, found in "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.o"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_acea6"
-[1/2] Building C object CMakeFiles/cmTC_acea6.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_acea6
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_c43c2"
+[1/2] Building C object CMakeFiles/cmTC_c43c2.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_c43c2
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_ad322"
-[1/2] Building C object CMakeFiles/cmTC_ad322.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_ad322
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_82125"
+[1/2] Building C object CMakeFiles/cmTC_82125.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_82125
 Using built-in specs.
 COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc
 COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper
@@ -49,17 +49,17 @@ Thread model: posix
 gcc version 4.9.x 20150123 (prerelease) (GCC) 
 COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/
 LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/
-COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_ad322' '-mtls-dialect=gnu'
- /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/cclRgxig.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_ad322 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_ad322.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o
+COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_82125' '-mtls-dialect=gnu'
+ /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccO0WyMk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_82125 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_82125.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-androideabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_ad322"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_ad322.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_ad322]
+  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_82125"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_82125.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_82125]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper]
@@ -69,13 +69,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.9.x 20150123 (prerelease) (GCC) ]
   ignore line: [COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/]
   ignore line: [LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_ad322' '-mtls-dialect=gnu']
-  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/cclRgxig.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_ad322 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_ad322.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_82125' '-mtls-dialect=gnu']
+  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccO0WyMk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_82125 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_82125.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o]
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cclRgxig.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccO0WyMk.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-ldl] ==> ignore
@@ -92,7 +92,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ad322] ==> ignore
+    arg [cmTC_82125] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb]
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb]
@@ -120,7 +120,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_ad322.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_82125.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-lc] ==> lib [c]
     arg [-ldl] ==> lib [dl]
@@ -140,11 +140,11 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_536fc"
-[1/2] Building C object CMakeFiles/cmTC_536fc.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_536fc
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_57f82"
+[1/2] Building C object CMakeFiles/cmTC_57f82.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_57f82
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -154,11 +154,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_c08f0"
-[1/2] Building C object CMakeFiles/cmTC_c08f0.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_c08f0
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_57aab"
+[1/2] Building C object CMakeFiles/cmTC_57aab.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_57aab
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -168,11 +168,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_b26c7"
-[1/2] Building C object CMakeFiles/cmTC_b26c7.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_b26c7
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_76cc6"
+[1/2] Building C object CMakeFiles/cmTC_76cc6.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_76cc6
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -180,19 +180,19 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_79f96"
-[1/2] Building CXX object CMakeFiles/cmTC_79f96.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_79f96
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_9aef7"
+[1/2] Building CXX object CMakeFiles/cmTC_9aef7.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_9aef7
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_0389d"
-[1/2] Building CXX object CMakeFiles/cmTC_0389d.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_0389d
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_20a3c"
+[1/2] Building CXX object CMakeFiles/cmTC_20a3c.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_20a3c
 Using built-in specs.
 COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++
 COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper
@@ -202,17 +202,17 @@ Thread model: posix
 gcc version 4.9.x 20150123 (prerelease) (GCC) 
 COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/
 LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/
-COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_0389d' '-mtls-dialect=gnu'
- /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWore5n.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_0389d /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_0389d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o
+COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_20a3c' '-mtls-dialect=gnu'
+ /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/cct8BiS3.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_20a3c /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_20a3c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-androideabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_0389d"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_0389d.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_0389d]
+  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_20a3c"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_20a3c.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_20a3c]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++]
   ignore line: [COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper]
@@ -222,13 +222,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.9.x 20150123 (prerelease) (GCC) ]
   ignore line: [COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/]
   ignore line: [LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_0389d' '-mtls-dialect=gnu']
-  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWore5n.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_0389d /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_0389d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-march=armv7-a' '-mfloat-abi=softfp' '-mfpu=vfpv3-d16' '-mthumb' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_20a3c' '-mtls-dialect=gnu']
+  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/cct8BiS3.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm --eh-frame-hdr -dynamic-linker /system/bin/linker -X -m armelf_linux_eabi -z noexecstack -z relro -z now -pie -o cmTC_20a3c /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --fix-cortex-a8 --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_20a3c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtend_android.o]
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/arm-linux-androideabi/4.9.x/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccWore5n.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cct8BiS3.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-ldl] ==> ignore
@@ -245,7 +245,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_0389d] ==> ignore
+    arg [cmTC_20a3c] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/armv7-a/thumb]
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/armv7-a/thumb]
@@ -273,7 +273,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_0389d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_20a3c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -295,11 +295,11 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_277bd"
-[1/2] Building CXX object CMakeFiles/cmTC_277bd.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_277bd
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_9f1fd"
+[1/2] Building CXX object CMakeFiles/cmTC_9f1fd.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_9f1fd
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -362,11 +362,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_96257"
-[1/2] Building CXX object CMakeFiles/cmTC_96257.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_96257
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_f6521"
+[1/2] Building CXX object CMakeFiles/cmTC_f6521.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_f6521
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -429,11 +429,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_9768c"
-[1/2] Building CXX object CMakeFiles/cmTC_9768c.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_9768c
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_a88fa"
+[1/2] Building CXX object CMakeFiles/cmTC_a88fa.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_a88fa
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

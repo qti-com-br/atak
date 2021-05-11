@@ -1,4 +1,4 @@
-# Install script for directory: /home/carlos/atak-vin/atak/ATAK/app/src/main/cpp
+# Install script for directory: /home/carlos/atak-vin-2/atak/ATAK/app/src/main/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

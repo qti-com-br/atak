@@ -48,7 +48,7 @@ public class ChatLine {
      *            name for sender) message -> String (text sent as message) messageId -> String
      *            (uuid for this message)
      */
-    static ChatLine fromBundle(Bundle chatBundle) {
+    public static ChatLine fromBundle(Bundle chatBundle) {
 
         ChatLine ret = new ChatLine();
         ret.conversationId = chatBundle.getString("conversationId");

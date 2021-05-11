@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "5.8.0-50-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/home/carlos/atak-vin/atak/ATAKMapEngine/cmake/android.toolchain.cmake")
+include("/home/carlos/atak-vin-2/atak/ATAKMapEngine/cmake/android.toolchain.cmake")
 
 set(CMAKE_SYSTEM "Android-24")
 set(CMAKE_SYSTEM_NAME "Android")

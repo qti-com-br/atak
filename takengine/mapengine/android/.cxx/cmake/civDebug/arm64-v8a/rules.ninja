@@ -52,7 +52,7 @@ rule CXX_SHARED_LIBRARY_LINKER__takengine
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin/takengine -B/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civDebug/arm64-v8a
+  command = /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin-2/takengine -B/home/carlos/atak-vin-2/takengine/mapengine/android/.cxx/cmake/civDebug/arm64-v8a
   description = Re-running CMake...
   generator = 1
 

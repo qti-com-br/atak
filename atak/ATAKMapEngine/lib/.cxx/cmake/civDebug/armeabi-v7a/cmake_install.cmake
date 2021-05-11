@@ -1,4 +1,4 @@
-# Install script for directory: /home/carlos/atak-vin/atak/ATAKMapEngine
+# Install script for directory: /home/carlos/atak-vin-2/atak/ATAKMapEngine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/lib/src/main/cpp/cmake_install.cmake")
+  include("/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/lib/src/main/cpp/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

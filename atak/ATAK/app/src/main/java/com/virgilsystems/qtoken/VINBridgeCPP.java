@@ -16,28 +16,35 @@
 package com.virgilsystems.qtoken;
 
 
-import android.content.Context;
-
+import android.util.Log;
 
 public class VINBridgeCPP {
 
-    public void run(String bootstrapIp, String rootFolder) {
-        new Thread( new Runnable() { @Override public void run() {
-            QToken.run(bootstrapIp, rootFolder);
-        } } ).start();
+    public static String lastMessage = "";
 
+    public void run(String bootstrapIp, String nodePort, String receiptPort, String rootFolder) {
+        new Thread( new Runnable() { @Override public void run() {
+            QToken.run(bootstrapIp, nodePort, receiptPort, rootFolder);
+        } } ).start();
     }
 
     public void put(String message) {
         new Thread( new Runnable() { @Override public void run() {
+//            ChatAsyncTask.waiting = true;
             QToken.put(message);
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            ChatAsyncTask.waiting = false;
         } } ).start();
     }
 
     public void get(String key) {
-        new Thread( new Runnable() { @Override public void run() {
-            QToken.get(key);
-        } } ).start();
+        Log.d("### VIN","VINBridgeCPP: get");
+        if(!ChatAsyncTask.waiting)
+            new ChatAsyncTask().execute("chat");
     }
 
     public void share(String filePath) {
@@ -59,6 +66,7 @@ public class VINBridgeCPP {
     }
 
 }
+
 
 
 

@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin/atak/ATAKMapEngine -B/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a
+  COMMAND = cd /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin-2/atak/ATAKMapEngine -B/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -44,13 +44,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 build edit_cache: phony CMakeFiles/edit_cache.util
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /home/carlos/atak-vin/atak/ATAKMapEngine/CMakeLists.txt
+# /home/carlos/atak-vin-2/atak/ATAKMapEngine/CMakeLists.txt
 # =============================================================================
 
 
@@ -58,7 +58,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build lib/src/main/cpp/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/lib/src/main/cpp && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin/atak/ATAKMapEngine -B/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a
+  COMMAND = cd /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/lib/src/main/cpp && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -H/home/carlos/atak-vin-2/atak/ATAKMapEngine -B/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -68,7 +68,7 @@ build lib/src/main/cpp/rebuild_cache: phony lib/src/main/cpp/CMakeFiles/rebuild_
 # Utility command for edit_cache
 
 build lib/src/main/cpp/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/lib/src/main/cpp && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/lib/src/main/cpp && /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 build lib/src/main/cpp/edit_cache: phony lib/src/main/cpp/CMakeFiles/edit_cache.util
@@ -1109,7 +1109,7 @@ build ../../../../build/intermediates/cmake/civDebug/obj/arm64-v8a/libatakjni.so
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -fexceptions -frtti -O0 -O0  -O3
   LINK_FLAGS = -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now
   LINK_LIBRARIES = -ltakengine -lspatialite -lgdal -llog -lGLESv3 -lm "/home/carlos/Android/Sdk/ndk/r12b/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/libgnustl_static.a"
-  LINK_PATH = -L/home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp/../jniLibs/arm64-v8a
+  LINK_PATH = -L/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp/../jniLibs/arm64-v8a
   OBJECT_DIR = lib/src/main/cpp/CMakeFiles/atakjni.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -1130,7 +1130,7 @@ build libatakjni.so: phony ../../../../build/intermediates/cmake/civDebug/obj/ar
 # =============================================================================
 
 #############################################
-# Folder: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/lib/src/main/cpp
+# Folder: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/lib/src/main/cpp
 
 build  lib/src/main/cpp/all: phony atakjni
 # =============================================================================

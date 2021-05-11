@@ -1,4 +1,4 @@
-# Install script for directory: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/src/main/cpp
+# Install script for directory: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/src/main/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

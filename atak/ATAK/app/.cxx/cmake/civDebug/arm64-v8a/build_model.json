@@ -5,9 +5,9 @@
     "environmentVariables": []
   },
   "cmake": {
-    "cmakeArtifactsBaseFolder": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
-    "cmakeServerLogFile": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a/cmake_server_log.txt",
-    "cmakeWrappingBaseFolder": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cxx/civDebug/arm64-v8a",
+    "cmakeArtifactsBaseFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
+    "cmakeServerLogFile": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a/cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cxx/civDebug/arm64-v8a",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -15,13 +15,13 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
+      "buildRoot": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
       "cmakeToolchain": "/home/carlos/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
       "cmakeExecutable": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake",
       "variables": [
         {
           "name": "CMAKE_FIND_ROOT_PATH",
-          "value": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/prefab/arm64-v8a/prefab"
+          "value": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/prefab/arm64-v8a/prefab"
         },
         {
           "name": "CMAKE_BUILD_TYPE",
@@ -57,7 +57,7 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "/home/carlos/atak-vin/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a"
+          "value": "/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
@@ -74,14 +74,14 @@
       ]
     }
   },
-  "cxxBuildFolder": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
+  "cxxBuildFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
   "info": {
     "abi": "ARM64_V8A",
     "bitness": 64,
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
+  "originalCxxBuildFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a",
   "variant": {
     "buildSystemArgumentList": [],
     "buildTargetSet": [],
@@ -97,12 +97,12 @@
         "ninjaExe": "/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja"
       },
       "cmakeToolchainFile": "/home/carlos/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
-      "cxxFolder": "/home/carlos/atak-vin/atak/ATAK/app/.cxx",
+      "cxxFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx",
       "gradleModulePathName": ":ATAK:app",
-      "intermediatesFolder": "/home/carlos/atak-vin/atak/ATAK/app/build/intermediates",
-      "makeFile": "/home/carlos/atak-vin/atak/ATAK/app/src/main/cpp/CMakeLists.txt",
-      "moduleBuildFile": "/home/carlos/atak-vin/atak/ATAK/app/build.gradle",
-      "moduleRootFolder": "/home/carlos/atak-vin/atak/ATAK/app",
+      "intermediatesFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates",
+      "makeFile": "/home/carlos/atak-vin-2/atak/ATAK/app/src/main/cpp/CMakeLists.txt",
+      "moduleBuildFile": "/home/carlos/atak-vin-2/atak/ATAK/app/build.gradle",
+      "moduleRootFolder": "/home/carlos/atak-vin-2/atak/ATAK/app",
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
@@ -167,13 +167,13 @@
       "ndkDefaultStl": "LIBCXX_STATIC",
       "ndkVersion": "21.4.7075529",
       "project": {
-        "compilerSettingsCacheFolder": "/home/carlos/atak-vin/atak/.cxx",
-        "cxxFolder": "/home/carlos/atak-vin/atak/.cxx",
+        "compilerSettingsCacheFolder": "/home/carlos/atak-vin-2/atak/.cxx",
+        "cxxFolder": "/home/carlos/atak-vin-2/atak/.cxx",
         "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "/home/carlos/atak-vin/atak",
+        "rootBuildGradleFolder": "/home/carlos/atak-vin-2/atak",
         "sdkFolder": "/home/carlos/Android/Sdk",
         "isPrefabEnabled": false
       },
@@ -190,13 +190,13 @@
         "SYSTEM": {}
       }
     },
-    "objFolder": "/home/carlos/atak-vin/atak/ATAK/app/build/intermediates/cmake/civDebug/obj",
+    "objFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj",
     "variantName": "civDebug",
     "validAbiList": [
       "ARM64_V8A"
     ],
-    "prefabDirectory": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/prefab",
+    "prefabDirectory": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/prefab",
     "prefabPackageDirectoryList": []
   },
-  "prefabFolder": "/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/prefab/arm64-v8a"
+  "prefabFolder": "/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/prefab/arm64-v8a"
 }

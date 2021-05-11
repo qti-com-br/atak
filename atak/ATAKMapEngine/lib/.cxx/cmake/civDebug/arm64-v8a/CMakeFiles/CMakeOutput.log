@@ -11,7 +11,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
 
-The C compiler identification is GNU, found in "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.o"
+The C compiler identification is GNU, found in "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/3.10.2/CompilerIdC/CMakeCCompilerId.o"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-g++ 
@@ -24,22 +24,22 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
 
-The CXX compiler identification is GNU, found in "/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.o"
+The CXX compiler identification is GNU, found in "/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/3.10.2/CompilerIdCXX/CMakeCXXCompilerId.o"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_ca38d"
-[1/2] Building C object CMakeFiles/cmTC_ca38d.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_ca38d
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_078f6"
+[1/2] Building C object CMakeFiles/cmTC_078f6.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_078f6
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_a379f"
-[1/2] Building C object CMakeFiles/cmTC_a379f.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_a379f
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_c3331"
+[1/2] Building C object CMakeFiles/cmTC_c3331.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_c3331
 Using built-in specs.
 COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-gcc
 COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper
@@ -49,17 +49,17 @@ Thread model: posix
 gcc version 4.9.x 20150123 (prerelease) (GCC) 
 COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/
 LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/
-COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_a379f' '-mlittle-endian' '-mabi=lp64'
- /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRIQNCV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_a379f /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a379f.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o
+COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_c3331' '-mlittle-endian' '-mabi=lp64'
+ /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKcuAm5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_c3331 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_c3331.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(aarch64-linux-android-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_a379f"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_a379f.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_a379f]
+  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_c3331"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_c3331.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_c3331]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper]
@@ -69,13 +69,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.9.x 20150123 (prerelease) (GCC) ]
   ignore line: [COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/]
   ignore line: [LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_a379f' '-mlittle-endian' '-mabi=lp64']
-  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRIQNCV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_a379f /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a379f.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-D' '__GXX_EXPERIMENTAL_CXX0X__' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_c3331' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKcuAm5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_c3331 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_c3331.dir/CMakeCCompilerABI.c.o -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o]
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccRIQNCV.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccKcuAm5.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-ldl] ==> ignore
@@ -94,7 +94,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_a379f] ==> ignore
+    arg [cmTC_c3331] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x]
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc]
@@ -119,7 +119,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_a379f.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_c3331.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-lc] ==> lib [c]
     arg [-ldl] ==> lib [dl]
@@ -138,11 +138,11 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_22010"
-[1/2] Building C object CMakeFiles/cmTC_22010.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_22010
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_021c2"
+[1/2] Building C object CMakeFiles/cmTC_021c2.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_021c2
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -152,11 +152,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_19a37"
-[1/2] Building C object CMakeFiles/cmTC_19a37.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_19a37
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_6d5e3"
+[1/2] Building C object CMakeFiles/cmTC_6d5e3.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_6d5e3
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -166,11 +166,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_03731"
-[1/2] Building C object CMakeFiles/cmTC_03731.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_03731
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_ce746"
+[1/2] Building C object CMakeFiles/cmTC_ce746.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_ce746
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -178,19 +178,19 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_66674"
-[1/2] Building CXX object CMakeFiles/cmTC_66674.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_66674
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_85923"
+[1/2] Building CXX object CMakeFiles/cmTC_85923.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_85923
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_2874d"
-[1/2] Building CXX object CMakeFiles/cmTC_2874d.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_2874d
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_5fc62"
+[1/2] Building CXX object CMakeFiles/cmTC_5fc62.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_5fc62
 Using built-in specs.
 COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-g++
 COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper
@@ -200,17 +200,17 @@ Thread model: posix
 gcc version 4.9.x 20150123 (prerelease) (GCC) 
 COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/
 LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/
-COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_2874d' '-mlittle-endian' '-mabi=lp64'
- /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccs3MVqQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_2874d /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_2874d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o
+COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_5fc62' '-mlittle-endian' '-mabi=lp64'
+ /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWLEwDS.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_5fc62 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_5fc62.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(aarch64-linux-android-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_2874d"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_2874d.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_2874d]
+  ignore line: [Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_5fc62"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_5fc62.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_5fc62]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-g++]
   ignore line: [COLLECT_LTO_WRAPPER=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper]
@@ -220,13 +220,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.9.x 20150123 (prerelease) (GCC) ]
   ignore line: [COMPILER_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/]
   ignore line: [LIBRARY_PATH=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64/:/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/:/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_2874d' '-mlittle-endian' '-mabi=lp64']
-  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccs3MVqQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_2874d /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_2874d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-D' 'ANDROID' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-g' '-D' 'ANDROID' '-ffunction-sections' '-funwind-tables' '-fstack-protector-strong' '-Wformat=1' '-Werror=format-security' '-fexceptions' '-frtti' '-O0' '-O0' '-pie' '-fPIE' '-v' '-o' 'cmTC_5fc62' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2 -plugin /home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so -plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWLEwDS.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-ldl -plugin-opt=-pass-through=-lgcc --sysroot=/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64 --eh-frame-hdr -dynamic-linker /system/bin/linker64 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -z noexecstack -z relro -z now -pie -o cmTC_5fc62 /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_5fc62.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lc -ldl -lgcc /home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtend_android.o]
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../libexec/gcc/aarch64-linux-android/4.9.x/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccs3MVqQ.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccWLEwDS.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-ldl] ==> ignore
@@ -245,7 +245,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_2874d] ==> ignore
+    arg [cmTC_5fc62] ==> ignore
     arg [/home/carlos/Android/Sdk/ndk/r12b/platforms/android-24/arch-arm64/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/aarch64-linux-android/4.9.x]
     arg [-L/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc] ==> dir [/home/carlos/Android/Sdk/ndk/r12b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/../lib/gcc]
@@ -270,7 +270,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_2874d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_5fc62.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -291,11 +291,11 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_2ea77"
-[1/2] Building CXX object CMakeFiles/cmTC_2ea77.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_2ea77
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_45fbe"
+[1/2] Building CXX object CMakeFiles/cmTC_45fbe.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_45fbe
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -358,11 +358,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_31afd"
-[1/2] Building CXX object CMakeFiles/cmTC_31afd.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_31afd
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_a27c9"
+[1/2] Building CXX object CMakeFiles/cmTC_a27c9.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_a27c9
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -425,11 +425,11 @@ Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmT
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
+Change Dir: /home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_c25bd"
-[1/2] Building CXX object CMakeFiles/cmTC_c25bd.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_c25bd
+Run Build Command:"/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja" "cmTC_44aff"
+[1/2] Building CXX object CMakeFiles/cmTC_44aff.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_44aff
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

@@ -502,6 +502,7 @@ public final class GeoChatService implements
             if (b != null)
                 bundle.putAll(b);
         }
+
         return bundle;
     }
 
@@ -512,11 +513,17 @@ public final class GeoChatService implements
 //    private boolean started = false;
 //    private final Handler handler = new Handler();
 //
+//    private String messageLast = "";
+//
 //    private final Runnable runnable = new Runnable() {
 //        @Override
 //        public void run() {
 //
-//            ATAKActivity.VIN.get("chat");
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
 //
 //            if(started) {
 //                start();

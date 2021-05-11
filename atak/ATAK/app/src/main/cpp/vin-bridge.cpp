@@ -33,6 +33,8 @@ using namespace Qtoken;
 using namespace std;
 
 std::string booststrap_ip_str;
+std::string node_port_str;
+std::string receipt_port_str;
 std::string root_folder_str;
 
 Node *node;
@@ -47,17 +49,24 @@ extern "C" {
      * @param root_folder Root folder where the VIN structure is
      */
     JNIEXPORT void JNICALL
-    Java_com_virgilsystems_qtoken_QToken_run(JNIEnv *env, jclass clazz, jstring booststrap_ip,
+    Java_com_virgilsystems_qtoken_QToken_run(JNIEnv *env, jclass clazz,
+                                             jstring booststrap_ip,
+                                             jstring node_port,
+                                             jstring receipt_port,
                                              jstring root_folder) {
 
         const char *booststrap_ip_chars = env->GetStringUTFChars(booststrap_ip, NULL);
         booststrap_ip_str = booststrap_ip_chars;
 
+        const char *node_port_chars = env->GetStringUTFChars(node_port, NULL);
+        node_port_str = node_port_chars;
+
+        const char *receipt_port_chars = env->GetStringUTFChars(receipt_port, NULL);
+        receipt_port_str = receipt_port_chars;
+
         const char *root_folder_chars = env->GetStringUTFChars(root_folder, NULL);
         root_folder_str = root_folder_chars;
 
-        string node_port = "8083";
-        string receipt_port = "9093";
         string addr = booststrap_ip_str + ":8000";
 
         try {
@@ -76,7 +85,7 @@ extern "C" {
             std::string key_path;
             keys.lookupValue("keys_dir", key_path);
             log_message("###QTOKEN | new Node");
-            node = new Node(node_port, receipt_port, addr, true, *cfg);
+            node = new Node(node_port_str, receipt_port_str, addr, true, *cfg);
             log_message("###QTOKEN | run");
             node->run();
 
@@ -122,10 +131,27 @@ extern "C" {
      * @param env Environment where the SDK is running
      * @param clazz Class that call this function
      */
-    JNIEXPORT void JNICALL
+    JNIEXPORT jstring JNICALL
     Java_com_virgilsystems_qtoken_QToken_get(JNIEnv *env, jclass clazz, jstring key) {
         try {
-            node->doGet("Hello");
+            const char *key_chars = env->GetStringUTFChars(key, NULL);
+            std::string key_str = key_chars;
+            log_message("###QTOKEN | get before");
+            vector<char> msg_vector = node->doGet(key_str);
+            log_message("###QTOKEN | get after");
+
+//            char* msg_char_array = &msg_vector[0];
+            int size = msg_vector.size();
+
+            jbyteArray array = env->NewByteArray(size);
+            env->SetByteArrayRegion(array, 0, size, (const jbyte*)msg_vector.data());
+            jstring strEncode = env->NewStringUTF("UTF-8");
+            jclass cls = env->FindClass("java/lang/String");
+            jmethodID ctor = env->GetMethodID(cls, "<init>", "([BLjava/lang/String;)V");
+            jstring object = (jstring) env->NewObject(cls, ctor, array, strEncode);
+            return object;
+
+//            return env->NewStringUTF(msg_vector.data());
 
         } catch (const libconfig::FileIOException &fioex) {
             log_message("###QTOKEN 4 | FileIOException");

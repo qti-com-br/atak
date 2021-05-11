@@ -1,4 +1,4 @@
-# Install script for directory: /home/carlos/atak-vin/takengine/mapengine
+# Install script for directory: /home/carlos/atak-vin-2/takengine/mapengine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

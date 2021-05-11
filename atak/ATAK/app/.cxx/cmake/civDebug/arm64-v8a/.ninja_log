@@ -1,5 +1,14 @@
 # ninja log v5
-0	1902	1619967237	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	92b679411a79fdec
-1903	2010	1619967237	/home/carlos/atak-vin/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	5d8f64e4675e04b2
-2	1895	1619987271	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	92b679411a79fdec
-1896	1998	1619987271	/home/carlos/atak-vin/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	5d8f64e4675e04b2
+1	1964	1620617061	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	3ab746dca0cea939
+1965	2198	1620617061	/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	ab4d4f2b0221cb7f
+0	2	0	clean	a6fb44b201ab5b58
+4	2011	1620617471	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	3ab746dca0cea939
+2011	2120	1620617471	/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	ab4d4f2b0221cb7f
+2	2017	1620618620	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	3ab746dca0cea939
+2017	2139	1620618620	/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	ab4d4f2b0221cb7f
+2	1857	1620619770	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	3ab746dca0cea939
+1857	1961	1620619770	/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	ab4d4f2b0221cb7f
+2	1849	1620621604	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	3ab746dca0cea939
+1850	1959	1620621604	/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	ab4d4f2b0221cb7f
+2	1894	1620655072	CMakeFiles/vin-bridge.dir/vin-bridge.cpp.o	3ab746dca0cea939
+1894	2000	1620655073	/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/cmake/civDebug/obj/arm64-v8a/libvin-bridge.so	ab4d4f2b0221cb7f

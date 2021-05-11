@@ -1,15 +1,15 @@
 Executable : /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/cmake
 arguments : 
--H/home/carlos/atak-vin/atak/ATAKMapEngine
+-H/home/carlos/atak-vin-2/atak/ATAKMapEngine
 -DCMAKE_CXX_FLAGS=-fexceptions -frtti
 -DCMAKE_C_FLAGS=-D__GXX_EXPERIMENTAL_CXX0X__
--DCMAKE_FIND_ROOT_PATH=/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/prefab/armeabi-v7a/prefab
+-DCMAKE_FIND_ROOT_PATH=/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/prefab/armeabi-v7a/prefab
 -DCMAKE_BUILD_TYPE=Debug
 -DANDROID_ABI=armeabi-v7a
 -DANDROID_NDK=/home/carlos/Android/Sdk/ndk/r12b
 -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/carlos/atak-vin/atak/ATAKMapEngine/lib/build/intermediates/cmake/civDebug/obj/armeabi-v7a
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/build/intermediates/cmake/civDebug/obj/armeabi-v7a
 -DCMAKE_MAKE_PROGRAM=/home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
 -DCMAKE_SYSTEM_NAME=Android
 -DCMAKE_SYSTEM_VERSION=21
@@ -18,7 +18,7 @@ arguments :
 -DANDROID_TOOLCHAIN=gcc
 -DANDROID_STL=gnustl_static
 -DANDROID_PLATFORM=android-24
--B/home/carlos/atak-vin/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a
+-B/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/armeabi-v7a
 -GNinja
 jvmArgs : 
 
