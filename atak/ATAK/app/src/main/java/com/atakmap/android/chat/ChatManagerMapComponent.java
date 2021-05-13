@@ -10,6 +10,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
+import android.util.Log;
 
 import com.atakmap.android.contact.Connector;
 import com.atakmap.android.contact.Contact;
@@ -40,9 +41,8 @@ import com.atakmap.comms.NetConnectString;
 import com.atakmap.comms.NetworkUtils;
 import com.atakmap.coremap.filesystem.FileSystemUtils;
 import com.atakmap.coremap.locale.LocaleUtil;
-import com.atakmap.coremap.log.Log;
 import com.atakmap.coremap.maps.time.CoordinatedTime;
-import com.virgilsystems.qtoken.ChatAsyncTask;
+import com.virgilsystems.qtoken.RunAsyncTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +52,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
+import static com.atakmap.app.ATAKActivity.sleep;
 
 public class ChatManagerMapComponent extends AbstractMapComponent implements
         ChatConvoFragCreateWatcher {
@@ -71,6 +73,8 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
     public static Context _context;
 
     private ChatMesssageRenderer chatMesssageRenderer;
+
+    public static String mysenderCallsign = "";
 
     // Main groups
     private static GroupContact rootGroup, userGroups, teamGroups, tadilJGroup;
@@ -104,8 +108,22 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
 
                 if (messageId >= 0) {
                     try {
-                        Bundle fullMsg = chatService
-                                .getMessage(messageId, groupId);
+
+
+
+
+//                        Bundle fullMsg = chatService
+//                                .getMessage(messageId, groupId);
+
+                        Bundle fullMsg = null;
+
+                        // RECEBE CHAT
+
+                        Log.d("### VIN", "ChatManagerMapComponent.onReceive " + intent.toUri(0));
+
+
+
+
 
                         if (fullMsg != null) {
 
@@ -121,7 +139,8 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
 
                             if (getUidFromMessageBundle(fullMsg) == null) {
                                 Log.e(TAG,
-                                        "### BAD BAD BAD ##### could not determine the uid of for the sender of the message: "
+                                        "### BAD BAD BAD ##### could not determine the uid of " +
+                                                "for the sender of the message: "
                                                 + fullMsg
                                                         .getString("message"));
                                 //return;
@@ -166,6 +185,8 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
             }
         }
     };
+
+
 
     /**
      * sends message intent out to plugin(ChatmessagePopups) when
@@ -799,8 +820,55 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                                     : connection
                                             .toString()));
                     try {
-                        if (connection != null)
-                            chatService.sendMessage(msg, individualContact);
+
+
+
+
+
+
+
+                        Log.d("### VIN", "ChatManagerMapComponent put | 45 | " + msg);
+
+//                        if (connection != null)
+//                            chatService.sendMessage(msg, individualContact);
+
+                    // ENVIA CHAT
+
+//                        String myUID = _mapView.getSelfMarker().getUID();
+
+                        // This will be checked on GetAsyncTask to make sure that chat will
+                        // not show this user messages
+                        mysenderCallsign = msg.getString("senderCallsign");
+
+                        String conversation = ChatManagerMapComponent._context.getString(R.string.all_chat_rooms);
+
+                        String _conversationId = msg.getString("conversationId");
+                        String _conversationName = msg.getString("conversationName");
+                        String _messageId = msg.getString("messageId");
+
+                        String _sentTime = String.valueOf(msg.getLong("sentTime"));
+                        String _senderUid = msg.getString("senderUid"); // Same phone models will have the same UID
+                        String _senderCallsign = mysenderCallsign;
+                        String _message = msg.getString("message");
+
+
+
+                        String message = "conversationId=" + conversation + "|" +
+                                         "conversationName=" + conversation + "|" +
+                                         "sentTime=" + _sentTime + "|" +
+                                         "senderUid=" + _senderUid + "|" +
+                                         "senderCallsign=" + _senderCallsign + "|" +
+                                         "message=" + _message;
+
+                        Log.d("### VIN", "ChatManagerMapComponent put | 46 | " + message);
+                        ATAKActivity.VIN.put(message);
+
+
+
+
+
+
+
                     } catch (Exception e) {
                         Log.w(TAG,
                                 "Error sending message via Chat Service: ",
@@ -1212,33 +1280,6 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                 .addContactHandler(_geoChatHandler);
 
         Contacts.getInstance().updateTotalUnreadCount();
-
-
-
-        new Thread(new Runnable() {
-            public void run() {
-
-                ChatManagerMapComponent.sleep(5000);
-
-                while (true) {
-
-                    // VIN get last message
-                    android.util.Log.d("### VIN","ChatManagerMapComponent: get");
-                    ATAKActivity.VIN.get("chat");
-
-                    ChatManagerMapComponent.sleep(2000);
-                }
-            }
-        }).start();
-
-    }
-
-    public static void sleep(int mili) {
-        try {
-            Thread.sleep(mili);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public static GeoChatService getChatService() {

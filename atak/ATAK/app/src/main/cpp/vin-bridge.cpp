@@ -48,7 +48,7 @@ extern "C" {
      * @param booststrap_ip The IP of the Bootstrap running at the network
      * @param root_folder Root folder where the VIN structure is
      */
-    JNIEXPORT void JNICALL
+    JNIEXPORT int JNICALL
     Java_com_virgilsystems_qtoken_QToken_run(JNIEnv *env, jclass clazz,
                                              jstring booststrap_ip,
                                              jstring node_port,
@@ -84,10 +84,12 @@ extern "C" {
 
             std::string key_path;
             keys.lookupValue("keys_dir", key_path);
+
             log_message("###QTOKEN | new Node");
             node = new Node(node_port_str, receipt_port_str, addr, true, *cfg);
+
             log_message("###QTOKEN | run");
-            node->run();
+            return node->run(); // 0 = EXIT_SUCCESS , <>0 = EXIT_FAILURE
 
         } catch (std::exception e) {
             log_message(e.what());
@@ -123,7 +125,7 @@ extern "C" {
             log_message("###QTOKEN 6 | ...");
         }
 
-        log_message("###QTOKEN 7 | End");
+        log_message("###QTOKEN 7 | put End");
     }
 
     /**

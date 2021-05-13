@@ -595,6 +595,9 @@
 
     <!--Network Connections-->
     <string name="preferences_text226">Manage Server Connections</string>
+
+    <string name="preferences_vin_bootstrap_ip_text_1" translatable="false">Manage VIN Bootstrap</string>
+
     <string name="preferences_text228">Display Connection Widget</string>
     <string name="preferences_text229">Enable to display connectivity indicator on map above local device location widget</string>
     <string name="preferences_text230">Monitor Server Connections</string>
@@ -3576,6 +3579,9 @@
     <string name="tak_server_status">TAK Network Status</string>
     <string name="preferences_text118">Constant interval between reporting self-SA messages in seconds for reliable protocols (e.g. TAK Server)</string>
     <string name="preferences_text227">Tap to manage connections to TAK Server</string>
+
+    <string name="preferences_vin_bootstrap_ip_text_2" translatable="false">Set VIN Bootstrap IP</string>
+
     <string name="tak_server_client_cert">TAK Server Client Certificate</string>
     <string name="preferences_text110">Reporting rate in seconds (e.g. once per 180 seconds when standing still) for reliable protocols (e.g. TAK Server). Note: other events may also trigger reporting (e.g. a callsign change)</string>
     <string name="preferences_text112">Minimum reporting rate in seconds (e.g. once per 20 seconds when moving slow) for reliable protocols (e.g. TAK Server). Note: other events may also trigger reporting (e.g. a callsign change)</string>

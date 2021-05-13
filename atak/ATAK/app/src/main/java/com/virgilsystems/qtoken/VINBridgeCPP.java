@@ -18,33 +18,38 @@ package com.virgilsystems.qtoken;
 
 import android.util.Log;
 
+import com.atakmap.app.ATAKActivity;
+
 public class VINBridgeCPP {
 
-    public static String lastMessage = "";
+    public static String lastSentTime = "";
+    public static String lastSenderCallsign = "";
+
 
     public void run(String bootstrapIp, String nodePort, String receiptPort, String rootFolder) {
+        Log.d("### VIN","VINBridgeCPP: run");
+
         new Thread( new Runnable() { @Override public void run() {
             QToken.run(bootstrapIp, nodePort, receiptPort, rootFolder);
+            ATAKActivity.sleep(8000);
+            ATAKActivity.VINisRunning = true;
         } } ).start();
+
+//        if(!RunAsyncTask.waiting)
+//            new RunAsyncTask().execute(bootstrapIp, nodePort, receiptPort, rootFolder);
     }
 
     public void put(String message) {
         new Thread( new Runnable() { @Override public void run() {
-//            ChatAsyncTask.waiting = true;
             QToken.put(message);
-//            try {
-//                Thread.sleep(2000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            ChatAsyncTask.waiting = false;
         } } ).start();
     }
 
     public void get(String key) {
-        Log.d("### VIN","VINBridgeCPP: get");
-        if(!ChatAsyncTask.waiting)
-            new ChatAsyncTask().execute("chat");
+//        Log.d("### VIN","VINBridgeCPP: get");
+
+        if(!GetAsyncTask.waiting)
+            new GetAsyncTask().execute("chat");
     }
 
     public void share(String filePath) {

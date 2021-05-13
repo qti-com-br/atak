@@ -31,10 +31,10 @@ public class MyIpTextView extends TextView {
     @SuppressLint("SetTextI18n")
     private void init() {
 
-        final String PREFACE = ctx.getString(R.string.my_ip) + ": ";
+        final String PREFACE = ctx.getString(R.string.my_ip);
 
         setText(PREFACE + NetworkUtils.getIP() +
-                " P: " + ATAKActivity.nodePort + "  R: " + ATAKActivity.receiptPort);
+                "  P: " + ATAKActivity.vinNodePort + "  R: " + ATAKActivity.vinReceiptPort);
 
         NetworkUtils.registerNetRestartNotification(
                 NetworkUtils.ALL_CONNECTIONS, new NetRestartNotification() {

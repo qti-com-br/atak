@@ -52,7 +52,6 @@ import android.widget.Toast;
 
 import com.atakmap.android.data.ClearContentTask;
 import com.atakmap.android.dropdown.DropDownManager;
-import com.atakmap.map.CameraController;
 import com.atakmap.map.Globe;
 import com.atakmap.map.MapRenderer2;
 import com.atakmap.map.MapSceneModel;
@@ -132,6 +131,7 @@ import com.atakmap.util.ConfigOptions;
 
 import com.atakmap.util.zip.IoUtils;
 import com.virgilsystems.qtoken.VINBridgeCPP;
+import com.virgilsystems.qtoken.VINFolder;
 
 import org.xml.sax.SAXException;
 
@@ -159,13 +159,18 @@ public class ATAKActivity extends MapActivity implements
 
     public static VINBridgeCPP VIN;
 
-    public static String nodePort = "";
-    public static String receiptPort = "";
+    public static String vinNodePort = "";
+    public static String vinReceiptPort = "";
+
+    @SuppressLint("StaticFieldLeak")
+    public static Context mContext;
 
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
     public void onCreate(final Bundle savedInstanceState) {
+
+        mContext = getApplicationContext();
 
         RemovableStorageHelper.init(this);
 
@@ -1970,25 +1975,94 @@ public class ATAKActivity extends MapActivity implements
         if (!acceptedPermissions)
             return;
 
+        startVIN();
+
+    }
+
+    public static boolean VINisRunning = false;
+
+    public static void startVIN() {
         // -- Initialization of VIN ----------------------------------- //
+
+        // Shared Preferences
+        SharedPreferences vinSharedPref = mContext
+                .getSharedPreferences("VIN_Shared_Pref", MODE_PRIVATE);
+        String bootstrapIP = vinSharedPref.getString("bootstrap_ip", "");
+
+        if(bootstrapIP == null || bootstrapIP.equals("")) {
+            Toast.makeText(mContext,
+                    "Please set the Bootstrap IP on Settings/Network Preferences",
+                                Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Log.d("### VIN", "ATAKActivity.onStart VIN Bootstrap IP: " + bootstrapIP);
         VIN = new VINBridgeCPP();
 
-        Random r = new Random();
-        nodePort = String.valueOf(r.nextInt(8999) + 8002);
-        receiptPort = String.valueOf(r.nextInt(8999) + 8002);
+        sleep(5000);
 
-        VIN.run("192.168.1.11", nodePort, receiptPort, "/sdcard");
+        VINFolder vinFolder = new VINFolder(mContext);
 
-        Log.d("### VIN", "ATAKActivity.onCreate");
+//        new Thread( new Runnable() { @Override public void run() {
+//            vinFolder.isStoragePermissionGranted();
+//        } } ).start();
 
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        new Thread( new Runnable() { @Override public void run() {
+
+            while(VINFolder.rootFolder.equals("")) {
+                vinFolder.isStoragePermissionGranted();
+
+                sleep(5000);
+            }
+            //        else {
+            //            Log.d("### VIN", "ATAKActivity.onStart VIN hasn't permission " + VINFolder.rootFolder);
+            //            vinFolder.isStoragePermissionGranted();
+            //        }
+
+            Log.d("### VIN", "ATAKActivity.onStart VIN has permission " + VINFolder.rootFolder);
+
+            Random r = new Random();
+            vinNodePort = String.valueOf(r.nextInt(9999) + 8002);
+            vinReceiptPort = String.valueOf(r.nextInt(9999) + 8002);
+
+            VIN.run(bootstrapIP, vinNodePort, vinReceiptPort, VINFolder.rootFolder);
+
+        } } ).start();
+
+        startGetVIN();
 
         // ----------------------------------- Initialization of VIN -- //
+    }
 
+
+    public static void startGetVIN() {
+        new Thread(new Runnable() {
+            public void run() {
+
+                sleep(10000);
+
+                while (true) {
+//                    android.util.Log.d("### VIN","ChatManagerMapComponent: get 1 " + ATAKActivity.VINisRunning);
+
+//                    if(ATAKActivity.VINisRunning) {
+                        // VIN get last message
+//                        Log.d("### VIN", "ChatManagerMapComponent: get 2");
+                        ATAKActivity.VIN.get("chat");
+//                    }
+
+                    sleep(1000);
+                }
+            }
+        }).start();
+    }
+
+
+    public static void sleep(int mili) {
+        try {
+            Thread.sleep(mili);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

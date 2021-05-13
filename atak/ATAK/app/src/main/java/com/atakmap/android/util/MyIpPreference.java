@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 
 import com.atakmap.android.tools.menu.AtakActionBarListData;
 import com.atakmap.android.tools.menu.AtakActionBarMenuData;
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.comms.NetworkUtils;
 import com.atakmap.comms.NetworkUtils.NetRestartNotification;
@@ -38,9 +39,9 @@ public class MyIpPreference extends Preference {
         if (AtakActionBarListData.getOrientation(
                 ctx) == AtakActionBarMenuData.Orientation.portrait) {
             setTitle(title);
-            setSummary(NetworkUtils.getIP());
+            setSummary(getMyVINIP());
         } else
-            setTitle(title + ": " + NetworkUtils.getIP());
+            setTitle(title + ": " + getMyVINIP());
 
         NetworkUtils.registerNetRestartNotification(
                 NetworkUtils.ALL_CONNECTIONS, new NetRestartNotification() {
@@ -54,13 +55,18 @@ public class MyIpPreference extends Preference {
                                         .getOrientation(
                                                 ctx) == AtakActionBarMenuData.Orientation.portrait) {
                                     setTitle(title);
-                                    setSummary(NetworkUtils.getIP());
+                                    setSummary(getMyVINIP());
                                 } else
                                     setTitle(title + ": "
-                                            + NetworkUtils.getIP());
+                                            + getMyVINIP());
                             }
                         });
                     }
                 });
+    }
+
+    private String getMyVINIP() {
+        return NetworkUtils.getIP() +
+                "  P: " + ATAKActivity.vinNodePort + "  R: " + ATAKActivity.vinReceiptPort;
     }
 }

@@ -455,11 +455,6 @@ public final class GeoChatService implements
                                     cotEvent, destination);
                 }
 
-                // VIN put message
-                String message = cotMessage.getString("message");
-                Log.d("### VIN", "message: " + message);
-                ATAKActivity.VIN.put(message);
-
             } else {
                 Log.w(TAG, "Could not create CotEvent from Bundle: "
                         + cotMessage);

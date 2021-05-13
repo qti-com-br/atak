@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.List;
 
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.InputType;
 import android.util.Base64;
 
 import android.app.AlertDialog;
@@ -19,8 +23,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.util.Patterns;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
+
+import androidx.annotation.RequiresApi;
 
 import com.atakmap.android.gui.ImportFileBrowserDialog;
 import com.atakmap.android.gui.PanEditTextPreference;
@@ -29,6 +37,7 @@ import com.atakmap.android.maps.MapView;
 import com.atakmap.android.preference.AtakPreferenceFragment;
 import com.atakmap.android.preference.PreferenceSearchIndex;
 import com.atakmap.android.util.ATAKUtilities;
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.comms.NetConnectString;
 import com.atakmap.comms.app.CotInputsListActivity;
@@ -40,12 +49,19 @@ import com.atakmap.coremap.log.Log;
 import com.atakmap.net.AtakCertificateDatabase;
 import com.atakmap.net.AtakCertificateDatabaseIFace;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class NetworkConnectionPreferenceFragment
         extends AtakPreferenceFragment {
 
     public static final String TAG = "NetworkConnectionPreferenceFragment";
 
     public static final String CERTIFICATE_UPDATED = "com.atakmap.app.preferences.CERTIFICATE_UPDATED";
+
+    Context mContext;
+
+    SharedPreferences vinSharedPref;
+    SharedPreferences.Editor vinSharedPrefEditor;
 
     public static java.util.List<PreferenceSearchIndex> index(Context context) {
         return index(context,
@@ -65,9 +81,16 @@ public class NetworkConnectionPreferenceFragment
                 getSummary());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mContext = getContext();
+
+        // Shared Preferences
+        vinSharedPref = getContext().getSharedPreferences("VIN_Shared_Pref", MODE_PRIVATE);
+        vinSharedPrefEditor = vinSharedPref.edit();
 
         addPreferencesFromResource(getResourceID());
         Preference manageInputs = findPreference("manageInputsLink");
@@ -91,6 +114,65 @@ public class NetworkConnectionPreferenceFragment
                         return false;
                     }
                 });
+
+
+
+        Preference manageBootstrapIP = findPreference("manageBootstrapIP");
+        manageBootstrapIP
+                .setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.M)
+                    @Override
+                    public boolean onPreferenceClick(Preference preference) {
+
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                        builder.setTitle("Bootstrap IP");
+
+                        final EditText input = new EditText(getContext());
+                        input.setInputType(InputType.TYPE_CLASS_TEXT);
+                        input.setText(vinSharedPref.getString("bootstrap_ip", ""));
+                        builder.setView(input);
+
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                final String ip = input.getText().toString();
+
+                                try {
+                                    Log.d("###QTOKEN", "MainActivity settings");
+                                    if(checkAndSaveIP(ip)) {
+                                        ATAKActivity.startVIN();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+
+                        // Loading at main Thread
+                        Handler mainHandler = new Handler(Looper.getMainLooper());
+                        Runnable myRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                builder.show();
+                            }
+                        };
+                        mainHandler.post(myRunnable);
+
+
+//                        Log.d("### VIN", "manageBootstrapIP");
+//                        Toast.makeText(mContext, "Bootstrap IP",
+//                                Toast.LENGTH_LONG).show();
+                        return false;
+                    }
+                });
+
+
 
         Preference manageStreams = findPreference("manageStreamingLink");
         manageStreams
@@ -202,6 +284,25 @@ public class NetworkConnectionPreferenceFragment
                 .checkValidInteger();
         ((PanEditTextPreference) findPreference("multicastTTL"))
                 .checkValidInteger();
+    }
+
+    private boolean checkAndSaveIP(String bootstrapIP) {
+        if(bootstrapIP.equals("")) {
+            Toast.makeText(mContext, "Please configure the Bootstrap IP.",
+                    Toast.LENGTH_SHORT).show();
+
+        } else if(!Patterns.IP_ADDRESS.matcher(bootstrapIP).matches()) {
+            Toast.makeText(mContext, "Invalid IP Address.",
+                    Toast.LENGTH_SHORT).show();
+
+        } else {
+            // Save Bootstrap IP on Shared Preferences
+            vinSharedPrefEditor.putString("bootstrap_ip", bootstrapIP);
+            vinSharedPrefEditor.apply();
+
+            return true;
+        }
+        return false;
     }
 
     public static void getCertFile(final Context context, final String title,

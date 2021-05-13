@@ -256,6 +256,7 @@ public final class AtakBroadcast {
         if (MetricsApi.shouldRecordMetric()) {
             MetricsApi.record(intent);
         }
+        //Log.d("### VIN AtakBroadcast 1 | ", intent.toUri(0));
         return lbm.sendBroadcast(intent);
     }
 
@@ -274,6 +275,7 @@ public final class AtakBroadcast {
         if (MetricsApi.shouldRecordMetric()) {
             MetricsApi.record(intent);
         }
+        //Log.d("### VIN AtakBroadcast 2 | ", intent.toUri(0));
         context.sendBroadcast(intent);
         return true;
     }
@@ -294,6 +296,7 @@ public final class AtakBroadcast {
         if (MetricsApi.shouldRecordMetric()) {
             MetricsApi.record(intent);
         }
+        //Log.d("### VIN AtakBroadcast 3 | ", intent.toUri(0));
         context.sendBroadcast(intent, permission);
         return true;
     }
@@ -306,6 +309,7 @@ public final class AtakBroadcast {
     public void sendIntents(List<Intent> intents) {
         if (intents != null) {
             for (int i = 0; i < intents.size(); i++) {
+                //Log.d("### VIN AtakBroadcast 4 | ", intents.get(i).toUri(0));
                 AtakBroadcast.getInstance().sendBroadcast(intents.get(i));
             }
         }

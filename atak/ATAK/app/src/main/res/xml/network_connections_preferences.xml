@@ -3,9 +3,14 @@
     <com.atakmap.android.util.MyIpPreference
         android:key="showIP" />
     <PreferenceCategory android:title="Server Connections">
-         <Preference android:key="manageStreamingLink"
-              android:title="@string/preferences_text226"
-              android:summary="@string/preferences_text227"/>
+
+         <Preference android:key="manageBootstrapIP"
+              android:title="@string/preferences_vin_bootstrap_ip_text_1"
+              android:summary="@string/preferences_vin_bootstrap_ip_text_2"/>
+
+        <Preference android:key="manageStreamingLink"
+            android:title="@string/preferences_text226"
+            android:summary="@string/preferences_text227"/>
         <CheckBoxPreference
             android:key="displayServerConnectionWidget"
             android:title="@string/preferences_text228"
