@@ -20,6 +20,8 @@ import android.util.Log;
 
 import com.atakmap.app.ATAKActivity;
 
+import static android.os.Process.THREAD_PRIORITY_MORE_FAVORABLE;
+
 public class VINBridgeCPP {
 
     public static String lastChatMessageId = "";
@@ -30,29 +32,35 @@ public class VINBridgeCPP {
     public void run(String bootstrapIp, String nodePort, String receiptPort, String rootFolder) {
         Log.d("### VIN","VINBridgeCPP: run");
 
-        new Thread( new Runnable() { @Override public void run() {
+        Thread run = new Thread( new Runnable() { @Override public void run() {
             QToken.run(bootstrapIp, nodePort, receiptPort, rootFolder);
             ATAKActivity.sleep(8000);
             ATAKActivity.VINisRunning = true;
-        } } ).start();
+        } } );
+        run.setPriority(Thread.MAX_PRIORITY);
+        run.start();
 
 //        if(!RunAsyncTask.waiting)
 //            new RunAsyncTask().execute(bootstrapIp, nodePort, receiptPort, rootFolder);
     }
 
     public void put(String message) {
-        new Thread( new Runnable() { @Override public void run() {
+        Thread put = new Thread( new Runnable() { @Override public void run() {
             QToken.put(message);
-        } } ).start();
-//        new PutAsyncTask().execute(message);
+        } } );
+        put.setPriority(Thread.MAX_PRIORITY);
+        put.start();
+////        new PutAsyncTask().execute(message);
     }
 
     public void get(String key) {
 //        Log.d("### VIN","VINBridgeCPP: get");
-        new Thread( new Runnable() { @Override public void run() {
+//        Thread get = new Thread( new Runnable() { @Override public void run() {
             if(!waiting)
                 new GetAsyncTask().execute("chat");
-        } } ).start();
+//        } } );
+//        get.setPriority(Thread.MAX_PRIORITY);
+//        get.start();
     }
 
     public void share(String filePath) {

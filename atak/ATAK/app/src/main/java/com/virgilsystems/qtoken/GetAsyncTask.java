@@ -50,7 +50,7 @@ public class GetAsyncTask extends AsyncTask<String, Integer, String> {
 
         String[] parts = result.split(", "); // escape \\|
 
-        if(parts.length == 0) {
+        if(parts.length < 1) {
             Log.d("### VIN", "GetAsyncTask: onPostExecute 2 | Wrong array size");
             return;
         }
@@ -120,21 +120,32 @@ public class GetAsyncTask extends AsyncTask<String, Integer, String> {
 
 
         if(conversationId.equals("All Chat Rooms")) {
+//            bundle.putString("conversationId", conversationId);
+//            bundle.putString("messageId", messageId);
+//            bundle.putStringArray("destinations", destinations);
+//            bundle.putString("parent", parent);
+//            bundle.putString("protocol", protocol);
+//            bundle.putString("conversationName", conversationName);
+//            bundle.putLong("id", id);
+//            bundle.putString("uid", uid);
+//            bundle.putString("type", type);
+//            bundle.putString("senderUid", senderUid);
+//            bundle.putBundle("paths", paths);
+//            bundle.putLong("groupId", groupId);
+//            bundle.putString("deviceType", deviceType);
+//            bundle.putString("message", message);
+//            bundle.putLong("sentTime", sentTime);
+//            bundle.putString("senderCallsign", senderCallsign);
+
+            bundle.putLong("receiveTime", sentTime + 1);
             bundle.putString("conversationId", conversationId);
             bundle.putString("messageId", messageId);
-            bundle.putStringArray("destinations", destinations);
-            bundle.putString("parent", parent);
             bundle.putString("protocol", protocol);
             bundle.putString("conversationName", conversationName);
             bundle.putLong("id", id);
-            bundle.putString("uid", uid);
-            bundle.putString("type", type);
+            bundle.putString("type", "CHAT3");
             bundle.putString("senderUid", senderUid);
-            bundle.putBundle("paths", paths);
-            bundle.putLong("groupId", groupId);
-            bundle.putString("deviceType", deviceType);
             bundle.putString("message", message);
-            bundle.putLong("sentTime", sentTime);
             bundle.putString("senderCallsign", senderCallsign);
 
         } else {
