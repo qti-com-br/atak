@@ -53,6 +53,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import static com.atakmap.app.ATAKActivity.mContext;
 import static com.atakmap.app.ATAKActivity.sleep;
 
 public class ChatManagerMapComponent extends AbstractMapComponent implements
@@ -121,7 +122,7 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
 
                         Log.d("### VIN", "ChatManagerMapComponent.onReceive " + intent.toUri(0));
 
-
+                        Log.d("### VIN", "ChatManagerMapComponent.onReceive " + fullMsg);
 
 
 
@@ -186,6 +187,18 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
         }
     };
 
+    public void vinNotifyUser(Bundle fullMsg) {
+        broadcastChatMessageReceived(fullMsg);
+
+        boolean notify = PreferenceManager
+                .getDefaultSharedPreferences(mContext).getBoolean("enableToast", true);
+
+        Contacts.getInstance().updateTotalUnreadCount();
+
+            if (notify)
+                notifyUserOfNewMessage(fullMsg, mContext);
+
+    }
 
 
     /**
@@ -832,7 +845,12 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
 //                        if (connection != null)
 //                            chatService.sendMessage(msg, individualContact);
 
+
+
                     // ENVIA CHAT
+
+
+
 
 //                        String myUID = _mapView.getSelfMarker().getUID();
 

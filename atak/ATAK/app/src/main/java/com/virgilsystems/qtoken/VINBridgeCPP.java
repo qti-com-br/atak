@@ -41,14 +41,18 @@ public class VINBridgeCPP {
     }
 
     public void put(String message) {
-        new PutAsyncTask().execute(message);
+        new Thread( new Runnable() { @Override public void run() {
+            QToken.put(message);
+        } } ).start();
+//        new PutAsyncTask().execute(message);
     }
 
     public void get(String key) {
 //        Log.d("### VIN","VINBridgeCPP: get");
-
-        if(!waiting)
-            new GetAsyncTask().execute("chat");
+        new Thread( new Runnable() { @Override public void run() {
+            if(!waiting)
+                new GetAsyncTask().execute("chat");
+        } } ).start();
     }
 
     public void share(String filePath) {
