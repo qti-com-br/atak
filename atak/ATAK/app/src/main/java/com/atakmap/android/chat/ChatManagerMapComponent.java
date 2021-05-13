@@ -840,25 +840,32 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                         // not show this user messages
                         mysenderCallsign = msg.getString("senderCallsign");
 
-                        String conversation = ChatManagerMapComponent._context.getString(R.string.all_chat_rooms);
+//                        String conversation = ChatManagerMapComponent._context.getString(R.string.all_chat_rooms);
 
-                        String _conversationId = msg.getString("conversationId");
-                        String _conversationName = msg.getString("conversationName");
-                        String _messageId = msg.getString("messageId");
+//                        String _conversationId = msg.getString("conversationId");
+//                        String _conversationName = msg.getString("conversationName");
+//                        String _messageId = msg.getString("messageId");
+//                        String[] _destinations = msg.getStringArray("destinations");
+//                        String _parent = msg.getString("parent");
+//                        String _protocol = msg.getString("CoT");
+//                        String _id = msg.getString("id");
+//                        String _uid = msg.getString("uid");
+//                        String _type = msg.getString("type");
+//                        String _senderUid = msg.getString("senderUid");
+//                        Long _groupId = msg.getLong("groupId");
+//                        Long _deviceType= msg.getLong("deviceType");
+//                        String _sentTime = String.valueOf(msg.getLong("sentTime"));
+//                        String _senderCallsign = mysenderCallsign;
+//                        String _message = msg.getString("message");
+//
+//                        String message = "conversationId=" + conversation + "|" +
+//                                         "conversationName=" + conversation + "|" +
+//                                         "sentTime=" + _sentTime + "|" +
+//                                         "senderUid=" + _senderUid + "|" +
+//                                         "senderCallsign=" + _senderCallsign + "|" +
+//                                         "message=" + _message;
 
-                        String _sentTime = String.valueOf(msg.getLong("sentTime"));
-                        String _senderUid = msg.getString("senderUid"); // Same phone models will have the same UID
-                        String _senderCallsign = mysenderCallsign;
-                        String _message = msg.getString("message");
-
-
-
-                        String message = "conversationId=" + conversation + "|" +
-                                         "conversationName=" + conversation + "|" +
-                                         "sentTime=" + _sentTime + "|" +
-                                         "senderUid=" + _senderUid + "|" +
-                                         "senderCallsign=" + _senderCallsign + "|" +
-                                         "message=" + _message;
+                        String message = msg.toString();
 
                         Log.d("### VIN", "ChatManagerMapComponent put | 46 | " + message);
                         ATAKActivity.VIN.put(message);

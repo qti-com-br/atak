@@ -22,8 +22,9 @@ import com.atakmap.app.ATAKActivity;
 
 public class VINBridgeCPP {
 
-    public static String lastSentTime = "";
-    public static String lastSenderCallsign = "";
+    public static String lastChatMessageId = "";
+
+    public static boolean waiting = false;
 
 
     public void run(String bootstrapIp, String nodePort, String receiptPort, String rootFolder) {
@@ -40,15 +41,13 @@ public class VINBridgeCPP {
     }
 
     public void put(String message) {
-        new Thread( new Runnable() { @Override public void run() {
-            QToken.put(message);
-        } } ).start();
+        new PutAsyncTask().execute(message);
     }
 
     public void get(String key) {
 //        Log.d("### VIN","VINBridgeCPP: get");
 
-        if(!GetAsyncTask.waiting)
+        if(!waiting)
             new GetAsyncTask().execute("chat");
     }
 
