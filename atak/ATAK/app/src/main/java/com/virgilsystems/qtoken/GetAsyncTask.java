@@ -50,7 +50,7 @@ public class GetAsyncTask extends AsyncTask<String, Integer, String> {
 
         String[] parts = result.split(", "); // escape \\|
 
-        if(parts.length < 1) {
+        if(parts.length < 10) {
             Log.d("### VIN", "GetAsyncTask: onPostExecute 2 | Wrong array size");
             return;
         }
@@ -165,7 +165,7 @@ public class GetAsyncTask extends AsyncTask<String, Integer, String> {
 
         Log.d("### VIN", "GetAsyncTask: onPostExecute 5 | " + VINBridgeCPP.lastChatMessageId + "|" + messageId);
 
-        if(!VINBridgeCPP.lastChatMessageId.equals(messageId) &&
+        if(!VINBridgeCPP.lastChatMessageId.equals(messageId) && !VINBridgeCPP.lastChatMessageId.equals("") &&
             !senderCallsign.equals(ChatManagerMapComponent.mysenderCallsign)) {
 
             Log.d("### VIN", "GetAsyncTask: onPostExecute 6 | " + message);

@@ -34,8 +34,6 @@ public class VINBridgeCPP {
 
         Thread run = new Thread( new Runnable() { @Override public void run() {
             QToken.run(bootstrapIp, nodePort, receiptPort, rootFolder);
-            ATAKActivity.sleep(8000);
-            ATAKActivity.VINisRunning = true;
         } } );
         run.setPriority(Thread.MAX_PRIORITY);
         run.start();

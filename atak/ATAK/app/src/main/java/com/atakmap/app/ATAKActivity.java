@@ -1979,8 +1979,6 @@ public class ATAKActivity extends MapActivity implements
 
     }
 
-    public static boolean VINisRunning = false;
-
     public static void startVIN() {
         // -- Initialization of VIN ----------------------------------- //
 
