@@ -18,7 +18,7 @@ mv android-ndk-r12b-linux-x86_64 r12b
 
 ## ATAK:
 ```
-git clone https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV.git
+git@github.com:qti-com-br/atak-vin.git
 ```
 
 ## Run on atak project folder:
