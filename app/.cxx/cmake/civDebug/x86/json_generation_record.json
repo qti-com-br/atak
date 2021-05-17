@@ -1,0 +1,26 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 21 min SDK version: x86",
+    "file": "/home/carlos/atak-vin/atak/ATAK/app/src/main/cpp/CMakeLists.txt",
+    "tag": "civDebug|x86"
+  },
+  {
+    "level": "INFO",
+    "message": "- CMake found from cmake.dir at \u0027/home/carlos/Android/Sdk/cmake/3.10.2.4988404\u0027 had version \u00273.10.2\u0027",
+    "file": "/home/carlos/atak-vin/atak/ATAK/app/src/main/cpp/CMakeLists.txt",
+    "tag": "civDebug|x86"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON \u0027/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civDebug/x86/android_gradle_build.json\u0027 was up-to-date",
+    "file": "/home/carlos/atak-vin/atak/ATAK/app/src/main/cpp/CMakeLists.txt",
+    "tag": "civDebug|x86"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems",
+    "file": "/home/carlos/atak-vin/atak/ATAK/app/src/main/cpp/CMakeLists.txt",
+    "tag": "civDebug|x86"
+  }
+]

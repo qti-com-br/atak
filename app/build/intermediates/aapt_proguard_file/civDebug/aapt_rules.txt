@@ -1,0 +1,211 @@
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+-keep class androidx.core.content.FileProvider { <init>(); }
+-keep class com.atak.plugins.impl.ATAKProcessKillActivity { <init>(); }
+-keep class com.atakmap.android.cot.TadilJListActivity { <init>(); }
+-keep class com.atakmap.android.drawing.KmlImportListActivity { <init>(); }
+-keep class com.atakmap.android.http.rest.HTTPRequestService { <init>(); }
+-keep class com.atakmap.android.image.ImageEditReceiver { <init>(); }
+-keep class com.atakmap.android.layers.wms.DownloadAndCacheService { <init>(); }
+-keep class com.atakmap.android.maps.ImportFileActivity { <init>(); }
+-keep class com.atakmap.android.tools.AllToolsActivity { <init>(); }
+-keep class com.atakmap.android.tools.AllToolsConfigMenuActivity { <init>(); }
+-keep class com.atakmap.android.update.AppMgmtActivity { <init>(); }
+-keep class com.atakmap.android.video.legacy.Gv2FMobilePlayer { <init>(); }
+-keep class com.atakmap.app.ATAKActivity { <init>(); }
+-keep class com.atakmap.app.ATAKApplication { <init>(); }
+-keep class com.atakmap.app.BackgroundServices { <init>(); }
+-keep class com.atakmap.app.SettingsActivity { <init>(); }
+-keep class com.atakmap.app.preferences.AppMgmtSettingsActivity { <init>(); }
+-keep class com.atakmap.app.preferences.LocationSettingsActivity { <init>(); }
+-keep class com.atakmap.app.preferences.NetworkSettingsActivity { <init>(); }
+-keep class com.atakmap.comms.app.AddNetInfoActivity { <init>(); }
+-keep class com.atakmap.comms.app.CotInputsListActivity { <init>(); }
+-keep class com.atakmap.comms.app.CotManagerTabActivity { <init>(); }
+-keep class com.atakmap.comms.app.CotObjectsListActivity { <init>(); }
+-keep class com.atakmap.comms.app.CotOutputsListActivity { <init>(); }
+-keep class com.atakmap.comms.app.CotStreamListActivity { <init>(); }
+-keep class plugins.host.provider.PluginProvider { <init>(); }
+-keep class android.opengl.GLSurfaceView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class android.view.SurfaceView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class android.widget.Space { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.app.AlertController$RecycleListView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ActionMenuItemView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ExpandedMenuView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ListMenuItemView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarContainer { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarContextView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarOverlayLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionMenuView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActivityChooserView$InnerLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.AlertDialogLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ButtonBarLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ContentFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.DialogTitle { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.FitWindowsFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.FitWindowsLinearLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.SearchView$SearchAutoComplete { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.Toolbar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ViewStubCompat { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.core.widget.NestedScrollView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.viewpager.widget.PagerTabStrip { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.viewpager.widget.ViewPager { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.bpha.BPHAGridView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.chat.ModePicker { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.cotdetails.CoTInfoView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.cotdetails.extras.ExtraDetailsLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.cotdetails.sensor.SensorDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.drawing.details.CircleDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.drawing.details.GenericPointDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.drawing.details.MultiPolylineDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.drawing.details.RectangleDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.drawing.details.ShapeDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.AutoSizeTextView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.CoordDialogView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.EditText { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.EditTextWithKeyPadDismissEvent { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.EncryptedPanEditTextPreference { <init>(...); }
+
+-keep class com.atakmap.android.gui.ImageRadioButton { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.ImportFileBrowser { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.PanCheckBoxPreference { <init>(...); }
+
+-keep class com.atakmap.android.gui.PanEditTextPreference { <init>(...); }
+
+-keep class com.atakmap.android.gui.PluginSpinner { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.PlusMinusWidget { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.RangeBearingInputView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.RangeBearingInputViewPilots { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.SMSNumberPreference { <init>(...); }
+
+-keep class com.atakmap.android.gui.ThemedSpinner { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.gui.TileButtonView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.hashtags.view.HashtagEditText { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.hashtags.view.RemarksLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.hierarchy.HierarchyManagerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.hierarchy.SortSpinner { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.icons.IconManagerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.image.FullImageView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.image.ImageDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.importfiles.ui.ImportManagerFileBrowser { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.items.MapItemDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.layers.LayersManagerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.layers.OnlineLayersManagerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.medline.HLZView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.medline.ZMistView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.missionpackage.ui.FileTransferLogView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.missionpackage.ui.MissionPackageQueryResultView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.network.ui.CredentialsPreference { <init>(...); }
+
+-keep class com.atakmap.android.routes.RoutePlannerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.routes.elevation.AnalysisPanelView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.routes.elevation.RouteElevationView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.routes.elevation.SeekerBarPanelView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.slant.SSESlantDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.slant.SlantExtendedInfoView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.tools.ActionBarView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.track.ui.SeekBarPreference { <init>(...); }
+
+-keep class com.atakmap.android.track.ui.TrackDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.track.ui.TrackListView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.track.ui.TrackSearchView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.track.ui.UserListView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.user.ExpandableGridView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.user.icon.SpotMapPointDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.util.MyIpPreference { <init>(...); }
+
+-keep class com.atakmap.android.util.MyIpTextView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.vehicle.VehicleDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.vehicle.model.ui.VehicleModelDetailsView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.android.video.BufferSeekBar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.atakmap.app.ATAKFragment { <init>(); }
+
+-keep class com.partech.mobilevid.SharedGLSurfaceView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keepclassmembers class * { *** onClickFastFwd(android.view.View); }
+
+-keepclassmembers class * { *** onClickFastRev(android.view.View); }
+
+-keepclassmembers class * { *** onClickPausePlay(android.view.View); }
+
+-keepclassmembers class * { *** onClickSlowFwd(android.view.View); }
+
+-keepclassmembers class * { *** onClickSlowRev(android.view.View); }
+

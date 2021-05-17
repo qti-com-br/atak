@@ -1,0 +1,7 @@
+#Thu May 13 10:45:21 EDT 2021
+base.0=/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/dex/civDebug/mergeDexCivDebug/classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/dex/civDebug/mergeDexCivDebug/classes2.dex

@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/carlos/atak-vin-2/atak/ATAK/app/build/intermediates/incremental/mergeCivDebugResources/merged.dir/values-small-v4/values-small-v4.xml",
+            "map": [
+                {
+                    "source": "/home/carlos/atak-vin-2/atak/ATAK/app/src/main/res/values-small/dimen.xml",
+                    "from": {
+                        "startLines": "4,2,5,3",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "198,100,240,149",
+                        "endColumns": "41,48,47,48",
+                        "endOffsets": "235,144,283,193"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,97,146,194",
+                        "endColumns": "41,48,47,48",
+                        "endOffsets": "92,141,189,238"
+                    }
+                }
+            ]
+        }
+    ]
+}

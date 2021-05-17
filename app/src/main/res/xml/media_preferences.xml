@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <PreferenceCategory
+        android:title="@string/mediaPreferences">
+        
+        <com.atakmap.android.gui.PanEditTextPreference
+            android:key="secureDeleteTimeout"
+            android:title="@string/preferences_text209"
+            android:summary="@string/preferences_text210"
+            android:defaultValue="10"
+            android:inputType = "number"
+            android:enabled="true"/>
+
+        <Preference
+            android:key="mediaLayerCacheForceRescan"
+            android:summary="@string/preferences_text211"
+            android:title="@string/preferences_text212" />
+
+        <CheckBoxPreference
+            android:title="@string/prefs_use_klv_elevation"
+            android:key="prefs_use_klv_elevation"
+            android:summary="@string/prefs_use_klv_elevation_sum"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

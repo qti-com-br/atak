@@ -1,0 +1,2 @@
+ninja: Entering directory `/home/carlos/atak-vin-2/atak/ATAK/app/.cxx/cmake/civDebug/arm64-v8a'
+ninja: no work to do.
