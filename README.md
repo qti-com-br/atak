@@ -82,15 +82,8 @@ _This will take a long time... coffee time =)_
 <br /><br />
 Ok, now let's back to the tutorial:
 <br /><br />
-
-**Keystore:**
-```
-cd atak/ATAK/app
-mkdir keystore
-cd keystore
-keytool -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999
-```
-
+Open the ATAK project on Android Studio.
+<br /><br />
 
 **Edit the local.properties file:**
 ```
@@ -110,8 +103,9 @@ takDebugKeyAlias=androiddebugkey
 ```
 
 <br /><br />
-If you are having issues, check the **known errors** below.
-<br />If you have a different issue, please let me know.
+Now you should be able to Sync your project with gradle.
+<br /><br />
+If you are having issues, check the **known errors** below. Or if you have a different issue, please let me know.
 <br /><br />
 
 **## Troubleshooting**
