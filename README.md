@@ -1,12 +1,15 @@
 ## ATAK
 
 **Ubuntu Dependencies:**
-
-``sudo apt install build-essential git openjdk-8-jdk dos2unix autoconf automake libtool patch make tcl8.6 cmake swig ant``
+```
+sudo apt install build-essential git openjdk-8-jdk dos2unix autoconf automake libtool patch make tcl8.6 cmake swig ant
+```
 
 
 **JDK:**
-``/usr/lib/jvm/java-8-openjdk-amd64``
+```
+/usr/lib/jvm/java-8-openjdk-amd64
+```
 
 
 **NDK:** (r12b = android-ndk-r12b)
@@ -14,22 +17,7 @@
 cd ~/Android/Skd/ndk
 wget https://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
 unzip android-ndk-r12b-linux-x86_64.zip
-mv android-ndk-r12b-linux-x86_64 r12b
-```
-
-
-**ATAK:**
-
-``git clone https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV.git``
-
-
-**Run on atak project folder:**
-```
-mkdir takengine/thirdparty
-cd takengine/thirdparty
-git clone https://github.com/synesissoftware/STLSoft-1.9.git stlsoft
-cd ..cd ..cp depends/gdal-2.4.4-mod.tar.gz .
-tar xf gdal-2.4.4-mod.tar.gz
+mv "android-ndk-r12b-linux-x86_64" r12b
 ```
 
 
@@ -39,7 +27,24 @@ sudo nano /etc/environment
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ANDROID_NDK=~/Android/Sdk/ndk/r12b
 source /etc/environment
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64export ANDROID_NDK=~/Android/Sdk/ndk/r12b
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export ANDROID_NDK=~/Android/Sdk/ndk/r12b
+```
+
+
+**ATAK**
+```
+git clone https://gitlab.optimusprime.ai/virgilsystems/prototypes/atak.git
+```
+
+
+**Run on atak project folder:**
+```
+mkdir takengine/thirdparty
+cd takengine/thirdparty
+git clone https://github.com/synesissoftware/STLSoft-1.9.git stlsoft
+cd ..cd ..cp depends/gdal-2.4.4-mod.tar.gz .
+tar xf gdal-2.4.4-mod.tar.gz
 ```
 
 
@@ -61,7 +66,7 @@ keytool -genkeypair -alias androiddebugkey -keypass android -keystore debug.keys
 ```
 
 
-**Edit local.properties file:**
+**Edit the local.properties file:**
 ```
 sdk.dir=/home/carlos/Android/Sdk
 android.ndkVersion=r12b
