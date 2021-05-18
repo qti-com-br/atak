@@ -1,0 +1,3 @@
+[submodule "atak/ATAK"]
+	path = atak/ATAK
+	url = https://gitlab.optimusprime.ai/virgilsystems/prototypes/vintak.git
