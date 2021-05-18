@@ -1,4 +1,12 @@
 ## ATAK
+This is how to setup ATAK for VINTAK. (_You just need to do this once._)
+<br />
+<br />VINTAK is a git submodule of this repository.
+<br />
+<br />To get the lastest VINTAK version, run the command below (**After follow this tutorial**):
+<br />git submodule update --init --recursive
+<br /><br />
+
 
 **Ubuntu Dependencies:**
 ```
@@ -8,7 +16,12 @@ sudo apt install build-essential git openjdk-8-jdk dos2unix autoconf automake li
 
 **JDK:**
 ```
+sudo apt-get install openjdk-8-jdk
+
+After the installation verify if the folder below exist:
 /usr/lib/jvm/java-8-openjdk-amd64
+
+If not, check this tutorial: https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
 ```
 
 
@@ -42,9 +55,19 @@ git clone https://gitlab.optimusprime.ai/virgilsystems/prototypes/atak.git
 ```
 mkdir takengine/thirdparty
 cd takengine/thirdparty
-git clone https://github.com/synesissoftware/STLSoft-1.9.git stlsoft
-cd ..cd ..cp depends/gdal-2.4.4-mod.tar.gz .
+git submodule add https://github.com/synesissoftware/STLSoft-1.9.git stlsoft
+
+cd ..
+cd ..
+cp depends/gdal-2.4.4-mod.tar.gz .
 tar xf gdal-2.4.4-mod.tar.gz
+```
+
+
+**VINTAK**
+```
+cd atak
+git submodule add https://gitlab.optimusprime.ai/virgilsystems/prototypes/vintak.git ATAK
 ```
 
 
@@ -52,10 +75,13 @@ tar xf gdal-2.4.4-mod.tar.gz
 ```
 cd takthirdparty
 make TARGET=android-arm64-v8a build_spatialite build_gdal build_commoncommo build_assimp
-make TARGET=android-armeabi-v7a build_spatialite build_gdal build_commoncommo build_assimp
-make TARGET=android-x86 build_spatialite build_gdal build_commoncommo build_assimp
+
+_This will take a long time... coffee time =)_
 ```
 
+<br /><br />
+Ok, now let's back to the tutorial:
+<br /><br />
 
 **Keystore:**
 ```
@@ -83,17 +109,24 @@ takDebugKeyFile=keystore/debug.keystore
 takDebugKeyAlias=androiddebugkey
 ```
 
-
+<br /><br />
+If you are having issues, check the **known errors** below.
+<br />If you have a different issue, please let me know.
+<br /><br />
 
 **## Troubleshooting**
 
-
-**Error: cp: cannot stat '../assimp': No such file or directory**
-
-**Error: tinygltf/tiny_gltf.h: No such file or directory**
-
+<br /><br />
+**Error:**
+```
+cp: cannot stat '../assimp': No such file or directory**
+```
+or
+```
+tinygltf/tiny_gltf.h: No such file or directory**
+```
 **Solution:**
-
+```
 Unzip and copy files from depends folder to takengine/thirdparty (parentFolder -> childFolder):
 
 assimp-4.0.1-mod.tar.gz -> assimp
@@ -109,29 +142,33 @@ Copy the assimp folder from other build (get it from different locations) and pa
 
 Delete this file (if exist):
 /home/<YOUR_USER>/atak/takthirdparty/builds/android-arm64-v8a-release/assimp/ttpbuild/CMakeCache.txt
+```
 
-
-
-**Error: package com.ekito.simpleKML.model does not exist**
-
+<br /><br />
+**Error:**
+```
+package com.ekito.simpleKML.model does not exist**
+```
 **Solution:**
-
+```
 git clone https://github.com/Ekito/Simple-KML.git (to outside of the atak project)
 
 copy libs/simple-xml-2.6.3.jar to atat/ATAK/app/libscopy src/com/ekito folder to atak/ATAK/app/src/main/java/com
+```
 
-
-
-**Error: FAILURE: Build failed with an exception.**
+<br /><br />
+**Error:**
+```
+FAILURE: Build failed with an exception.**
 
 Execution failed for task ':ATAK:app:stripCivDebugDebugSymbols'.
 > No version of NDK matched the requested version 21.0.6113669. Versions available locally: 12.1.2977051, 21.1.6352462, 21.4.7075529
-
+```
 **Solution:**
-
+```
 Go to SDK Manager and install the requested NDK (21.0.6113669)
-
-
+```
+<br /><br />
 
 ######################################################################
 
