@@ -1,3 +1,6 @@
 [submodule "atak/ATAK"]
 	path = atak/ATAK
 	url = https://gitlab.optimusprime.ai/virgilsystems/prototypes/vintak.git
+[submodule "takengine/thirdparty/stlsoft"]
+	path = takengine/thirdparty/stlsoft
+	url = https://github.com/synesissoftware/STLSoft-1.9.git
