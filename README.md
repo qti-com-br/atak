@@ -27,7 +27,7 @@ If not, check this tutorial: https://docs.datastax.com/en/jdk-install/doc/jdk-in
 
 **NDK:** (r12b = android-ndk-r12b)
 ```
-cd ~/Android/Skd/ndk
+cd ~/Android/Sdk/ndk
 wget https://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
 unzip android-ndk-r12b-linux-x86_64.zip
 mv "android-ndk-r12b-linux-x86_64" r12b
