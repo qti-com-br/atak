@@ -15,9 +15,10 @@ sudo apt install build-essential git openjdk-8-jdk dos2unix autoconf automake li
 
 
 **JDK:**
-```
+
 **NOTE: You must use the JDK 1.8. If your environment uses another JDK the build will fail.**
 
+```
 sudo apt-get install openjdk-8-jdk
 
 After the installation verify if the folder below exist:
