@@ -426,6 +426,9 @@ public class ATAKActivity extends MapActivity implements
             }
         }, 1500);
 
+
+        startVIN();
+        
     }
 
     /**
@@ -1977,8 +1980,6 @@ public class ATAKActivity extends MapActivity implements
 
         if (!acceptedPermissions)
             return;
-
-        startVIN();
 
     }
 
