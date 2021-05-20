@@ -11,7 +11,9 @@ import com.atakmap.android.importexport.CotEventImporter;
 import com.atakmap.android.importfiles.resource.RemoteResource;
 import com.atakmap.android.maps.MapGroup;
 import com.atakmap.android.maps.MapView;
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.comms.CommsMapComponent.ImportResult;
+import com.atakmap.coremap.cot.event.CotDetail;
 import com.atakmap.coremap.cot.event.CotEvent;
 import com.atakmap.coremap.log.Log;
 
@@ -144,6 +146,40 @@ public class CotImporterManager extends AbstractCotEventImporter {
      */
     @Override
     public ImportResult importData(CotEvent event, Bundle extras) {
+
+        Log.d("##### VIN", "CotImporterManager.importData 5 | " + event.getUID());
+
+        String myUid = _mapView.getSelfMarker().getUID();
+
+        Log.d("##### VIN", "CotImporterManager.importData 6 | " +
+                extras.getString("from") + " | " + myUid);
+
+        extrasVIN = extras;
+
+        List<CotDetail> cotDetails = event.getDetail().getChildrenByName("shape");
+
+        // Cot
+        if(cotDetails.isEmpty()) {
+            Log.d("##### VIN", "CotImporterManager.importData Cot");
+            return processImportDataVIN(event, extras, false);
+            //ATAKActivity.VIN.put("cot", event.toString());
+        }
+        // Shape
+        else {
+            Log.d("##### VIN", "CotImporterManager.importData Shape");
+            ATAKActivity.VIN.put("shape", event.toString());
+        }
+
+        return ImportResult.SUCCESS;
+
+        //return processImportDataVIN(event);
+    }
+
+    private Bundle extrasVIN;
+
+    public ImportResult processImportDataVIN(CotEvent event, Bundle extrasCot, boolean fromVIN) {
+        Bundle extras = fromVIN ? extrasVIN : extrasCot;
+
         if (event == null)
             return ImportResult.FAILURE;
 

@@ -147,8 +147,10 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -161,6 +163,7 @@ public class ATAKActivity extends MapActivity implements
 
     public static String vinNodePort = "";
     public static String vinReceiptPort = "";
+    public static List<String> vinShapes = new ArrayList<>();
 
     @SuppressLint("StaticFieldLeak")
     public static Context mContext;
@@ -1979,11 +1982,13 @@ public class ATAKActivity extends MapActivity implements
 
     }
 
+    public static SharedPreferences vinSharedPref;
+
     public static void startVIN() {
         // -- Initialization of VIN ----------------------------------- //
 
         // Shared Preferences
-        SharedPreferences vinSharedPref = mContext
+        vinSharedPref = mContext
                 .getSharedPreferences("VIN_Shared_Pref", MODE_PRIVATE);
         String bootstrapIP = vinSharedPref.getString("bootstrap_ip", "");
 
@@ -2034,24 +2039,42 @@ public class ATAKActivity extends MapActivity implements
 
 
     public static void startGetVIN() {
+
+
+
         new Thread(new Runnable() {
             public void run() {
 
                 sleep(10000);
 
                 while (true) {
-//                    android.util.Log.d("### VIN","ChatManagerMapComponent: get 1 " + ATAKActivity.VINisRunning);
-
-//                    if(ATAKActivity.VINisRunning) {
-                        // VIN get last message
-//                        Log.d("### VIN", "ChatManagerMapComponent: get 2");
-                        ATAKActivity.VIN.get("chat");
-//                    }
-
+                    ATAKActivity.VIN.get("cot");
+                    sleep(800);
+                    ATAKActivity.VIN.get("shape");
+                    sleep(900);
+                    ATAKActivity.VIN.get("chat");
                     sleep(1000);
                 }
             }
         }).start();
+
+//        new Thread(new Runnable() {
+//            public void run() {
+//                while (true) {
+//                    ATAKActivity.VIN.get("shape");
+//                    sleep(900);
+//                }
+//            }
+//        }).start();
+
+//        new Thread(new Runnable() {
+//            public void run() {
+//                while (true) {
+//                    ATAKActivity.VIN.get("chat");
+//                    sleep(1000);
+//                }
+//            }
+//        }).start();
     }
 
 

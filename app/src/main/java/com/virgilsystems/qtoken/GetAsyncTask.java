@@ -1,10 +1,15 @@
 package com.virgilsystems.qtoken;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import com.atakmap.android.chat.ChatManagerMapComponent;
+import com.atakmap.android.cot.importer.CotImporterManager;
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
+import com.atakmap.coremap.cot.event.CotDetail;
+import com.atakmap.coremap.cot.event.CotEvent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,10 +18,16 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Arrays;
+import java.util.List;
+
+import static com.atakmap.app.ATAKActivity.vinSharedPref;
+import static android.content.Context.MODE_PRIVATE;
 
 public class GetAsyncTask extends AsyncTask<String, Integer, String> {
 
     ChatManagerMapComponent chat = new ChatManagerMapComponent();
+
+    SharedPreferences.Editor vinSharedPrefEditor = vinSharedPref.edit();
 
     @Override
     protected String doInBackground(String... params) {
@@ -33,29 +44,53 @@ public class GetAsyncTask extends AsyncTask<String, Integer, String> {
         super.onPostExecute(result);
         VINBridgeCPP.waiting = false;
 
-//        try {
-//            //result= URLDecoder.decode(result, "utf-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
+        // Cot or Shape
+        if(result.contains("<?xml")) {
+            CotImporterManager cotImporterManager = CotImporterManager.getInstance();
+            CotEvent cotEvent = CotEvent.parse(result);
 
-//        result = "Bundle[{receiveTime=1620901822693, conversationId=ANDROID-ed9cc914abd42c7e, " +
-//                "messageId=f65d9e77-5669-407c-9205-ae274af1520e, protocol=CoT, conversationName=PIGGY, " +
-//                "id=4, type=CHAT3, senderUid=ANDROID-ed9cc914abd42c7e, message=at VDO, senderCallsign=PIGGY}]";
+            List<CotDetail> cotDetails = cotEvent.getDetail().getChildrenByName("shape");
 
-        result = result.replace("Bundle[{", "");
-        result = result.replace("}]", "");
+            Log.d("### VIN", "GetAsyncTask: onPostExecute shape 1 | "+ cotDetails.toString());
 
-        Log.d("### VIN", "GetAsyncTask: onPostExecute 1 | " + result );
+            // Cot
+            if(cotDetails.isEmpty()) {
+                // Is Cot
+            }
+            // Shape
+            else {
+                Log.d("##### VIN", "GetAsyncTask: onPostExecute shape 2 | "+ cotEvent.getUID());
 
-        String[] parts = result.split(", "); // escape \\|
+                if(!ATAKActivity.vinShapes.contains(cotEvent.getUID())) {
+                    ATAKActivity.vinShapes.add(cotEvent.getUID());
+                    cotImporterManager.processImportDataVIN(cotEvent, new Bundle(), true);
+                }
+            }
 
-        if(parts.length < 10) {
-            Log.d("### VIN", "GetAsyncTask: onPostExecute 2 | Wrong array size");
-            return;
+
         }
+        // Chat
+        else {
+            result = result.replace("Bundle[{", "");
+            result = result.replace("}]", "");
 
-        Log.d("### VIN", "GetAsyncTask: onPostExecute 3 | " + Arrays.toString(parts));
+            //Log.d("### VIN", "GetAsyncTask: onPostExecute 1 | " + result );
+
+            String[] parts = result.split(", "); // escape \\|
+
+            if(parts.length < 10) {
+                Log.d("### VIN", "GetAsyncTask: onPostExecute Chat | Wrong array size");
+                return;
+            }
+
+            processChat(parts);
+        }
+    }
+
+
+    private void processChat(String[] parts) {
+
+        //Log.d("### VIN", "GetAsyncTask: onPostExecute 3 | " + Arrays.toString(parts));
 
         //  0   conversationId      String
         //  1   messageId           String
@@ -89,7 +124,7 @@ public class GetAsyncTask extends AsyncTask<String, Integer, String> {
         String messageId        = parts[1].split("=")[1];
         String destinationsStr  = parts[2].split("=")[1]
                 .replace("[","").replace("]","");
-        Log.d("### VIN", "GetAsyncTask: onPostExecute 3.1 | " + destinationsStr);
+        //Log.d("### VIN", "GetAsyncTask: onPostExecute 3.1 | " + destinationsStr);
         String[] destinations = {destinationsStr};
 //        try {
 //            JSONArray jsonArray = new JSONArray(destinationsStr);
@@ -161,16 +196,13 @@ public class GetAsyncTask extends AsyncTask<String, Integer, String> {
             bundle.putString("senderCallsign", senderCallsign);
         }
 
-        Log.d("### VIN", "GetAsyncTask: onPostExecute 4 | " + bundle);
+        //Log.d("### VIN", "GetAsyncTask: onPostExecute 4 | " + bundle);
 
-        Log.d("### VIN", "GetAsyncTask: onPostExecute 5 | " + VINBridgeCPP.lastChatMessageId + "|" + messageId);
+        //Log.d("### VIN", "GetAsyncTask: onPostExecute 5 | " + VINBridgeCPP.lastChatMessageId + "|" + messageId);
 
-        if(!VINBridgeCPP.lastChatMessageId.equals(messageId) && !VINBridgeCPP.lastChatMessageId.equals("") &&
-            !senderCallsign.equals(ChatManagerMapComponent.mysenderCallsign)) {
+        if(!senderCallsign.equals(ChatManagerMapComponent.mysenderCallsign)) {
 
             Log.d("### VIN", "GetAsyncTask: onPostExecute 6 | " + message);
-
-            VINBridgeCPP.lastChatMessageId = messageId;
 
             //Log.d("### VIN", "ChatAsyncTask: onPostExecute 4 | " + message);
 

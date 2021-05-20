@@ -69,6 +69,9 @@ public abstract class MapItemImporter extends CotEventTypeImporter {
 
     @Override
     public ImportResult importData(CotEvent event, Bundle extras) {
+        Log.d("### VIN", "MapItemImporter.importData 21 | " + event);
+        Log.d("### VIN", "MapItemImporter.importData 22 | " + extras);
+
         if (super.importData(event, extras) != ImportResult.SUCCESS)
             return ImportResult.IGNORE;
 
@@ -105,6 +108,10 @@ public abstract class MapItemImporter extends CotEventTypeImporter {
         b.setItem(item);
         if (extras != null)
             b.setExtras(new Bundle(extras));
+
+        Log.d("### VIN", "MapItemImporter.dispatchItemImported 1 | " + item);
+        Log.d("### VIN", "MapItemImporter.dispatchItemImported 2 | " + extras);
+
         _mapView.getMapEventDispatcher().dispatch(b.build());
     }
 

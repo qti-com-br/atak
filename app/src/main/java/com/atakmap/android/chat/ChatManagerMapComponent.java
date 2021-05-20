@@ -886,7 +886,7 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                         String message = msg.toString();
 
                         Log.d("### VIN", "ChatManagerMapComponent put | 46 | " + message);
-                        ATAKActivity.VIN.put(message);
+                        ATAKActivity.VIN.put("chat", message);
 
 
 
