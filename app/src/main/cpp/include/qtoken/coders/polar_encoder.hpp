@@ -3,6 +3,7 @@
 
 #include "coders/encoder.hpp"
 #include "coders/polar_fbg.hpp"
+#include "tools/chunker.hpp"
 
 namespace Qtoken {
 
@@ -14,7 +15,7 @@ public:
     // Encode an std::vector<int> with entries representing bits
     std::vector<int> encode(std::vector<int> bits);
     // Encode a char* representation of a byte stream
-    std::vector<char> encode(const std::vector<char>& bytes);
+    Bytelist encode(const Bytelist& bytes);
 
 private:
     const int N;       // Number of codeword bits
@@ -27,4 +28,4 @@ private:
 
 }  // namespace Qtoken
 
-#endif // POLAR_ENCODER_H
+#endif  // POLAR_ENCODER_H

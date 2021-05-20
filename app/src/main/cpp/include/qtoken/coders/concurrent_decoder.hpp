@@ -4,6 +4,7 @@
 #include <unordered_map>
 
 #include "coders/decoder.hpp"
+#include "tools/chunker.hpp"
 #include "tools/lfsr.hpp"
 
 namespace Qtoken {
@@ -23,7 +24,7 @@ public:
     ChunkOperator get_coder() override { return concurrent_decoder; };
     // It is expected that the input will pad to the nearest frame
     // and to a number of frames divisable by overlays
-    std::vector<char> decode(const std::vector<char>& bytes);
+    Bytelist decode(const Bytelist& bytes);
     Bitlist decode(Bitlist bits);
 
 private:
@@ -46,4 +47,4 @@ private:
 
 }  // namespace Qtoken
 
-#endif // CONCURRENT_DECODER_H
+#endif  // CONCURRENT_DECODER_H

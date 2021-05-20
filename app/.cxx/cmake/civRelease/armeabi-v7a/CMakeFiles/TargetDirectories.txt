@@ -1,3 +1,0 @@
-/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civRelease/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civRelease/armeabi-v7a/CMakeFiles/edit_cache.dir
-/home/carlos/atak-vin/atak/ATAK/app/.cxx/cmake/civRelease/armeabi-v7a/CMakeFiles/vin-bridge.dir

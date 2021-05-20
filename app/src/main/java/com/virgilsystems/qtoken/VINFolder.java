@@ -180,35 +180,35 @@ public class VINFolder extends AppCompatActivity {
 
             String sFileName = "defaults.cfg";
 
-            String cfgBody = "vin_version = \"0.1.0\";\n" +
-                    "default_bootstrap_address = \"0.0.0.0:8000\";\n" +
-                    "default_lvm_port = \"60001\"\n" +
-                    "chunk_size = \"50000\"\n" +
+            String cfgBody = "{\n" +
+                    "    \"version\" : \"0.1.0\",\n" +
+                    "    \"chunk_size\" : \"50000\",\n" +
+                    "    \"bootstrap_ip\" : \"0.0.0.0\",\n" +
+                    "    \"bootstrap_port\" : \"8000\",\n" +
+                    "    \"kademlia_port\" : \"8080\",\n" +
+                    "    \"receipt_port\" : \"9090\",\n" +
+                    "    \"http_port\" : \"9980\",\n" +
+                    "    \"lvm_port\" : \"60001\",\n" +
                     "\n" +
-                    "file_system:\n" +
-                    "{\n" +
-                    "    base_dir = \"" + rootFolder + "/VIN\";\n" +
-                    "    configs_dir = \"" + rootFolder + "/VIN\";\n" +
-                    "    receipts:\n" +
-                    "    {\n" +
-                    "        receipts_base_dir = \"" + rootFolder + "/VIN/receipts/\";\n" +
-                    "        receipts_received_dir = \"" + rootFolder + "/VIN/receipts/received/\";\n" +
-                    "        receipts_sent_dir = \"" + rootFolder + "/VIN/receipts/sent/\";\n" +
+                    "    \"files\" : {\n" +
+                    "        \"base\" : \"" + rootFolder + "/VIN/\",\n" +
+                    "        \"config\" : \"" + rootFolder + "/VIN/\",\n" +
+                    "        \"logs\" : \"" + rootFolder + "/VIN/logs/\",\n" +
+                    "        \"rebuilt\" : \"" + rootFolder + "/VIN/outputs/\",\n" +
                     "\n" +
+                    "        \"receipts\" : {\n" +
+                    "            \"base\" : \"" + rootFolder + "/VIN/receipts/\",\n" +
+                    "            \"received\" : \"" + rootFolder + "/VIN/receipts/received/\",\n" +
+                    "            \"sent\" : \"" + rootFolder + "/VIN/receipts/sent/\"\n" +
+                    "        },\n" +
+                    "\n" +
+                    "        \"keys\" : {\n" +
+                    "            \"base\" : \"" + rootFolder + "/VIN/keys/\",\n" +
+                    "            \"pub\" : \"" + rootFolder + "/VIN/keys/self.pub\",\n" +
+                    "            \"priv\" : \"" + rootFolder + "/VIN/keys/self.priv\"\n" +
+                    "        }\n" +
                     "    }\n" +
-                    "    keys:\n" +
-                    "    {\n" +
-                    "        keys_dir = \"" + rootFolder + "/VIN/keys/\";\n" +
-                    "        public_key_name = \"" + rootFolder + "/VIN/keys/self.pub\";\n" +
-                    "        private_key_name = \"" + rootFolder + "/VIN/keys/self.priv\";\n" +
-                    "    }\n" +
-                    "    general:\n" +
-                    "    {\n" +
-                    "        output_dir = \"" + rootFolder + "/VIN/outputs/\";\n" +
-                    "        logs_dir = \"" + rootFolder + "/VIN/logs/\"\n" +
-                    "        rebuilt_fd = \"" + rootFolder + "/VIN/outputs/rebuilt\";\n" +
-                    "    }\n" +
-                    "};";
+                    "}\n";
 
             File cfg = new File(rootFolder + "/VIN", sFileName);
 

@@ -12,12 +12,14 @@
 #include <sstream>
 #include <vector>
 
+#include "../crypto/EVP/digest.hpp"
+#include "byte_vector.hpp"
+#include "globals/logger.hpp"
+
 #include "types.hpp"
 
 using namespace Qtoken;
 
-// TODO: Both input and output of this function should be
-// templated
 /**
  * Convert char* bytes to templated Container
  * Container must implement push_back()
@@ -26,7 +28,7 @@ using namespace Qtoken;
  * @return bit vector
  */
 template <class Container>
-inline Container bytes_to_bits(std::vector<char> bytes) {
+inline Container bytes_to_bits(Bytelist bytes) {
     Container bits;
     for (int i = 0; i < bytes.size(); i++) {
         char c = bytes[i];
@@ -37,8 +39,6 @@ inline Container bytes_to_bits(std::vector<char> bytes) {
     return bits;
 }
 
-// TODO: Both input and output of this function should be
-// templated
 /**
  * Convert templated container bits to char* bytes
  * Container must implement size()
@@ -46,9 +46,9 @@ inline Container bytes_to_bits(std::vector<char> bytes) {
  * @return byte stream is allocated on the return char*
  */
 template <class Container>
-inline std::vector<char> bits_to_bytes(Container bits) {
+inline Bytelist bits_to_bytes(Container bits) {
     int num_bytes = bits.size() / 8;
-    std::vector<char> bytes;
+    Bytelist bytes;
     for (int i = 0; i < num_bytes; i++) {
         char c = 0x00;  // Zeroed out char
         for (int j = CHAR_BIT - 1; j >= 0; j--) {
@@ -59,57 +59,31 @@ inline std::vector<char> bits_to_bytes(Container bits) {
     return bytes;
 }
 
+/**
+ * Computes sha256 hash of input string.
+ * @param str input string to hash.
+ * @return sha256 hash of str.
+ */
 inline std::string sha256(const std::string& str) {
-    unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256_CTX sha256;
-    SHA256_Init(&sha256);
-    SHA256_Update(&sha256, str.c_str(), str.size());
-    SHA256_Final(hash, &sha256);
-    std::stringstream ss;
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
-        ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
-    }
-    return ss.str();
-}
-
-// inline Keypair create_keys() {
-    // std::vector<unsigned char> public_key(crypto_box_PUBLICKEYBYTES);
-    // std::vector<unsigned char> private_key(crypto_box_SECRETKEYBYTES);
-
-    // int keygen = crypto_box_keypair(public_key.data(), private_key.data());
-    // if (keygen == 0) {
-        // std::cout << "Crypto Key-Pair Successfully Generated!" << std::endl;
-        // std::cout << "Node's Public Key:" << std::endl;
-
-    // } else {
-        // throw("ERROR: Crypto Key-Pair Generation Failed!");
-    // }
-    // return Keypair(public_key, private_key);
-// }
-
-// overload std::begin and std::end for char*
-inline char* begin(char* s) {
-    return s;
-}
-inline char* end(char* s) {
-    return s + strlen(s);
+    byte_vector bv;
+    bv.FromString(str);
+    Crypto::EVP::Digest dgst(Crypto::EVP::DigestType::SHA256);
+    return dgst.Hash(bv).ToHexString();
 }
 
 /**
  * Variable length XOR for two char arrays.
- *
- * @param a first operand
- * @param b second param
- *
- * @return output char* (this contains heap memory!!)
+ * @param a first operand.
+ * @param b second operand.
+ * @return result of a xor b.
  */
-inline std::vector<char> XOR_bytes(std::vector<char> a, std::vector<char> b) {
+inline Bytelist XOR_bytes(Bytelist a, Bytelist b) {
     int a_size = a.size();
     int b_size = b.size();
 
-    std::vector<char> greater = (a_size >= b_size) ? a : b;
-    std::vector<char> lesser = (a_size < b_size) ? a : b;
-    std::vector<char> out;
+    Bytelist greater = (a_size >= b_size) ? a : b;
+    Bytelist lesser = (a_size < b_size) ? a : b;
+    Bytelist out;
 
     for (int i = lesser.size(); i < greater.size(); i++) lesser.push_back(0);
     for (int i = 0; i < greater.size(); i++) {
@@ -150,10 +124,14 @@ inline uint32_t get_rand_seed_uint32_t() {
         .count();
 }
 
+/**
+ * Returns true is s is a number.
+ * @return true if s is a number.
+ */
 inline bool is_number(const std::string& s) {
     return !s.empty() && std::find_if(s.begin(), s.end(), [](unsigned char c) {
                              return !std::isdigit(c);
                          }) == s.end();
 }
 
-#endif // UTILS_H
+#endif  // UTILS_H

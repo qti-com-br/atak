@@ -2,6 +2,7 @@
 #define ENTANGLEMENT_DECODER_H
 
 #include "coders/decoder.hpp"
+#include "tools/chunker.hpp"
 
 namespace Qtoken {
 

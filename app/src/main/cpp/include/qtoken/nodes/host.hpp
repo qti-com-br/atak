@@ -11,7 +11,7 @@
 #include <kademlia/first_session.hpp>
 #include <kademlia/session.hpp>
 
-#include "Poco/Util/ServerApplication.h"
+#include <Poco/Util/ServerApplication.h>
 
 #include "globals/globals.hpp"
 #include "globals/logger.hpp"
@@ -33,7 +33,7 @@ namespace Qtoken {
  * database. Different types of VIN nodes will inherit from this class.
  *
  */
-class Host : public P_U::ServerApplication {
+class Host {
 protected:
     std::string boot_address;
     std::string boot_port;

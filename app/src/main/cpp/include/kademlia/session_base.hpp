@@ -35,7 +35,7 @@
 #include <system_error>
 #include <functional>
 
-#include "detail/cxx11_macros.hpp"
+#include <kademlia/detail/cxx11_macros.hpp>
 
 namespace kademlia {
 

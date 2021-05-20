@@ -33,10 +33,10 @@
 #include <memory>
 #include <system_error>
 
-#include "detail/symbol_visibility.hpp"
-#include "detail/cxx11_macros.hpp"
-#include "endpoint.hpp"
-#include "session_base.hpp"
+#include <kademlia/detail/symbol_visibility.hpp>
+#include <kademlia/detail/cxx11_macros.hpp>
+#include <kademlia/endpoint.hpp>
+#include <kademlia/session_base.hpp>
 
 namespace kademlia {
 

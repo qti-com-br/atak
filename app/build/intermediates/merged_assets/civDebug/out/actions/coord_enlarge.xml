@@ -1,5 +1,0 @@
-<set>
-    <broadcast>
-        <action>com.atakmap.android.maps.COORD_ENLARGE</action>
-    </broadcast>
-</set>

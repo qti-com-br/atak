@@ -35,8 +35,8 @@
 #include <iosfwd>
 #include <sstream>
 
-#include "detail/symbol_visibility.hpp"
-#include "detail/cxx11_macros.hpp"
+#include <kademlia/detail/symbol_visibility.hpp>
+#include <kademlia/detail/cxx11_macros.hpp>
 
 namespace kademlia {
 
@@ -160,7 +160,14 @@ operator!=
     , endpoint const& b )
 { return ! ( a == b ); }
 
+struct kad_peer final
+{
+    std::string peer_id;
+    endpoint peer_endpoint;
+
+    kad_peer(std::string id, endpoint e) : peer_id(id), peer_endpoint(e) {}
+};
+
 } // namespace kademlia
 
 #endif
-

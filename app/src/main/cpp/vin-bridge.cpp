@@ -35,6 +35,7 @@ using namespace std;
 std::string booststrap_ip_str;
 std::string node_port_str;
 std::string receipt_port_str;
+std::string http_port_str;
 std::string root_folder_str;
 
 Node *node;
@@ -67,6 +68,9 @@ extern "C" {
         const char *root_folder_chars = env->GetStringUTFChars(root_folder, NULL);
         root_folder_str = root_folder_chars;
 
+        // http port is unused in android
+        http_port_str = "0";
+
         string addr = booststrap_ip_str + ":8000";
 
         try {
@@ -77,16 +81,10 @@ extern "C" {
 
             struct stat st = {0};
             log_message("###QTOKEN | readFile");
-            cfg->readFile(cfg_file.data());
-
-            const libconfig::Setting &settings = cfg->getRoot();
-            const libconfig::Setting &keys = settings["file_system"]["keys"];
-
-            std::string key_path;
-            keys.lookupValue("keys_dir", key_path);
+            Config::init_config(cfg_file);
 
             log_message("###QTOKEN | new Node");
-            node = new Node(node_port_str, receipt_port_str, addr, true, *cfg);
+            node = new Node(node_port_str, receipt_port_str, http_port_str, addr, true);
 
             log_message("###QTOKEN | run");
             return node->run(); // 0 = EXIT_SUCCESS , <>0 = EXIT_FAILURE
@@ -112,15 +110,9 @@ extern "C" {
             std::string k = key_chars;
             std::string v = message_chars;
 
-            std::vector<char> vec(v.begin(), v.end());
+            std::vector<unsigned char> vec(v.begin(), v.end());
             log_message("###QTOKEN | doPut");
             node->doPut(k, vec);
-
-        } catch (const libconfig::FileIOException &fioex) {
-            log_message("###QTOKEN 4 | FileIOException");
-
-        } catch (const libconfig::ParseException &pex) {
-            log_message("###QTOKEN 5 | ParseException");
 
         } catch (...) {
             log_message("###QTOKEN 6 | ...");
@@ -140,7 +132,7 @@ extern "C" {
             const char *key_chars = env->GetStringUTFChars(key, NULL);
             std::string key_str = key_chars;
             log_message("###QTOKEN | get before");
-            vector<char> msg_vector = node->doGet(key_str);
+            vector<unsigned char> msg_vector = node->doGet(key_str);
             log_message("###QTOKEN | get after");
 
 //            char* msg_char_array = &msg_vector[0];
@@ -154,14 +146,6 @@ extern "C" {
             jstring object = (jstring) env->NewObject(cls, ctor, array, strEncode);
             return object;
 
-//            return env->NewStringUTF(msg_vector.data());
-
-        } catch (const libconfig::FileIOException &fioex) {
-            log_message("###QTOKEN 4 | FileIOException");
-
-        } catch (const libconfig::ParseException &pex) {
-            log_message("###QTOKEN 5 | ParseException");
-
         } catch (...) {
             log_message("###QTOKEN 6 | ...");
         }
@@ -174,14 +158,14 @@ extern "C" {
      * @param clazz Class that call this function
      * @param file_path Path with the filename to be sent
      */
-    JNIEXPORT void JNICALL // spread and gather
+    JNIEXPORT void JNICALL // share
     Java_com_virgilsystems_qtoken_QToken_share(JNIEnv *env, jclass clazz, jstring file_path) {
 
         const char *file_path_chars = env->GetStringUTFChars(file_path, NULL);
         std::string file_path_str;
         file_path_str.append(file_path_chars);
 
-        node->doShare(file_path_str, booststrap_ip_str, "9091");
+        node->doShare(file_path_str, "10.88.111.5", "9090");
     }
 
     /**

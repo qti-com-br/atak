@@ -1,39 +1,40 @@
 #ifndef RECEIPT_SESSION_H
 #define RECEIPT_SESSION_H
 
-
 #include <iostream>
 #include <iterator>
 #include <sstream>
 
-#include "Poco/Net/StreamSocket.h"
-#include "Poco/Logger.h"
+#include <Poco/Logger.h>
+#include <Poco/Net/StreamSocket.h>
 
+#include "globals/logger.hpp"
+#include "globals/strings.hpp"
 #include "receipt/crypto_receipt.hpp"
 #include "tools/types.hpp"
-
-namespace P = Poco;
-namespace P_N = P::Net;
 
 namespace Qtoken {
 
 /**
- * ReceiptSession establishes a TCP session with one or more other peers. It
- * queries the peers for their public keys and sends and encrypted receipt blob.
+ * ReceiptSession establishes a TCP session with a peer and exposes functinality
+ * for sending one or more receipts alone or in a stream.
  */
 class ReceiptSession {
 public:
-    ReceiptSession() {}
-    explicit ReceiptSession(CryptoReceipt receipt);
-    void send_receipt(std::vector<Addr> addresses);
+    explicit ReceiptSession(Addr addr);
+    ReceiptSession(ReceiptSession&) = delete;
+    ~ReceiptSession();
+
+    void start_session();
+    void send_receipts(std::vector<CryptoReceipt> crs);
+    void send_receipt(CryptoReceipt cr);
 
 private:
-    std::vector<unsigned char> encrypt_receipt(
-        const std::vector<unsigned char>& pubkey_bin);
-
-    std::vector<unsigned char> receipt_bytes;
+    Addr addr;
+    Poco::Net::StreamSocket ss;
+    Bytelist session_token;
 };
 
 }  // namespace Qtoken
 
-#endif // RECEIPT_SESSION_H
+#endif  // RECEIPT_SESSION_H

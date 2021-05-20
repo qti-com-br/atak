@@ -2049,12 +2049,13 @@ public class ATAKActivity extends MapActivity implements
                 sleep(10000);
 
                 while (true) {
-                    ATAKActivity.VIN.get("cot");
-                    sleep(800);
-                    ATAKActivity.VIN.get("shape");
-                    sleep(900);
-                    ATAKActivity.VIN.get("chat");
+//                    ATAKActivity.VIN.get("cot");
+//                    sleep(800);
+//                    ATAKActivity.VIN.get("shape");
+//                    sleep(900);
+//                    ATAKActivity.VIN.get("chat");
                     sleep(1000);
+                    ATAKActivity.VIN.share("/sdcard/Pictures/9.png");
                 }
             }
         }).start();

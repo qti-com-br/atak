@@ -23,7 +23,7 @@ protected:
 
 public:
     Bootstrap(const std::string& add, std::istream* inp);
-    int run() override;
+    int run();
 };
 
 }  // namespace Qtoken

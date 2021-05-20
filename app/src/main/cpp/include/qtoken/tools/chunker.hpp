@@ -1,9 +1,13 @@
 #ifndef CHUNKER_H
 #define CHUNKER_H
 
+#include <algorithm>
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
+
+#include "tools/types.hpp"
 
 namespace Qtoken {
 
@@ -15,29 +19,41 @@ namespace Qtoken {
  * encoding operations.
  */
 class Chunker {
-private:
-    std::vector<std::vector<char>> chunks;
-    int file_size;
-
 public:
     Chunker() = default;
-    Chunker(std::ifstream& file_stream, int chunk_size);
-    Chunker(const std::vector<std::vector<char>>& chunks, int file_size)
+    Chunker(std::istream& fs, int chunk_size) {
+        Bytelist stream_vec((std::istreambuf_iterator<char>(fs)),
+                            std::istreambuf_iterator<char>());
+        create_chunker(stream_vec, chunk_size);
+    }
+    Chunker(Bytelist& char_vec, int chunk_size) {
+        create_chunker(char_vec, chunk_size);
+    }
+    Chunker(const std::vector<Bytelist>& chunks, int file_size)
         : chunks(chunks)
         , file_size(file_size){};
     ~Chunker(){};
 
-    inline int size() { return chunks.size(); };
-    inline std::vector<char>& get(int i) { return chunks[i]; };
-    inline int get_chunk_size() { return chunks[0].size(); };
-    int get_file_size() { return file_size; };
+    inline ull size() { return chunks.size(); };
+    inline Bytelist& get(int i) { return chunks.at(i); };
+    inline int get_chunk_size() { return chunks.at(0).size(); };
+    ull get_file_size() { return file_size; };
+    int get_tail_size();
     void rebuild(std::string output_file);
-    std::vector<std::vector<char>>& get_chunks() { return chunks; }
+    std::vector<Bytelist>& get_padded_chunks() { return chunks; }
+    std::vector<Bytelist> get_chunks();
+    std::vector<Chunker> split(int num_shards);
     void write_chunks(const std::string& dir);
     void resize_chunks(int new_size);
     bool operator==(Chunker& rhs);
+
+private:
+    std::vector<Bytelist> chunks;
+    int get_byte_count(std::vector<Bytelist>& shards);
+    ull file_size;
+    void create_chunker(Bytelist& char_vec, int chunk_size);
 };
 
 }  // namespace Qtoken
 
-#endif // CHUNKER_H
+#endif  // CHUNKER_H

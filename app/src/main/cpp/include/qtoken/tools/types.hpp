@@ -2,15 +2,19 @@
 #define TYPES_H
 
 #include <functional>
-
-#include "chunker.hpp"
+#include <string>
+#include <vector>
 
 namespace Qtoken {
 
+using ull = unsigned long long;
+
+class Chunker;
+class CryptoReceipt;
 // NOTE: std::vector<bool> is not a container and does not support
 // every vector operation in the ways we might expect
 using Bitlist = std::vector<bool>;
-class CryptoReceipt;
+using Bytelist = std::vector<unsigned char>;
 using Writer = std::pair<Chunker*, CryptoReceipt*>;
 using ChunkOperator = std::function<void(Writer&)>;
 
@@ -24,20 +28,6 @@ using Byte_8 = int8_t;
 using Byte = Byte_8;
 using UByte_8 = uint8_t;
 using UByte = UByte_8;
-
-// struct Keypair {
-//     std::vector<unsigned char> public_key;
-//     std::vector<unsigned char> private_key;
-
-//     Keypair(std::vector<unsigned char> public_key,
-//             std::vector<unsigned char> private_key) {
-//         if (public_key.size() != crypto_box_PUBLICKEYBYTES &&
-//             private_key.size() != crypto_box_SECRETKEYBYTES)
-//             throw("invalid length for keypair");
-//         this->public_key = public_key;
-//         this->private_key = private_key;
-//     }
-// };
 
 struct Addr {
     IP ip;

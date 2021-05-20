@@ -1,6 +1,17 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/un.h>
+#include <unistd.h>
+#include <future>
+#include <iterator>
+#include <kademlia/first_session.hpp>
+#include <kademlia/session.hpp>
+
 #include "Poco/Event.h"
 #include "Poco/Net/ParallelSocketAcceptor.h"
 #include "Poco/Net/ServerSocket.h"
@@ -9,7 +20,6 @@
 #include "Poco/Util/HelpFormatter.h"
 #include "Poco/Util/Option.h"
 #include "Poco/Util/OptionSet.h"
-#include "Poco/Util/ServerApplication.h"
 
 #include "coders/concurrent_decoder.hpp"
 #include "coders/concurrent_encoder.hpp"
@@ -17,73 +27,99 @@
 #include "coders/encoder.hpp"
 #include "coders/entanglement_decoder.hpp"
 #include "coders/entanglement_encoder.hpp"
-#include "coders/pipeline.cpp"
 #include "coders/pipeline.hpp"
 #include "coders/polar_decoder.hpp"
 #include "coders/polar_encoder.hpp"
-#include "nodes/host.hpp"
-#include "receipt/connection_handler.hpp"
+#include "globals/config.hpp"
+#include "globals/globals.hpp"
+#include "globals/logger.hpp"
+#include "globals/strings.hpp"
 #include "receipt/crypto_receipt.hpp"
+#include "receipt/receipt_service.hpp"
 #include "receipt/receipt_session.hpp"
-
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
-
-namespace P = Poco;
-namespace P_N = P::Net;
-namespace P_U = P::Util;
+#include "receipt/share_connection_handler.hpp"
+#include "server/handlers/form_request_handler_factory.hpp"
+#include "server/http_form_server.hpp"
+#include "server/http_server_thread.hpp"
+#include "tools/chunker.hpp"
+#include "tools/types.hpp"
 
 namespace Qtoken {
 
-class ReceiptServer;
-class ReceiptConnectionHandler;
+class ShareConnectionHandler;
 
-class Node : public Host {
+class Node {
+public:
+    Node(const std::string& node_port, const std::string& node_receipt_port,
+         const std::string& node_server_port, const std::string& bootstrap_addr,
+         bool is_lib);
+    ~Node() {}
+
+    int run();
+
+    // DHT Functionality
+    std::vector<kademlia::kad_peer> getPeers();
+    void doPut(const std::string& key, const std::vector<unsigned char>& value);
+    std::vector<unsigned char> doGet(const std::string& key);
+    CryptoReceipt doSpread(const std::string& file_path);
+    CryptoReceipt doSpread(std::istream& file_istream);
+    void doSpread(Writer& w);
+    Chunker doGather(const std::vector<unsigned char>& receipt_bytes);
+    Chunker doGather(const std::string& receipt_file_path);
+    Chunker doGather(const CryptoReceipt& cr);
+
+    // Receipt passing
+    std::vector<CryptoReceipt> doShare(std::istream& file_istream,
+                                       const std::string& peer_ip,
+                                       const std::string& peer_port);
+    std::vector<CryptoReceipt> doShare(std::istream& file_istream,
+                                       const std::string& peer_ip,
+                                       const std::string& peer_port,
+                                       bool continue_stream);
+    std::vector<CryptoReceipt> doShare(const std::string& file_path,
+                                       const std::string& peer_ip,
+                                       const std::string& peer_port);
+    std::vector<CryptoReceipt> doShare(Writer w, const std::string& peer_ip,
+                                       const std::string& peer_port);
+    std::vector<CryptoReceipt> doShare(Writer w, const std::string& peer_ip,
+                                       const std::string& peer_port,
+                                       bool continue_stream);
+
+    // Streaming
+    inline bool is_active_stream_session() {
+        // return active_streams.find(session_token) != active_streams.end();
+        return active_stream != "";
+    }
+
+    void add_stream_session(std::string session_token);
+    void update_stream_session(CryptoReceipt cr);
+    // void update_stream_session(std::string session_token, CryptoReceipt cr);
+    void end_stream_session();
+
+    std::string get_current_stream() { return active_stream; }
+
 private:
+    std::string boot_address;
+    std::string boot_port;
+    std::istream* input;
+    int chunk_size;
+
     bool is_lib;
-    std::shared_ptr<kademlia::session> node;
+
     int node_port;
     int node_receipt_port;
-    libconfig::Config& cfg;
-    P_N::SocketReactor reactor;
-    P_N::ServerSocket svs;
-    P_N::ParallelSocketAcceptor<ReceiptConnectionHandler, SocketReactor>
+    int node_server_port;
+    Poco::Net::SocketReactor reactor;
+    Poco::Net::ServerSocket svs;
+    Poco::Net::ParallelSocketAcceptor<ShareConnectionHandler, SocketReactor>
         acceptor;
-    P::Thread receipt_thread;
+    Poco::Thread receipt_thread;
+    std::shared_ptr<kademlia::session> node;
 
-public:
-    // Command parsing
-    void processInput() override;
-    void printCommands() override;
-    int handleCommands(std::stringstream& input);
-
-    // Network functions
-    std::vector<char> doGet(const std::string& key);
-    void doPut(const std::string& key, const std::vector<char>& value);
-    CryptoReceipt doSpread(const std::string& file_path);
-    CryptoReceipt doShare(const std::string& file_path,
-                          const std::string& peer_ip,
-                          const std::string& peer_port);
-
-    void rebuild(std::vector<std::string> keys, std::string output_file);
-    void runReceiptEndpoint();
-    void encryptReceipt(std::ifstream& receipt_path, unsigned char* public_key,
-                        unsigned char* ciphertext);
-    const std::string decryptReceipt(std::ifstream& enc_receipt,
-                                     unsigned char* public_key,
-                                     unsigned char* private_key);
-
-public:
-    // overload Host constructor
-    Node(const std::string& node_port, const std::string& node_receipt_port,
-         const std::string& bootstrap_addr, bool is_lib,
-         libconfig::Config& cfg);
-    ~Node() {}
-    Chunker doGather(const std::string& receipt_file_path);
-    Chunker doGather(CryptoReceipt cr);
-    // Override run
-    int run() override;
+    // std::unordered_map<Bytelist, std::unique_ptr<ReceiptService>>
+    std::string active_stream;
+    std::unique_ptr<ReceiptService> active_rs;
+    std::unique_ptr<ReceiptSession> active_stream_client;
 };
 
 }  // namespace Qtoken

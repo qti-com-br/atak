@@ -4,6 +4,7 @@
 #include <unordered_map>
 
 #include "coders/encoder.hpp"
+#include "tools/chunker.hpp"
 #include "tools/lfsr.hpp"
 
 namespace Qtoken {
@@ -21,7 +22,7 @@ public:
     ChunkOperator get_coder() override { return concurrent_encoder; };
     // It is expected that the info bits will be padded to the nearest frame
     // and to a number of frames divisable by overlays
-    std::vector<char> encode(const std::vector<char>& bytes);
+    Bytelist encode(const Bytelist& bytes);
     Bitlist encode(Bitlist bits);
 
 private:
@@ -45,4 +46,4 @@ private:
 
 }  // namespace Qtoken
 
-#endif // CONCURRENT_ENCODER_H
+#endif  // CONCURRENT_ENCODER_H

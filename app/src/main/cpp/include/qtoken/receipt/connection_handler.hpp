@@ -16,6 +16,7 @@
 #include "Poco/Util/ServerApplication.h"
 
 #include "globals/globals.hpp"
+#include "globals/config.hpp"
 #include "globals/logger.hpp"
 #include "nodes/node.hpp"
 
@@ -43,11 +44,10 @@ public:
     void onShutdown(const P::AutoPtr<P_N::ShutdownNotification>& pNf);
 
 private:
-    std::vector<unsigned char> decrypt_receipt(
-        std::vector<unsigned char> enc_receipt);
+    Bytelist decrypt_receipt(Bytelist enc_receipt);
 
     // read 1 byte for request message
-    enum { MSG_BUFFER_SIZE = 35000 };
+    enum { MSG_BUFFER_SIZE = USHRT_MAX };
     int i;
     Node* node;
     P_N::StreamSocket _socket;

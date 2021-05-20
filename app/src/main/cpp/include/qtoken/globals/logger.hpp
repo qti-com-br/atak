@@ -4,18 +4,22 @@
 #include <fstream>
 #include <iostream>
 
-#include "Poco/AutoPtr.h"
-#include "Poco/FormattingChannel.h"
-#include "Poco/Logger.h"
-#include "Poco/PatternFormatter.h"
-#include "Poco/SimpleFileChannel.h"
+#include <Poco/AutoPtr.h>
+#include <Poco/FormattingChannel.h>
+#include <Poco/Logger.h>
+#include <Poco/PatternFormatter.h>
+#include <Poco/SimpleFileChannel.h>
 
+#ifdef __ANDROID__
 #include <android/log.h>
+#endif
+
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "globals.hpp"
+#include "globals/config.hpp"
+#include "globals/globals.hpp"
 
 using Poco::AutoPtr;
 using Poco::FormattingChannel;
@@ -25,15 +29,19 @@ using Poco::SimpleFileChannel;
 
 namespace Qtoken {
 
+/**
+ * Initializes global logger.
+ * @param log_fd Log file path
+ * @param logger_name Unique logger identifier.
+ * @param log_level Logger type (debug vs info).
+ * @param pattern Format pattern for logged messages.
+ * https://pocoproject.org/docs/Poco.PatternFormatter.html.
+ */
 static inline void init_logger(
     const std::string& log_fd, const std::string& logger_name,
     int log_level = Poco::Message::PRIO_INFORMATION,
     const std::string& pattern = "%Y-%m-%d %H:%M:%S %s [%p]: %t") {
-    std::string logs_dir;
-    const libconfig::Setting& settings = cfg->getRoot();
-    const libconfig::Setting& gen_cfgs = settings["file_system"]["general"];
-
-    gen_cfgs.lookupValue("logs_dir", logs_dir);
+    std::string logs_dir = Config::get("files.logs");
     std::string full_log_fd = logs_dir + log_fd;
 
     // using C code here as std::filesystem breaks android cross-compile
