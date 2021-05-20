@@ -7,9 +7,10 @@ public class PutAsyncTask extends AsyncTask<String, Integer, String> {
     @Override
     protected String doInBackground(String... params) {
         VINBridgeCPP.waiting = true;
-        String message = params[0];
+        String key = params[0];
+        String message = params[1];
         //Log.d("### VIN","ChatAsyncTask: GetAsyncTask");
-        QToken.put(message);
+        QToken.put(key, message);
         return "";
     }
 

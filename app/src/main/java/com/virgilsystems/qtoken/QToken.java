@@ -21,7 +21,7 @@ public class QToken {
     public static native int run(String bootstrapIp, String nodePort,
                                   String receiptPort, String rootFolder);
 
-    public static native void put(String message);
+    public static native void put(String key, String message);
 
     public static native String get(String key);
 

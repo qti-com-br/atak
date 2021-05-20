@@ -103,14 +103,15 @@ extern "C" {
      * @param clazz Class that call this function
      */
     JNIEXPORT void JNICALL
-    Java_com_virgilsystems_qtoken_QToken_put(JNIEnv *env, jclass clazz, jstring message) {
+    Java_com_virgilsystems_qtoken_QToken_put(JNIEnv *env, jclass clazz,
+                                             jstring key, jstring message) {
         try {
-
+            const char *key_chars = env->GetStringUTFChars(key, NULL);
             const char *message_chars = env->GetStringUTFChars(message, NULL);
 
-            std::string k = "chat";
-            std::string v = "";
-            v.append(message_chars);
+            std::string k = key_chars;
+            std::string v = message_chars;
+
             std::vector<char> vec(v.begin(), v.end());
             log_message("###QTOKEN | doPut");
             node->doPut(k, vec);

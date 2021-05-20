@@ -24,8 +24,6 @@ import static android.os.Process.THREAD_PRIORITY_MORE_FAVORABLE;
 
 public class VINBridgeCPP {
 
-    public static String lastChatMessageId = "";
-
     public static boolean waiting = false;
 
 
@@ -42,9 +40,9 @@ public class VINBridgeCPP {
 //            new RunAsyncTask().execute(bootstrapIp, nodePort, receiptPort, rootFolder);
     }
 
-    public void put(String message) {
+    public void put(String key, String message) {
         Thread put = new Thread( new Runnable() { @Override public void run() {
-            QToken.put(message);
+            QToken.put(key, message);
         } } );
         put.setPriority(Thread.MAX_PRIORITY);
         put.start();
@@ -55,7 +53,7 @@ public class VINBridgeCPP {
 //        Log.d("### VIN","VINBridgeCPP: get");
 //        Thread get = new Thread( new Runnable() { @Override public void run() {
             if(!waiting)
-                new GetAsyncTask().execute("chat");
+                new GetAsyncTask().execute(key);
 //        } } );
 //        get.setPriority(Thread.MAX_PRIORITY);
 //        get.start();
