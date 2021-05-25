@@ -18,6 +18,7 @@
 #include <Cond.h>
 #include <Lock.h>
 #include <memory>
+#include <vector>
 
 #include <deque>
 
@@ -793,7 +794,15 @@ CommoResult Commo::removeStreamingInterface(StreamingNetInterface *iface)
     return rc;
 }
 
+std::string Commo::getActiveEndpointHost(const ContactUID& c)
+{
+    return impl->contactMgmt->getActiveEndpointHost(&c);
+}
 
+std::map<std::string, std::string> Commo::getContactListIP()
+{
+    return impl->contactMgmt->getAllContactsIP();
+}
 
 const ContactList *Commo::getContactList()
 {

@@ -1,5 +1,0 @@
-/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/armeabi-v7a/CMakeFiles/edit_cache.dir
-/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/armeabi-v7a/mapengine/CMakeFiles/rebuild_cache.dir
-/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/armeabi-v7a/mapengine/CMakeFiles/edit_cache.dir
-/home/carlos/atak-vin/takengine/mapengine/android/.cxx/cmake/civSdk/armeabi-v7a/mapengine/CMakeFiles/takengine.dir

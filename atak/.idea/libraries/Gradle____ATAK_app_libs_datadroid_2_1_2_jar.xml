@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: ./ATAK/app/libs/datadroid-2.1.2.jar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ATAK/app/libs/datadroid-2.1.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

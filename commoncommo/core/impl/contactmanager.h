@@ -270,6 +270,10 @@ public:
     void addContactPresenceListener(ContactPresenceListener *listener) COMMO_THROW (std::invalid_argument);
     void removeContactPresenceListener(ContactPresenceListener *listener) COMMO_THROW (std::invalid_argument);
 
+    // Virgil Additions ----------------
+    std::map<std::string, std::string> getAllContactsIP();
+    // ---------------------------------
+
     const ContactList *getAllContacts();
     static void freeContactList(const ContactList *list);
 

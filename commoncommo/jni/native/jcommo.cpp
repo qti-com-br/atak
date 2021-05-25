@@ -11,6 +11,8 @@
 #include <string.h>
 #include <stdint.h>
 
+#include <vector>
+
 using namespace atakmap::jni::commoncommo;
 
 
@@ -3206,6 +3208,69 @@ Java_com_atakmap_commoncommo_Commo_startMPSendNative
     return (c->commo->sendMissionPackageStart(id) == COMMO_SUCCESS);
 }
 
+JNIEXPORT jstring JNICALL
+Java_com_atakmap_commoncommo_Commo_getActiveEndpointHost
+    (JNIEnv *env, jclass selfCls, jlong nativePtr, jstring jcontact)
+{
+    jstring strEncode = env->NewStringUTF("UTF-8");
+    jclass cls = env->FindClass("java/lang/String");
+    jmethodID ctor = env->GetMethodID(cls, "<init>", "([BLjava/lang/String;)V");
+
+    const char *contactString = env->GetStringUTFChars(jcontact, NULL);
+    if (!contactString) {
+        std::vector<unsigned char> empty(0);
+        jbyteArray array = env->NewByteArray(0);
+        env->SetByteArrayRegion(array, 0, 0, (const jbyte *)empty.data());
+        jstring object = (jstring)env->NewObject(cls, ctor, array, strEncode);
+        return object;
+    }
+
+    auto contact = new ContactUID(
+        (uint8_t *)contactString, strlen(contactString));
+
+
+    CommoJNI *c = JLONG_TO_PTR(CommoJNI, nativePtr);
+    auto contactIP = c->commo->getActiveEndpointHost(*contact);
+    std::vector<unsigned char> contactIPBytes(contactIP.begin(), contactIP.end());
+
+    int size = contactIPBytes.size();
+    jbyteArray array = env->NewByteArray(size);
+
+    env->SetByteArrayRegion(array, 0, size, (const jbyte *)contactIPBytes.data());
+ 
+
+    jstring object = (jstring)env->NewObject(cls, ctor, array, strEncode);
+    return object;
+}
+
+JNIEXPORT jobject JNICALL
+Java_com_atakmap_commoncommo_Commo_getContactsNativeIP
+    (JNIEnv *env, jclass selfCls, jlong nativePtr)
+{
+
+    // Need to revisit this!
+    env->PushLocalFrame(256); // fix for local references
+
+    CommoJNI *c = JLONG_TO_PTR(CommoJNI, nativePtr);
+    auto contactIPMap = c->commo->getContactListIP();
+
+    jclass hashMapClass = env->FindClass("java/util/HashMap");
+    jmethodID hashMapInit = env->GetMethodID(hashMapClass, "<init>", "(I)V");
+    jobject hashMapObj = env->NewObject(hashMapClass, hashMapInit, contactIPMap.size());
+    jmethodID hashMapPut = env->GetMethodID(hashMapClass, "put",
+                                            "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
+
+    for (auto it : contactIPMap)
+    {
+        env->CallObjectMethod(hashMapObj, hashMapPut,
+                              env->NewStringUTF(it.first.c_str()),
+                              env->NewStringUTF(it.second.c_str()));
+    }
+
+    env->PopLocalFrame(hashMapObj);
+
+    return hashMapObj;
+}
 
 JNIEXPORT jobjectArray JNICALL
 Java_com_atakmap_commoncommo_Commo_getContactsNative

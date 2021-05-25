@@ -1,7 +1,0 @@
-Executable : /home/carlos/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
-arguments : 
--C
-/home/carlos/atak-vin-2/atak/ATAKMapEngine/lib/.cxx/cmake/civDebug/arm64-v8a
-atakjni
-jvmArgs : 
-

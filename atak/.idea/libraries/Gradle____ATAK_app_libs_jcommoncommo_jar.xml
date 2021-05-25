@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: ./ATAK/app/libs/jcommoncommo.jar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ATAK/app/libs/jcommoncommo.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

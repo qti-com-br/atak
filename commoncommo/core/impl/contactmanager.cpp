@@ -717,6 +717,67 @@ void ContactManager::setPreferStreamEndpoint(bool preferStream)
     this->preferStreaming = preferStream;
 }
 
+/**
+ * Gets all contacts along with IPs
+ */
+std::map<std::string, std::string> ContactManager::getAllContactsIP()
+{
+    PGSC::Thread::ReadLockPtr lock(NULL, NULL);
+    PGSC::Thread::ReadLock_create(lock, contactMapMutex);
+    std::map<std::string, std::string> cmap;
+    ContactMap::iterator iter;
+    int i;
+    for (i = 0, iter = contacts.begin(); iter != contacts.end(); i++, iter++) {
+        CoTEndpoint *ep = getCurrentEndpoint(iter->second, CoTSendMethod(SEND_POINT_TO_POINT));
+
+        std::string contactUidStr(
+            (const char *)iter->first->contactUID,
+            iter->first->contactUIDLen);
+        try
+        {
+            if (!ep)
+                throw std::invalid_argument("");
+            switch (ep->getType())
+            {
+            case CoTEndpoint::DATAGRAM:
+            {
+                DatagramCoTEndpoint *dgce = (DatagramCoTEndpoint *)ep;
+                std::string endpoint;
+                dgce->getBaseAddr()->getIPString(&endpoint);
+                
+                InternalUtils::logprintf(logger, CommoLogger::LEVEL_DEBUG, "Found contact %s using datagram endpoint %s and protocol version %d", contactUidStr.c_str(), endpoint.c_str(), 0);
+
+                cmap.emplace(contactUidStr, endpoint);
+                break;
+            }
+            case CoTEndpoint::TCP:
+            {
+                TcpCoTEndpoint *tcpce = (TcpCoTEndpoint *)ep;
+                std::string host = tcpce->getHostString();
+                int version = getSendProtoVersion(iter->second);
+                InternalUtils::logprintf(logger, CommoLogger::LEVEL_DEBUG, "Sending CoT to contact %s using tcp endpoint %s and protocol version %d", contactUidStr.c_str(), host.c_str(), version);
+
+                cmap.emplace(contactUidStr, host);
+                break;
+            }
+            case CoTEndpoint::STREAMING:
+            {
+                // we don't handle TAK server messages
+                InternalUtils::logprintf(logger, CommoLogger::LEVEL_DEBUG, "TAK Server endpoint requested!");
+                throw std::invalid_argument("");
+            }
+            default:
+                throw std::invalid_argument("");
+            } 
+        }
+        catch(const std::invalid_argument&)
+        {
+            InternalUtils::logprintf(logger, CommoLogger::LEVEL_DEBUG, "Endpoint could not be parsed for contact %s", contactUidStr.c_str());
+        }
+    }
+    return cmap;
+}
+
 const ContactList *ContactManager::getAllContacts()
 {
     PGSC::Thread::ReadLockPtr lock(NULL, NULL);

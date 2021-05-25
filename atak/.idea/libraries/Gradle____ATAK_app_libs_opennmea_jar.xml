@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: ./ATAK/app/libs/opennmea.jar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ATAK/app/libs/opennmea.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

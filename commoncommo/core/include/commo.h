@@ -14,6 +14,7 @@
 #include "fileioprovider.h"
 
 #include <memory>
+#include <map>
 #include <stdint.h>
 #include <stddef.h>
 
@@ -407,6 +408,10 @@ public:
     CommoResult sendMissionPackageStart(int xferId);
 
 
+    // Virgil Additions ----------------
+    std::map<std::string, std::string> getContactListIP();
+    std::string getActiveEndpointHost(const ContactUID& contact);
+    //----------------------------------
 
     // Obtains a list of ContactUIDs known at this moment in time.
     // Return value indicates number of items in the list (which could be 0).

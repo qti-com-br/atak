@@ -117,16 +117,16 @@ build: BUILD_GOAL = build
 build: $(TARGET_OUTDIR) $($(TARGET)_prep) $(foreach pkg,$(packages-$(TARGET)),$(pkg))
 	@echo "Done! Debug: $(BUILD_DEBUG)"
 
+build_commoncommo: BUILD_GOAL = build_commoncommo
+build_commoncommo: $(TARGET_OUTDIR) $($(TARGET)_prep) $(foreach pkg,$(packages_commoncommo-$(TARGET)),$(pkg))
+	@echo "Done! Debug: $(BUILD_DEBUG)"
+
 build_gdal: BUILD_GOAL = build_gdal
 build_gdal: $(TARGET_OUTDIR) $($(TARGET)_prep) $(foreach pkg,$(packages_gdal-$(TARGET)),$(pkg))
 	@echo "Done! Debug: $(BUILD_DEBUG)"
 
 build_spatialite: BUILD_GOAL = build_spatialite
 build_spatialite: $(TARGET_OUTDIR) $($(TARGET)_prep) $(foreach pkg,$(packages_spatialite-$(TARGET)),$(pkg))
-	@echo "Done! Debug: $(BUILD_DEBUG)"
-
-build_commoncommo: BUILD_GOAL = build_commoncommo
-build_commoncommo: $(TARGET_OUTDIR) $($(TARGET)_prep) $(foreach pkg,$(packages_commoncommo-$(TARGET)),$(pkg))
 	@echo "Done! Debug: $(BUILD_DEBUG)"
 
 build_pri: BUILD_GOAL = build_pri

@@ -1664,6 +1664,25 @@ public class Commo {
             throw new CommoException("Invalid mission package transfer identifier");
     }
 
+    /**
+     * 
+     */
+    public String getContacts(String contactUID)
+    {
+        return getActiveEndpointHost(nativePtr, contactUID);
+    }
+    /**
+     * Returns the full list of Contacts currently known along with 
+     * their respective IP Addresses/HostName.
+     * This always returns a valid HashMap; if no contacts are known,
+     * a zero-length HashMap is returned.
+     * 
+     * @return an array of all known Contacts
+     */
+    public HashMap<String, String> getContactIPS()
+    {
+        return getContactsNativeIP(nativePtr);
+    }
 
     /**
      * Returns the full list of Contacts currently known to the system.
@@ -2034,6 +2053,12 @@ public class Commo {
                                               String absFilePath,
                                               String xferFileName);
     static native boolean startMPSendNative(long nativePtr, int id);
+
+    // Virgil Additions ----------------
+    static native String getActiveEndpointHost(long nativePtr, String contactUID);
+    static native HashMap<String, String> getContactsNativeIP(long nativePtr);
+    // Additions ----------------
+
     static native String[] getContactsNative(long nativePtr);
     static native boolean configKnownEndpointContactNative(long nativePtr,
                                               String uid,
