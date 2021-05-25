@@ -159,13 +159,17 @@ extern "C" {
      * @param file_path Path with the filename to be sent
      */
     JNIEXPORT void JNICALL // share
-    Java_com_virgilsystems_qtoken_QToken_share(JNIEnv *env, jclass clazz, jstring file_path) {
+    Java_com_virgilsystems_qtoken_QToken_share(JNIEnv *env, jclass clazz, jstring file_path,
+                                               jstring receiver_ip, jstring receiver_receipt_port) {
 
         const char *file_path_chars = env->GetStringUTFChars(file_path, NULL);
         std::string file_path_str;
         file_path_str.append(file_path_chars);
 
-        node->doShare(file_path_str, "10.88.111.5", "9090");
+        std::string receiver_ip_cpp(env->GetStringUTFChars(receiver_ip, NULL));
+        std::string receiver_port_cpp(env->GetStringUTFChars(receiver_receipt_port, NULL));
+
+        node->doShare(file_path_str, receiver_ip_cpp, receiver_port_cpp);
     }
 
     /**

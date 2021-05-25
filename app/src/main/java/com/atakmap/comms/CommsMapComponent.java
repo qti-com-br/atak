@@ -1701,6 +1701,11 @@ public class CommsMapComponent extends AbstractMapComponent implements
 
             try {
                 final String event = e.toString();
+
+                Contact[] cs = commo.getContacts();
+
+                Log.d("### VIN: IP", commo.getContacts(cs[0].contactUID));
+
                 if (commo != null)
                     commo.sendCoT(commoContacts, event, method);
 

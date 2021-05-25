@@ -26,7 +26,6 @@ public class VINBridgeCPP {
 
     public static boolean waiting = false;
 
-
     public void run(String bootstrapIp, String nodePort, String receiptPort, String rootFolder) {
         Log.d("### VIN","VINBridgeCPP: run");
 
@@ -35,9 +34,6 @@ public class VINBridgeCPP {
         } } );
         run.setPriority(Thread.MAX_PRIORITY);
         run.start();
-
-//        if(!RunAsyncTask.waiting)
-//            new RunAsyncTask().execute(bootstrapIp, nodePort, receiptPort, rootFolder);
     }
 
     public void put(String key, String message) {
@@ -46,22 +42,16 @@ public class VINBridgeCPP {
         } } );
         put.setPriority(Thread.MAX_PRIORITY);
         put.start();
-////        new PutAsyncTask().execute(message);
     }
 
     public void get(String key) {
-//        Log.d("### VIN","VINBridgeCPP: get");
-//        Thread get = new Thread( new Runnable() { @Override public void run() {
             if(!waiting)
                 new GetAsyncTask().execute(key);
-//        } } );
-//        get.setPriority(Thread.MAX_PRIORITY);
-//        get.start();
     }
 
-    public void share(String filePath) {
+    public void share(String filePath, String receiverIP, String receiverReceiptPort) {
         new Thread( new Runnable() { @Override public void run() {
-            QToken.share(filePath);
+            QToken.share(filePath, receiverIP, receiverReceiptPort);
         } } ).start();
     }
 
@@ -76,9 +66,4 @@ public class VINBridgeCPP {
             QToken.gather();
         } } ).start();
     }
-
 }
-
-
-
-

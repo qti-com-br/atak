@@ -527,6 +527,7 @@ public class ConversationFragment extends Fragment implements
         // Pan to contact
         if (id == R.id.conversationPanButton) {
             Contact target = getTarget();
+            Log.d("### VIN", "Sending to contact: " + target.toString());
             if (target instanceof GoTo)
                 ((GoTo) target).goTo(false);
             else if (target instanceof MapItemUser)
