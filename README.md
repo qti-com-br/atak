@@ -70,7 +70,14 @@ tar xf gdal-2.4.4-mod.tar.gz
 **VINTAK**
 ```
 cd atak
+```
+** HTTP **
+```
 git submodule add https://gitlab.optimusprime.ai/virgilsystems/prototypes/vintak.git ATAK
+```
+** SSL **
+```
+git submodule add git@gitlab.optimusprime.ai:virgilsystems/prototypes/vintak.git ATAK
 ```
 
 
