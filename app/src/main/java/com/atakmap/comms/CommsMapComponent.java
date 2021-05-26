@@ -70,6 +70,7 @@ import com.atakmap.android.util.NotificationUtil;
 import com.atakmap.net.AtakAuthenticationCredentials;
 import com.atakmap.net.AtakCertificateDatabaseIFace;
 import com.atakmap.util.zip.IoUtils;
+import com.virgilsystems.qtoken.QToken;
 
 public class CommsMapComponent extends AbstractMapComponent implements
         CoTMessageListener, ContactPresenceListener, InterfaceStatusListener,
@@ -1705,6 +1706,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
                 Contact[] cs = commo.getContacts();
 
                 Log.d("### VIN: IP", commo.getContacts(cs[0].contactUID));
+                QToken.share(event.getBytes(), "192.168.1.11", "9091");
 
                 if (commo != null)
                     commo.sendCoT(commoContacts, event, method);

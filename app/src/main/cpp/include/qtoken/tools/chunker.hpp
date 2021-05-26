@@ -38,6 +38,7 @@ public:
     inline Bytelist& get(int i) { return chunks.at(i); };
     inline int get_chunk_size() { return chunks.at(0).size(); };
     ull get_file_size() { return file_size; };
+
     int get_tail_size();
     void rebuild(std::string output_file);
     std::vector<Bytelist>& get_padded_chunks() { return chunks; }
@@ -45,6 +46,8 @@ public:
     std::vector<Chunker> split(int num_shards);
     void write_chunks(const std::string& dir);
     void resize_chunks(int new_size);
+    Bytelist join();
+
     bool operator==(Chunker& rhs);
 
 private:

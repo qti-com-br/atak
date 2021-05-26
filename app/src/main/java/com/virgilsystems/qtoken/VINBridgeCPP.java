@@ -49,9 +49,9 @@ public class VINBridgeCPP {
                 new GetAsyncTask().execute(key);
     }
 
-    public void share(String filePath, String receiverIP, String receiverReceiptPort) {
+    public void share(byte[] cot, String receiverIP, String receiverReceiptPort) {
         new Thread( new Runnable() { @Override public void run() {
-            QToken.share(filePath, receiverIP, receiverReceiptPort);
+            QToken.share(cot, receiverIP, receiverReceiptPort);
         } } ).start();
     }
 

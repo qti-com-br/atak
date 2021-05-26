@@ -1,6 +1,8 @@
 package com.virgilsystems.qtoken;
 
 
+import android.os.Bundle;
+
 import java.util.Vector;
 
 public class QToken {
@@ -25,7 +27,8 @@ public class QToken {
 
     public static native String get(String key);
 
-    public static native void share(String filePath, String receiverIP, String receiverReceiptPort);
+    public static native void share(byte[] cot, String receiverIP, String receiverReceiptPort);
+    public static native Bundle shareHandler(Bundle filePath);
 
     public static native void spread(String filePath);
 

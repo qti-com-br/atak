@@ -130,6 +130,7 @@ import com.atakmap.spatial.SpatialCalculator;
 import com.atakmap.util.ConfigOptions;
 
 import com.atakmap.util.zip.IoUtils;
+import com.virgilsystems.qtoken.QToken;
 import com.virgilsystems.qtoken.VINBridgeCPP;
 import com.virgilsystems.qtoken.VINFolder;
 
@@ -428,6 +429,10 @@ public class ATAKActivity extends MapActivity implements
 
 
         startVIN();
+
+        Bundle bnd = new Bundle();
+        bnd.putString("key", "value");
+        Log.d("#### VIN", QToken.shareHandler(bnd).toString());
         
     }
 

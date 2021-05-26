@@ -1,6 +1,11 @@
 #ifndef NODE_H
 #define NODE_H
 
+#ifdef __ANDROID__
+#include <dlfcn.h>
+#include <jni.h>
+#endif
+
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
@@ -50,10 +55,21 @@ class ShareConnectionHandler;
 
 class Node {
 public:
+#ifdef __ANDROID__
+    // Android specific constructor that takes a JNI env
+    Node(const std::string& node_port, const std::string& node_receipt_port,
+         const std::string& node_server_port, const std::string& bootstrap_addr,
+         bool is_lib, JNIEnv* env);
+#else
     Node(const std::string& node_port, const std::string& node_receipt_port,
          const std::string& node_server_port, const std::string& bootstrap_addr,
          bool is_lib);
-    ~Node() {}
+#endif
+    ~Node() {
+#ifdef __ANDROID__
+        delete env;
+#endif
+    }
 
     int run();
 
@@ -69,6 +85,9 @@ public:
     Chunker doGather(const CryptoReceipt& cr);
 
     // Receipt passing
+    std::vector<CryptoReceipt> doShare(std::vector<unsigned char>& data,
+                                       const std::string& peer_ip,
+                                       const std::string& peer_port);
     std::vector<CryptoReceipt> doShare(std::istream& file_istream,
                                        const std::string& peer_ip,
                                        const std::string& peer_port);
@@ -93,12 +112,21 @@ public:
 
     void add_stream_session(std::string session_token);
     void update_stream_session(CryptoReceipt cr);
+    // TODO: update with multiple concurrent connections
     // void update_stream_session(std::string session_token, CryptoReceipt cr);
+
+#ifdef __ANDROID__
+    void end_stream_session(std::string ip_addr);
+#else
     void end_stream_session();
+#endif
 
     std::string get_current_stream() { return active_stream; }
 
 private:
+#ifdef __ANDROID__
+    JNIEnv* env;
+#endif
     std::string boot_address;
     std::string boot_port;
     std::istream* input;

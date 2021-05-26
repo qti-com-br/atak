@@ -84,7 +84,7 @@ extern "C" {
             Config::init_config(cfg_file);
 
             log_message("###QTOKEN | new Node");
-            node = new Node(node_port_str, receipt_port_str, http_port_str, addr, true);
+            node = new Node(node_port_str, receipt_port_str, http_port_str, addr, true, env);
 
             log_message("###QTOKEN | run");
             return node->run(); // 0 = EXIT_SUCCESS , <>0 = EXIT_FAILURE
@@ -159,17 +159,34 @@ extern "C" {
      * @param file_path Path with the filename to be sent
      */
     JNIEXPORT void JNICALL // share
-    Java_com_virgilsystems_qtoken_QToken_share(JNIEnv *env, jclass clazz, jstring file_path,
+    Java_com_virgilsystems_qtoken_QToken_share(JNIEnv *env, jclass clazz, jbyteArray cot,
                                                jstring receiver_ip, jstring receiver_receipt_port) {
 
-        const char *file_path_chars = env->GetStringUTFChars(file_path, NULL);
-        std::string file_path_str;
-        file_path_str.append(file_path_chars);
+        jbyte* bufferPtr = env->GetByteArrayElements(cot, nullptr);
 
-        std::string receiver_ip_cpp(env->GetStringUTFChars(receiver_ip, NULL));
-        std::string receiver_port_cpp(env->GetStringUTFChars(receiver_receipt_port, NULL));
+        jsize lengthOfArray = env->GetArrayLength(cot);
+        std::vector<unsigned char> input( lengthOfArray );
+        env->GetByteArrayRegion( cot, jsize{0}, lengthOfArray, (jbyte*) input.data() );
 
-        node->doShare(file_path_str, receiver_ip_cpp, receiver_port_cpp);
+        std::string receiver_ip_cpp(env->GetStringUTFChars(receiver_ip, nullptr));
+        std::string receiver_port_cpp(env->GetStringUTFChars(receiver_receipt_port, nullptr));
+
+        node->doShare(input, receiver_ip_cpp, receiver_port_cpp);
+
+        env->ReleaseByteArrayElements(cot, bufferPtr, 0);
+    }
+
+    /**
+    * This function share a selected file to some Node
+    * running at the same IP that the bootstrap and the receive port 9091
+    * @param env Environment where the SDK is running
+    * @param clazz Class that call this function
+    * @param file_path Path with the filename to be sent
+    */
+    JNIEXPORT jobject JNICALL // share
+    Java_com_virgilsystems_qtoken_QToken_shareHandler(JNIEnv *env, jclass clazz, jobject path) {
+
+        return path;
     }
 
     /**
