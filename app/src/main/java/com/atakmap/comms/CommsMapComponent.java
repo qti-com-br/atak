@@ -80,7 +80,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
 
     private static boolean commoNativeInitComplete = false;
 
-    private static CommsMapComponent _instance;
+    public static CommsMapComponent _instance;
 
     private final int SCAN_WAIT = 45 * 1000; // 45 seconds
 

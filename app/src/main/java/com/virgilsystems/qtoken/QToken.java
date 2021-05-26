@@ -2,6 +2,10 @@ package com.virgilsystems.qtoken;
 
 
 import android.os.Bundle;
+import android.util.Log;
+
+import com.atakmap.comms.CommsMapComponent;
+import com.atakmap.coremap.cot.event.CotEvent;
 
 import java.util.Vector;
 
@@ -27,12 +31,23 @@ public class QToken {
 
     public static native String get(String key);
 
-    public static native void share(byte[] cot, String receiverIP, String receiverReceiptPort);
-    public static native Bundle shareHandler(Bundle filePath);
-
     public static native void spread(String filePath);
 
     public static native void gather();
+
+    public static native void share(byte[] cot, String receiverIP, String receiverReceiptPort);
+
+    public static void shareHandler(String cot) {
+        CommsMapComponent instance = CommsMapComponent._instance;
+
+        CotEvent cotEvent = CotEvent.parse(cot);
+
+        String endpoint = cotEvent.getDetail().getChild(1).getAttribute("endpoint");
+
+        Log.d("### VIN", "QToken.shareHandler | " + cotEvent + " | " + endpoint);
+
+        instance.cotMessageReceived(cot, endpoint);
+    }
 
 }
 

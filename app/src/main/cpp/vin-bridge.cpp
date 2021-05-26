@@ -177,16 +177,22 @@ extern "C" {
     }
 
     /**
-    * This function share a selected file to some Node
-    * running at the same IP that the bootstrap and the receive port 9091
+    * This function handle data received from QToken.share
     * @param env Environment where the SDK is running
     * @param clazz Class that call this function
     * @param file_path Path with the filename to be sent
     */
-    JNIEXPORT jobject JNICALL // share
-    Java_com_virgilsystems_qtoken_QToken_shareHandler(JNIEnv *env, jclass clazz, jobject path) {
+    JNIEXPORT void JNICALL // share
+    Java_com_virgilsystems_qtoken_QToken_shareHandler(JNIEnv *env, jclass clazz, jstring cot, jstring ip) {
 
-        return path;
+        // Getting CommsMapComponent.cotMessageReceived
+        jclass cotCls = env->FindClass("com/atakmap/comms/CommsMapComponent");
+        jmethodID cotMethod = env->GetMethodID(cotCls, "cotMessageReceived", "(Ljava/lang/String;Ljava/lang/String;)V");
+        jfieldID instanceId = env->GetStaticFieldID(cotCls, "_instance","Lcom/atakmap/comms/CommsMapComponent;");
+        jobject instance = env->GetStaticObjectField(cotCls, instanceId);
+
+        // Call CommsMapComponent.cotMessageReceived with the Bundle received
+        env->CallVoidMethod(instance, cotMethod, cot, ip);
     }
 
     /**

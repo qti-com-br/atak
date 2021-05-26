@@ -147,12 +147,12 @@ public class CotImporterManager extends AbstractCotEventImporter {
     @Override
     public ImportResult importData(CotEvent event, Bundle extras) {
 
-        Log.d("##### VIN", "CotImporterManager.importData 5 | " + event.getUID());
+//        Log.d("##### VIN", "CotImporterManager.importData 5 | " + event.getUID());
 
         String myUid = _mapView.getSelfMarker().getUID();
 
-        Log.d("##### VIN", "CotImporterManager.importData 6 | " +
-                extras.getString("from") + " | " + myUid);
+//        Log.d("##### VIN", "CotImporterManager.importData 6 | " +
+//                extras.getString("from") + " | " + myUid);
 
         extrasVIN = extras;
 
@@ -160,14 +160,14 @@ public class CotImporterManager extends AbstractCotEventImporter {
 
         // Cot
         if(cotDetails.isEmpty()) {
-            Log.d("##### VIN", "CotImporterManager.importData Cot");
+//            Log.d("##### VIN", "CotImporterManager.importData Cot");
             return processImportDataVIN(event, extras, false);
             //ATAKActivity.VIN.put("cot", event.toString());
         }
         // Shape
         else {
-            Log.d("##### VIN", "CotImporterManager.importData Shape");
-            ATAKActivity.VIN.put("shape", event.toString());
+//            Log.d("##### VIN", "CotImporterManager.importData Shape");
+//            ATAKActivity.VIN.put("shape", event.toString());
         }
 
         return ImportResult.SUCCESS;

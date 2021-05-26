@@ -430,9 +430,9 @@ public class ATAKActivity extends MapActivity implements
 
         startVIN();
 
-        Bundle bnd = new Bundle();
-        bnd.putString("key", "value");
-        Log.d("#### VIN", QToken.shareHandler(bnd).toString());
+        //Bundle bnd = new Bundle();
+        //bnd.putString("key", "value");
+        //Log.d("#### VIN", QToken.shareHandler(bnd).toString());
         
     }
 
@@ -2048,21 +2048,21 @@ public class ATAKActivity extends MapActivity implements
 
 
 
-        new Thread(new Runnable() {
-            public void run() {
-
-                sleep(10000);
-
-                while (true) {
-                    ATAKActivity.VIN.get("cot");
-                    sleep(800);
-                    ATAKActivity.VIN.get("shape");
-                    sleep(900);
-                    ATAKActivity.VIN.get("chat");
-                    sleep(1000);
-                }
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            public void run() {
+//
+//                sleep(10000);
+//
+//                while (true) {
+//                    ATAKActivity.VIN.get("cot");
+//                    sleep(800);
+//                    ATAKActivity.VIN.get("shape");
+//                    sleep(900);
+//                    ATAKActivity.VIN.get("chat");
+//                    sleep(1000);
+//                }
+//            }
+//        }).start();
 
 //        new Thread(new Runnable() {
 //            public void run() {
