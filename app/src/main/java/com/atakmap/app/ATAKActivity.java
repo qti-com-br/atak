@@ -162,8 +162,6 @@ public class ATAKActivity extends MapActivity implements
 
     public static VINBridgeCPP VIN;
 
-    public static String vinNodePort = "";
-    public static String vinReceiptPort = "";
     public static List<String> vinShapes = new ArrayList<>();
 
     @SuppressLint("StaticFieldLeak")
@@ -2030,11 +2028,10 @@ public class ATAKActivity extends MapActivity implements
 
             Log.d("### VIN", "ATAKActivity.onStart VIN has permission " + VINFolder.rootFolder);
 
-            Random r = new Random();
-            vinNodePort = String.valueOf(r.nextInt(9999) + 8002);
-            vinReceiptPort = String.valueOf(r.nextInt(9999) + 8002);
-
-            VIN.run(bootstrapIP, vinNodePort, vinReceiptPort, VINFolder.rootFolder);
+            VIN.run(bootstrapIP,
+                    VINBridgeCPP.DEFAULT_NODE_PORT,
+                    VINBridgeCPP.DEFAULT_RECEIPT_PORT,
+                    VINFolder.rootFolder);
 
         } } ).start();
 

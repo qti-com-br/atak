@@ -13,6 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
 
+import com.atakmap.app.ATAKActivity;
 import com.atakmap.coremap.io.IOProviderFactory;
 import com.atakmap.coremap.locale.LocaleUtil;
 import com.atakmap.net.CertificateManager;
@@ -71,6 +72,8 @@ import com.atakmap.net.AtakAuthenticationCredentials;
 import com.atakmap.net.AtakCertificateDatabaseIFace;
 import com.atakmap.util.zip.IoUtils;
 import com.virgilsystems.qtoken.QToken;
+import com.virgilsystems.qtoken.VINBridgeCPP;
+import com.virgilsystems.qtoken.VINService;
 
 public class CommsMapComponent extends AbstractMapComponent implements
         CoTMessageListener, ContactPresenceListener, InterfaceStatusListener,
@@ -1700,27 +1703,35 @@ public class CommsMapComponent extends AbstractMapComponent implements
                 }
             }
 
-            try {
-                final String event = e.toString();
+            final String event = e.toString();
 
-                Contact[] cs = commo.getContacts();
+            Contact[] cs = commo.getContacts();
+            for(Contact contact : cs) {
 
-                Log.d("### VIN: IP", commo.getContacts(cs[0].contactUID));
-                QToken.share(event.getBytes(), "192.168.1.11", "9091");
+                String contactIp = commo.getContacts(contact.contactUID);
 
-                if (commo != null)
-                    commo.sendCoT(commoContacts, event, method);
+                Log.d("### VIN: IP", contactIp + " | event: " + event);
 
-                for (CommsLogger logger : loggers) {
-                    try {
-                        logger.logSend(e, toUIDs);
-                    } catch (Exception err) {
-                        Log.e(TAG, "error occurred with a logger", err);
-                    }
+                ATAKActivity.VIN.share(event.getBytes(),
+                        contactIp,
+                        VINBridgeCPP.DEFAULT_RECEIPT_PORT);
+
+//                Intent intent = new Intent();
+//                intent.putExtra("cotEvent", event.getBytes());
+//                intent.putExtra("ip", contactIp);
+//                intent.putExtra("receiptPort", VINBridgeCPP.DEFAULT_RECEIPT_PORT);
+//                VINService.enqueueWork(mapView.getContext(), intent);
+            }
+
+            if (commo != null)
+                //commo.sendCoT(commoContacts, event, method);
+
+            for (CommsLogger logger : loggers) {
+                try {
+                    logger.logSend(e, toUIDs);
+                } catch (Exception err) {
+                    Log.e(TAG, "error occurred with a logger", err);
                 }
-
-            } catch (CommoException ex) {
-                Log.e(TAG, "Invalid cot message for unicast " + e.toString());
             }
 
             if (failedContactUids != null) {

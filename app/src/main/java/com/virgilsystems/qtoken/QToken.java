@@ -38,15 +38,23 @@ public class QToken {
     public static native void share(byte[] cot, String receiverIP, String receiverReceiptPort);
 
     public static void shareHandler(String cot) {
-        CommsMapComponent instance = CommsMapComponent._instance;
+        Log.d("### VIN", "QToken.shareHandler 1 | " + cot);
 
-        CotEvent cotEvent = CotEvent.parse(cot);
+        new Thread( new Runnable() { @Override public void run() {
+            Log.d("### VIN", "QToken.shareHandler 2 " + cot);
 
-        String endpoint = cotEvent.getDetail().getChild(1).getAttribute("endpoint");
+            CommsMapComponent instance = CommsMapComponent._instance;
 
-        Log.d("### VIN", "QToken.shareHandler | " + cotEvent + " | " + endpoint);
+            CotEvent cotEvent = CotEvent.parse(cot);
 
-        instance.cotMessageReceived(cot, endpoint);
+            Log.d("### VIN", "QToken.shareHandler 3 | " + cotEvent);
+
+            String endpoint = cotEvent.getDetail().getChild(1).getAttribute("endpoint");
+
+            Log.d("### VIN", "QToken.shareHandler 4 | " + cotEvent + " | " + endpoint);
+
+            instance.cotMessageReceived(cot, endpoint);
+        } } ).start();
     }
 
 }

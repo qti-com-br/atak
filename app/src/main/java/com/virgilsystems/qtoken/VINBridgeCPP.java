@@ -26,6 +26,9 @@ public class VINBridgeCPP {
 
     public static boolean waiting = false;
 
+    public static String DEFAULT_NODE_PORT = "9990";
+    public static String DEFAULT_RECEIPT_PORT = "9991";
+
     public void run(String bootstrapIp, String nodePort, String receiptPort, String rootFolder) {
         Log.d("### VIN","VINBridgeCPP: run");
 
@@ -45,8 +48,8 @@ public class VINBridgeCPP {
     }
 
     public void get(String key) {
-            if(!waiting)
-                new GetAsyncTask().execute(key);
+//            if(!waiting)
+//                new GetAsyncTask().execute(key);
     }
 
     public void share(byte[] cot, String receiverIP, String receiverReceiptPort) {

@@ -1,7 +1,6 @@
 
 package com.atakmap.android.chat;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -33,16 +32,13 @@ import com.atakmap.android.maps.AbstractMapComponent;
 import com.atakmap.android.maps.MapView;
 import com.atakmap.android.util.NotificationUtil;
 import com.atakmap.annotations.ModifierApi;
-import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.app.preferences.ToolsPreferenceFragment;
 import com.atakmap.comms.CotServiceRemote;
 import com.atakmap.comms.NetConnectString;
 import com.atakmap.comms.NetworkUtils;
 import com.atakmap.coremap.filesystem.FileSystemUtils;
-import com.atakmap.coremap.locale.LocaleUtil;
 import com.atakmap.coremap.maps.time.CoordinatedTime;
-import com.virgilsystems.qtoken.RunAsyncTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +50,6 @@ import java.util.Map;
 import java.util.UUID;
 
 import static com.atakmap.app.ATAKActivity.mContext;
-import static com.atakmap.app.ATAKActivity.sleep;
 
 public class ChatManagerMapComponent extends AbstractMapComponent implements
         ChatConvoFragCreateWatcher {
@@ -110,20 +105,16 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                 if (messageId >= 0) {
                     try {
 
+                        Bundle fullMsg = chatService
+                                .getMessage(messageId, groupId);
 
-
-
-//                        Bundle fullMsg = chatService
-//                                .getMessage(messageId, groupId);
-
-                        Bundle fullMsg = null;
+//                        Bundle fullMsg = null;
 
                         // RECEBE CHAT
 
                         Log.d("### VIN", "ChatManagerMapComponent.onReceive " + intent.toUri(0));
 
                         Log.d("### VIN", "ChatManagerMapComponent.onReceive " + fullMsg);
-
 
 
                         if (fullMsg != null) {
@@ -835,22 +826,12 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
                     try {
 
 
+//                        Log.d("### VIN", "ChatManagerMapComponent put | 45 | " + msg);
 
-
-
-
-
-                        Log.d("### VIN", "ChatManagerMapComponent put | 45 | " + msg);
-
-//                        if (connection != null)
-//                            chatService.sendMessage(msg, individualContact);
-
-
+                        if (connection != null)
+                            chatService.sendMessage(msg, individualContact);
 
                     // ENVIA CHAT
-
-
-
 
 //                        String myUID = _mapView.getSelfMarker().getUID();
 
@@ -885,14 +866,8 @@ public class ChatManagerMapComponent extends AbstractMapComponent implements
 
                         String message = msg.toString();
 
-                        Log.d("### VIN", "ChatManagerMapComponent put | 46 | " + message);
+//                        Log.d("### VIN", "ChatManagerMapComponent put | 46 | " + message);
 //                        ATAKActivity.VIN.put("chat", message);
-
-
-
-
-
-
 
                     } catch (Exception e) {
                         Log.w(TAG,

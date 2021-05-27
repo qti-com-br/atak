@@ -11,6 +11,7 @@ import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.comms.NetworkUtils;
 import com.atakmap.comms.NetworkUtils.NetRestartNotification;
+import com.virgilsystems.qtoken.VINBridgeCPP;
 
 public class MyIpTextView extends TextView {
 
@@ -34,7 +35,8 @@ public class MyIpTextView extends TextView {
         final String PREFACE = ctx.getString(R.string.my_ip);
 
         setText(PREFACE + NetworkUtils.getIP() +
-                "  P: " + ATAKActivity.vinNodePort + "  R: " + ATAKActivity.vinReceiptPort);
+                "  P: " + VINBridgeCPP.DEFAULT_NODE_PORT +
+                "  R: " + VINBridgeCPP.DEFAULT_RECEIPT_PORT);
 
         NetworkUtils.registerNetRestartNotification(
                 NetworkUtils.ALL_CONNECTIONS, new NetRestartNotification() {

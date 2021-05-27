@@ -12,6 +12,7 @@ import com.atakmap.app.ATAKActivity;
 import com.atakmap.app.R;
 import com.atakmap.comms.NetworkUtils;
 import com.atakmap.comms.NetworkUtils.NetRestartNotification;
+import com.virgilsystems.qtoken.VINBridgeCPP;
 
 public class MyIpPreference extends Preference {
 
@@ -67,6 +68,7 @@ public class MyIpPreference extends Preference {
 
     private String getMyVINIP() {
         return NetworkUtils.getIP() +
-                "  P: " + ATAKActivity.vinNodePort + "  R: " + ATAKActivity.vinReceiptPort;
+                "  P: " + VINBridgeCPP.DEFAULT_NODE_PORT +
+                "  R: " + VINBridgeCPP.DEFAULT_RECEIPT_PORT;
     }
 }

@@ -171,6 +171,8 @@ extern "C" {
         std::string receiver_ip_cpp(env->GetStringUTFChars(receiver_ip, nullptr));
         std::string receiver_port_cpp(env->GetStringUTFChars(receiver_receipt_port, nullptr));
 
+        log_message("### VIN | Java_com_virgilsystems_qtoken_QToken_share " + receiver_ip_cpp + " | " + receiver_port_cpp);
+
         node->doShare(input, receiver_ip_cpp, receiver_port_cpp);
 
         env->ReleaseByteArrayElements(cot, bufferPtr, 0);
@@ -178,12 +180,16 @@ extern "C" {
 
     /**
     * This function handle data received from QToken.share
+    * And send this data to com/atakmap/comms/CommsMapComponent.cotMessageReceived()
     * @param env Environment where the SDK is running
     * @param clazz Class that call this function
-    * @param file_path Path with the filename to be sent
+    * @param cot String/XML (CoT, Shape, Chat message) ATAK model
+    * @param ip Destination IP
     */
     JNIEXPORT void JNICALL // share
     Java_com_virgilsystems_qtoken_QToken_shareHandler(JNIEnv *env, jclass clazz, jstring cot, jstring ip) {
+
+        log_message("### VIN | Java_com_virgilsystems_qtoken_QToken_shareHandler");
 
         // Getting CommsMapComponent.cotMessageReceived
         jclass cotCls = env->FindClass("com/atakmap/comms/CommsMapComponent");
