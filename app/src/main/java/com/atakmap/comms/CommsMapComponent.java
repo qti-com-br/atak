@@ -1657,7 +1657,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
             String[] toUIDs,
             CoTSendMethod method) {
 
-        Log.d("### VIN: IP", "CommsMapComponent.sendCoT");
+        Log.d("### VIN: IP", "CommsMapComponent.sendCoT 22 ");
 
         if (failedContactUids != null)
             failedContactUids.clear();
@@ -1676,18 +1676,21 @@ public class CommsMapComponent extends AbstractMapComponent implements
             Log.e(TAG, "preSendProcessor failed", ex);
         }
 
-
-        Contact[] contacts;
+        String type = e.getType();
 
         if (toUIDs == null) {
 
-            contacts = commo.getContacts();
-
-//            try {
-                final String event = e.toString();
-//                if (commo != null)
-//                    commo.broadcastCoT(event, method);
-                sendCoThroughTheVIN(e, contacts);
+            try {
+//                final String event = e.toString();
+                if (commo != null) {
+                    Log.d("### VIN", "CommsMapComponent.senCoT 23 | "
+                            + e.toString() + " | " + method + " | " + type);
+                    if(type.equals("a-f-G-U-C")) {
+                        commo.broadcastCoT(e.toString(), method);
+                    } else {
+                        sendCoThroughTheVIN(e, commo.getContacts());
+                    }
+                }
 
                 for (CommsLogger logger : loggers) {
                     try {
@@ -1697,9 +1700,9 @@ public class CommsMapComponent extends AbstractMapComponent implements
                     }
                 }
 
-//            } catch (CommoException ex) {
-//                Log.e(TAG, "Invalid cot message for broadcast " + e.toString());
-//            }
+            } catch (CommoException ex) {
+                Log.e(TAG, "Invalid cot message for broadcast " + e.toString());
+            }
         } else {
 
             Vector<Contact> commoContacts = new Vector<>();
@@ -1714,9 +1717,20 @@ public class CommsMapComponent extends AbstractMapComponent implements
                 }
             }
 
-//            if (commo != null)
-                //commo.sendCoT(commoContacts, event, method);
-            sendCoThroughTheVIN(e, (Contact[]) commoContacts.toArray());
+            try {
+                if (commo != null) {
+                    Log.d("### VIN", "CommsMapComponent.senCoT 24 | "
+                            + e.toString() + " | " + method + " | " + type);
+                    if(type.equals("a-f-G-U-C")) {
+                        commo.sendCoT(commoContacts, e.toString(), method);
+                    } else {
+                        sendCoThroughTheVIN(e, (Contact[]) commoContacts.toArray());
+                    }
+                }
+
+            } catch (CommoException ex) {
+                Log.e(TAG, "Invalid cot message for broadcast " + e.toString());
+            }
 
             for (CommsLogger logger : loggers) {
                 try {
