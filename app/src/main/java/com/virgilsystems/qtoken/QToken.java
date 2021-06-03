@@ -43,7 +43,7 @@ public class QToken {
         new Thread( new Runnable() { @Override public void run() {
             Log.d("### VIN", "QToken.shareHandler 2 " + cot);
 
-            CommsMapComponent instance = CommsMapComponent._instance;
+            CommsMapComponent instance = CommsMapComponent.getInstance();
 
             CotEvent cotEvent = CotEvent.parse(cot);
 

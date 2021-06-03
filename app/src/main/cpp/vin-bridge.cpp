@@ -75,22 +75,22 @@ extern "C" {
 
         try {
 
-            log_message(addr);
+            Log::message("### VIN", addr);
 
             string cfg_file = root_folder_str + "/VIN/defaults.cfg";
 
             struct stat st = {0};
-            log_message("###QTOKEN | readFile");
+            Log::message("### VIN", "###QTOKEN | readFile");
             Config::init_config(cfg_file);
 
-            log_message("###QTOKEN | new Node");
+            Log::message("### VIN", "###QTOKEN | new Node");
             node = new Node(node_port_str, receipt_port_str, http_port_str, addr, true, env);
 
-            log_message("###QTOKEN | run");
+            Log::message("### VIN", "###QTOKEN | run");
             return node->run(); // 0 = EXIT_SUCCESS , <>0 = EXIT_FAILURE
 
         } catch (std::exception e) {
-            log_message(e.what());
+            Log::message("### VIN", e.what());
         }
     }
 
@@ -111,14 +111,14 @@ extern "C" {
             std::string v = message_chars;
 
             std::vector<unsigned char> vec(v.begin(), v.end());
-            log_message("###QTOKEN | doPut");
+            Log::message("### VIN", "###QTOKEN | doPut");
             node->doPut(k, vec);
 
         } catch (...) {
-            log_message("###QTOKEN 6 | ...");
+            Log::message("### VIN", "###QTOKEN 6 | ...");
         }
 
-        log_message("###QTOKEN 7 | put End");
+        Log::message("### VIN", "###QTOKEN 7 | put End");
     }
 
     /**
@@ -131,9 +131,9 @@ extern "C" {
         try {
             const char *key_chars = env->GetStringUTFChars(key, NULL);
             std::string key_str = key_chars;
-            log_message("###QTOKEN | get before");
+            Log::message("### VIN", "###QTOKEN | get before");
             vector<unsigned char> msg_vector = node->doGet(key_str);
-            log_message("###QTOKEN | get after");
+            Log::message("### VIN", "###QTOKEN | get after");
 
 //            char* msg_char_array = &msg_vector[0];
             int size = msg_vector.size();
@@ -147,7 +147,7 @@ extern "C" {
             return object;
 
         } catch (...) {
-            log_message("###QTOKEN 6 | ...");
+            Log::message("### VIN", "###QTOKEN 6 | ...");
         }
     }
 
@@ -171,7 +171,7 @@ extern "C" {
         std::string receiver_ip_cpp(env->GetStringUTFChars(receiver_ip, nullptr));
         std::string receiver_port_cpp(env->GetStringUTFChars(receiver_receipt_port, nullptr));
 
-        log_message("### VIN | Java_com_virgilsystems_qtoken_QToken_share " + receiver_ip_cpp + " | " + receiver_port_cpp);
+        Log::message("### VIN", "### VIN | Java_com_virgilsystems_qtoken_QToken_share " + receiver_ip_cpp + " | " + receiver_port_cpp);
 
         node->doShare(input, receiver_ip_cpp, receiver_port_cpp);
 
@@ -187,9 +187,9 @@ extern "C" {
     * @param ip Destination IP
     */
     JNIEXPORT void JNICALL // share
-    Java_com_virgilsystems_qtoken_QToken_shareHandler(JNIEnv *env, jclass clazz, jstring cot, jstring ip) {
+    Java_com_virgilsystems_qtoken_QToken_shareHandler(JNIEnv *env, jclass clazz, jstring cot) {
 
-        log_message("### VIN | Java_com_virgilsystems_qtoken_QToken_shareHandler");
+        Log::message("### VIN", "### VIN | Java_com_virgilsystems_qtoken_QToken_shareHandler");
 
         // Getting CommsMapComponent.cotMessageReceived
         jclass cotCls = env->FindClass("com/atakmap/comms/CommsMapComponent");
@@ -197,8 +197,10 @@ extern "C" {
         jfieldID instanceId = env->GetStaticFieldID(cotCls, "_instance","Lcom/atakmap/comms/CommsMapComponent;");
         jobject instance = env->GetStaticObjectField(cotCls, instanceId);
 
+        jstring id = (jstring)id;
+
         // Call CommsMapComponent.cotMessageReceived with the Bundle received
-        env->CallVoidMethod(instance, cotMethod, cot, ip);
+        env->CallVoidMethod(instance, cotMethod, cot, id);
     }
 
     /**

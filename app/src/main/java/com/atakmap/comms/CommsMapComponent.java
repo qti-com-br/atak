@@ -13,6 +13,8 @@ import java.io.ByteArrayOutputStream;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
 
+import com.atakmap.android.contact.ContactUtil;
+import com.atakmap.android.contact.Contacts;
 import com.atakmap.app.ATAKActivity;
 import com.atakmap.coremap.io.IOProviderFactory;
 import com.atakmap.coremap.locale.LocaleUtil;
@@ -1671,23 +1673,29 @@ public class CommsMapComponent extends AbstractMapComponent implements
             Log.e(TAG, "preSendProcessor failed", ex);
         }
 
+
+        Contact[] contacts;
+
         if (toUIDs == null) {
-            try {
-                final String event = e.toString();
-                if (commo != null)
-                    commo.broadcastCoT(event, method);
 
-                for (CommsLogger logger : loggers) {
-                    try {
-                        logger.logSend(e, "broadcast");
-                    } catch (Exception err) {
-                        Log.e(TAG, "error occurred with a logger", err);
-                    }
-                }
+            contacts = commo.getContacts();
 
-            } catch (CommoException ex) {
-                Log.e(TAG, "Invalid cot message for broadcast " + e.toString());
-            }
+//            try {
+//                final String event = e.toString();
+//                if (commo != null)
+//                    commo.broadcastCoT(event, method);
+
+//                for (CommsLogger logger : loggers) {
+//                    try {
+//                        logger.logSend(e, "broadcast");
+//                    } catch (Exception err) {
+//                        Log.e(TAG, "error occurred with a logger", err);
+//                    }
+//                }
+
+//            } catch (CommoException ex) {
+//                Log.e(TAG, "Invalid cot message for broadcast " + e.toString());
+//            }
         } else {
 
             Vector<Contact> commoContacts = new Vector<>();
@@ -1695,35 +1703,14 @@ public class CommsMapComponent extends AbstractMapComponent implements
                 for (String uid : toUIDs) {
                     Contact commoContact = uidsToContacts.get(uid);
                     if (commoContact == null) {
-                        Log.e(TAG, "Send to unknown contact " + uid,
-                                new Exception());
+                        Log.e(TAG, "Send to unknown contact " + uid, new Exception());
                         continue;
                     }
                     commoContacts.add(commoContact);
                 }
             }
 
-            final String event = e.toString();
-
-            Contact[] cs = commo.getContacts();
-            for(Contact contact : cs) {
-
-                String contactIp = commo.getContacts(contact.contactUID);
-
-                Log.d("### VIN: IP", contactIp + " | event: " + event);
-
-                ATAKActivity.VIN.share(event.getBytes(),
-                        contactIp,
-                        VINBridgeCPP.DEFAULT_RECEIPT_PORT);
-
-//                Intent intent = new Intent();
-//                intent.putExtra("cotEvent", event.getBytes());
-//                intent.putExtra("ip", contactIp);
-//                intent.putExtra("receiptPort", VINBridgeCPP.DEFAULT_RECEIPT_PORT);
-//                VINService.enqueueWork(mapView.getContext(), intent);
-            }
-
-            if (commo != null)
+//            if (commo != null)
                 //commo.sendCoT(commoContacts, event, method);
 
             for (CommsLogger logger : loggers) {
@@ -1744,7 +1731,36 @@ public class CommsMapComponent extends AbstractMapComponent implements
                     }
                 }
             }
+
+            contacts = (Contact[]) commoContacts.toArray();
         }
+
+        // -- Send CoT through VIN -------------------------------------------------- //
+        final String event = e.toString();
+
+        for(Contact contact : contacts) {
+            IndividualContact individualContact = (IndividualContact) Contacts
+                    .getInstance().getContactByUuid(contact.contactUID);
+            if (individualContact == null) {
+                continue;
+            }
+
+            String contactIp = ContactUtil.getIpAddress(individualContact).getHost();
+
+            Log.d("### VIN: IP", contactIp + " | event: " + event);
+
+            ATAKActivity.VIN.share(event.getBytes(),
+                    contactIp,
+                    VINBridgeCPP.DEFAULT_RECEIPT_PORT);
+
+//                Intent intent = new Intent();
+//                intent.putExtra("cotEvent", event.getBytes());
+//                intent.putExtra("ip", contactIp);
+//                intent.putExtra("receiptPort", VINBridgeCPP.DEFAULT_RECEIPT_PORT);
+//                VINService.enqueueWork(mapView.getContext(), intent);
+        }
+        // -------------------------------------------------- Send CoT through VIN -- //
+
     }
 
     /**

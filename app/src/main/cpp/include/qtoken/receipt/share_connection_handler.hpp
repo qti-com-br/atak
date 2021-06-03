@@ -1,9 +1,11 @@
 #ifndef SHARE_CONNECTION_HANDLER_H
 #define SHARE_CONNECTION_HANDLER_H
 
+#include <jni.h>
 #include <functional>
 #include <iostream>
 #include <memory>
+#include <string>
 
 #include "Poco/Exception.h"
 #include "Poco/NObserver.h"

@@ -3,75 +3,107 @@
 
 #include <fstream>
 #include <iostream>
+#include <unordered_map>
 
+#include <Poco/AsyncChannel.h>
 #include <Poco/AutoPtr.h>
+#include <Poco/ConsoleChannel.h>
 #include <Poco/FormattingChannel.h>
 #include <Poco/Logger.h>
 #include <Poco/PatternFormatter.h>
 #include <Poco/SimpleFileChannel.h>
+#include <Poco/SplitterChannel.h>
 
 #ifdef __ANDROID__
 #include <android/log.h>
 #endif
 
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
-
 #include "globals/config.hpp"
 #include "globals/globals.hpp"
 
-using Poco::AutoPtr;
-using Poco::FormattingChannel;
-using Poco::Logger;
-using Poco::PatternFormatter;
-using Poco::SimpleFileChannel;
-
 namespace Qtoken {
 
-/**
- * Initializes global logger.
- * @param log_fd Log file path
- * @param logger_name Unique logger identifier.
- * @param log_level Logger type (debug vs info).
- * @param pattern Format pattern for logged messages.
- * https://pocoproject.org/docs/Poco.PatternFormatter.html.
- */
-static inline void init_logger(
-    const std::string& log_fd, const std::string& logger_name,
-    int log_level = Poco::Message::PRIO_INFORMATION,
-    const std::string& pattern = "%Y-%m-%d %H:%M:%S %s [%p]: %t") {
-    std::string logs_dir = Config::get("files.logs");
-    std::string full_log_fd = logs_dir + log_fd;
-
-    // using C code here as std::filesystem breaks android cross-compile
-    struct stat st = {0};
-    if (stat(full_log_fd.data(), &st) == -1) {
-        std::ofstream log_file(full_log_fd);
-        log_file.close();
-    }
-
-    AutoPtr<SimpleFileChannel> pChannel(new SimpleFileChannel);
-    AutoPtr<PatternFormatter> pPF(new PatternFormatter);
-    pPF->setProperty("pattern", "%Y-%m-%d %H:%M:%S %s [%p]: %t");
-    AutoPtr<FormattingChannel> pFC(new FormattingChannel(pPF, pChannel));
-
-    pChannel->setProperty("path", full_log_fd);
-    pChannel->setProperty("rotation",
-                          "2 K");  // Rotate log file at 2 kilobyte size
-
-    Logger::create(logger_name, pFC, log_level);
-}
+class Log {
+public:
+    Log() = delete;
 
 #ifndef __ANDROID__
-static inline void log_message(std::string msg) {
-    Poco::Logger::get("GlobalLogger").information(msg);
-}
+    /**
+     * Initializes log_name if not already present.
+     * Sends message to logger.
+     * @param msg text to be logged
+     * @param log_name logger to log msg to
+     */
+    static void message(std::string log_name, std::string msg) {
+        if (logs.find(log_name) == logs.end()) {
+            init_log(log_name);
+        }
+
+        Poco::Message m;
+        m.setText(msg);
+        m.setSource(log_name);
+        m.setPriority(Poco::Message::Priority::PRIO_INFORMATION);
+
+        logs[log_name]->log(m);
+    }
 #else
-static inline void log_message(std::string msg) {
-    __android_log_print(ANDROID_LOG_DEBUG, "### QTOKEN ", "%s", msg.data());
-}
+    static void message(std::string log_name, std::string msg) {
+        log_name = "### Qtoken - " + log_name;
+        __android_log_print(ANDROID_LOG_DEBUG, log_name.data(), "%s",
+                            msg.data());
+    }
 #endif
+
+private:
+    /**
+     * Initializes logger log_name by adding
+     * the appropriate channels and saving the log
+     * handle to the logs map.
+     * @param log_name used as log file name and map name
+     */
+    static void init_log(const std::string log_name) {
+        // Console channel
+        Poco::AutoPtr<Poco::ConsoleChannel> cons_chan(new Poco::ConsoleChannel);
+
+        // Console formatting channel
+        Poco::AutoPtr<Poco::PatternFormatter> cons_pat(
+            new Poco::PatternFormatter);
+        cons_pat->setProperty("pattern", "M:%M S:%S MS:%i %s: %t");
+        Poco::AutoPtr<Poco::FormattingChannel> cons_form(
+            new Poco::FormattingChannel(cons_pat, cons_chan));
+
+        // File channel
+        Poco::AutoPtr<Poco::SimpleFileChannel> file_chan(
+            new Poco::SimpleFileChannel);
+        file_chan->setProperty("path", Config::get("files.logs") + log_name);
+        file_chan->setProperty("rotation", "500 K");
+
+        // File formatting channel
+        Poco::AutoPtr<Poco::PatternFormatter> file_pat(
+            new Poco::PatternFormatter);
+        file_pat->setProperty("pattern", "%Y-%m-%d %H:%M:%S %i %s [%p]: %t");
+        Poco::AutoPtr<Poco::FormattingChannel> file_form(
+            new Poco::FormattingChannel(file_pat, file_chan));
+
+        // Splitter channel
+        Poco::AutoPtr<Poco::SplitterChannel> split_chan(
+            new Poco::SplitterChannel);
+        split_chan->addChannel(cons_form);
+        split_chan->addChannel(file_form);
+
+        // Asynchronous channel
+        Poco::AutoPtr<Poco::AsyncChannel> async_chan(
+            new Poco::AsyncChannel(split_chan));
+
+        Poco::Logger::get(log_name).setChannel(async_chan);
+
+        logs[log_name] = async_chan;
+    }
+
+    inline static std::unordered_map<std::string,
+                                     Poco::AutoPtr<Poco::AsyncChannel>>
+        logs;
+};
 
 }  // namespace Qtoken
 

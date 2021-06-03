@@ -4,8 +4,8 @@
 #include <iostream>
 #include <iterator>
 #include <sstream>
+#include <chrono>
 
-#include <Poco/Logger.h>
 #include <Poco/Net/StreamSocket.h>
 
 #include "globals/logger.hpp"
