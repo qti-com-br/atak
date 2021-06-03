@@ -1656,6 +1656,9 @@ public class CommsMapComponent extends AbstractMapComponent implements
             CotEvent e,
             String[] toUIDs,
             CoTSendMethod method) {
+
+        Log.d("### VIN: IP", "CommsMapComponent.sendCoT");
+
         if (failedContactUids != null)
             failedContactUids.clear();
 
@@ -1681,17 +1684,18 @@ public class CommsMapComponent extends AbstractMapComponent implements
             contacts = commo.getContacts();
 
 //            try {
-//                final String event = e.toString();
+                final String event = e.toString();
 //                if (commo != null)
 //                    commo.broadcastCoT(event, method);
+                sendCoThroughTheVIN(e, contacts);
 
-//                for (CommsLogger logger : loggers) {
-//                    try {
-//                        logger.logSend(e, "broadcast");
-//                    } catch (Exception err) {
-//                        Log.e(TAG, "error occurred with a logger", err);
-//                    }
-//                }
+                for (CommsLogger logger : loggers) {
+                    try {
+                        logger.logSend(e, "broadcast");
+                    } catch (Exception err) {
+                        Log.e(TAG, "error occurred with a logger", err);
+                    }
+                }
 
 //            } catch (CommoException ex) {
 //                Log.e(TAG, "Invalid cot message for broadcast " + e.toString());
@@ -1712,6 +1716,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
 
 //            if (commo != null)
                 //commo.sendCoT(commoContacts, event, method);
+            sendCoThroughTheVIN(e, (Contact[]) commoContacts.toArray());
 
             for (CommsLogger logger : loggers) {
                 try {
@@ -1732,9 +1737,13 @@ public class CommsMapComponent extends AbstractMapComponent implements
                 }
             }
 
-            contacts = (Contact[]) commoContacts.toArray();
+//            contacts = (Contact[]) commoContacts.toArray();
         }
 
+    }
+
+
+    private void sendCoThroughTheVIN(CotEvent e, Contact[] contacts) {
         // -- Send CoT through VIN -------------------------------------------------- //
         final String event = e.toString();
 
@@ -1760,7 +1769,6 @@ public class CommsMapComponent extends AbstractMapComponent implements
 //                VINService.enqueueWork(mapView.getContext(), intent);
         }
         // -------------------------------------------------- Send CoT through VIN -- //
-
     }
 
     /**
