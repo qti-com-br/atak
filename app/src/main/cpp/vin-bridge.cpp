@@ -85,7 +85,10 @@ extern "C" {
             pNode = new Node(node_port_str, receipt_port_str, http_port_str, addr, true, env);
 
             Log::message("### VIN", "###QTOKEN | run");
-            return pNode->run(); // 0 = EXIT_SUCCESS , <>0 = EXIT_FAILURE
+
+            global_node = pNode;
+
+            return global_node->run(); // 0 = EXIT_SUCCESS , <>0 = EXIT_FAILURE
 
         } catch (std::exception e) {
             Log::message("### VIN", e.what());
