@@ -76,6 +76,7 @@ include_directories(${INCLUDES_DIR}/openssl)
 
 include_directories(${POCO_DIR})
 include_directories(${POCO_DIR}/Net)
+include_directories(${POCO_DIR}/JSON)
 include_directories(${POCO_DIR}/XML)
 include_directories(${POCO_DIR}/Util)
 include_directories(${POCO_DIR}/Data)
@@ -89,7 +90,16 @@ include_directories(${POCO_DIR}/Crypto)
 include_directories(${POCO_DIR}/DOM)
 include_directories(${POCO_DIR}/Dynamic)
 include_directories(${POCO_DIR}/SAX)
-include_directories(${POCO_DIR}/JSON)
+
+include_directories(${PROJECT_SOURCE_DIR}/include/coders)
+include_directories(${PROJECT_SOURCE_DIR}/include/crypto)
+include_directories(${PROJECT_SOURCE_DIR}/include/crypto/EVP)
+include_directories(${PROJECT_SOURCE_DIR}/include/globals)
+include_directories(${PROJECT_SOURCE_DIR}/include/nodes)
+include_directories(${PROJECT_SOURCE_DIR}/include/receipt)
+include_directories(${PROJECT_SOURCE_DIR}/include/server)
+include_directories(${PROJECT_SOURCE_DIR}/include/server/handlers)
+include_directories(${PROJECT_SOURCE_DIR}/include/tools)
 
 # -- Deps -----------------------------------------------
 add_library(aff3ct SHARED IMPORTED)
@@ -174,22 +184,10 @@ set_target_properties(PocoZip PROPERTIES IMPORTED_LOCATION
 include("${CMAKE_MODULE_PATH}/AddCPPCheck.cmake") # 'make cppcheck'
 include("${CMAKE_MODULE_PATH}/AddClangFormat.cmake") # 'make format_[example.cpp]'
 
-
-
 # Cmake for compiled library code
 # NOTE: THIS SHOULD ALWAYS GO BEFORE add_subdirectory(apps) CMAKE
 #       TO MAKE SURE THE apps exe HAS THE LIBS IT NEEDS.
 #add_subdirectory(src)
-
-include_directories(${PROJECT_SOURCE_DIR}/include/coders)
-include_directories(${PROJECT_SOURCE_DIR}/include/crypto)
-include_directories(${PROJECT_SOURCE_DIR}/include/crypto/EVP)
-include_directories(${PROJECT_SOURCE_DIR}/include/globals)
-include_directories(${PROJECT_SOURCE_DIR}/include/nodes)
-include_directories(${PROJECT_SOURCE_DIR}/include/receipt)
-include_directories(${PROJECT_SOURCE_DIR}/include/server)
-include_directories(${PROJECT_SOURCE_DIR}/include/server/handlers)
-include_directories(${PROJECT_SOURCE_DIR}/include/tools)
 
 file(GLOB SOURCES
         ${SOURCES_DIR}/coders/*.cpp
@@ -202,11 +200,15 @@ file(GLOB SOURCES
         ${SOURCES_DIR}/server/handlers/*.cpp
         ${SOURCES_DIR}/tools/*.cpp)
 
-
+# -- Log ------------------------------------------------
+find_library (log-lib log)
+# ------------------------------------------------ Log --
 
 # -- VIN Bridge ---------------------------------------
 add_library(qtoken SHARED ${SOURCES} ../vin-bridge.cpp)
+
 set_target_properties(qtoken PROPERTIES LINKER_LANGUAGE CXX)
+
 target_link_libraries(
         qtoken
 
