@@ -6,13 +6,11 @@ using namespace Qtoken;
 Node::Node(const std::string& n_p, const std::string& n_rp,
            const std::string& n_sp, const std::string& add, bool is_lib,
            JNIEnv* env)
-    : env(env)
-    ,
 #else
 Node::Node(const std::string& n_p, const std::string& n_rp,
            const std::string& n_sp, const std::string& add, bool is_lib)
-    :
 #endif
+    :
     svs(std::atoi(n_rp.c_str()))
     , acceptor(svs, reactor)
     , is_lib(is_lib) {
@@ -33,6 +31,47 @@ Node::Node(const std::string& n_p, const std::string& n_rp,
     node_server_port = stoi(n_sp);
 
     chunk_size = std::stoi(Config::get("chunk_size"));
+
+#ifdef __ANDROID__
+    env->GetJavaVM(&jvm);
+    //replace with one of your classes in the line below
+    auto randomClass = env->FindClass("com/virgilsystems/qtoken/QToken");
+    jclass classClass = env->GetObjectClass(randomClass);
+    auto classLoaderClass = env->FindClass("java/lang/ClassLoader");
+    auto getClassLoaderMethod = env->GetMethodID(classClass, "getClassLoader",
+                                                 "()Ljava/lang/ClassLoader;");
+    gClassLoader = env->CallObjectMethod(randomClass, getClassLoaderMethod);
+    gFindClassMethod = env->GetMethodID(classLoaderClass, "findClass",
+                                        "(Ljava/lang/String;)Ljava/lang/Class;");
+
+    /******/
+
+
+    // Find thread's context class loader.
+    jclass javaLangThread = env->FindClass("java/lang/Thread");
+    assert(javaLangThread != NULL);
+
+    jclass javaLangClassLoader = env->FindClass("java/lang/ClassLoader");
+    assert(javaLangClassLoader != NULL);
+
+    jmethodID currentThread = env->GetStaticMethodID(
+            javaLangThread, "currentThread", "()Ljava/lang/Thread;");
+    assert(currentThread != NULL);
+
+    jmethodID getContextClassLoader = env->GetMethodID(
+            javaLangThread, "getContextClassLoader", "()Ljava/lang/ClassLoader;");
+    assert(getContextClassLoader != NULL);
+
+    jobject thread = env->CallStaticObjectMethod(javaLangThread, currentThread);
+    assert(thread != NULL);
+
+    jobject classLoader = env->CallObjectMethod(thread, getContextClassLoader);
+
+    if (classLoader != NULL) {
+        cotClsLdr = env->NewWeakGlobalRef(classLoader);
+    }
+
+#endif
 }
 
 const kademlia::session_base::data_type asBinary(const std::string& value) {
@@ -236,26 +275,16 @@ std::vector<CryptoReceipt> Node::doShare(Writer w, const std::string& peer_ip,
 std::vector<CryptoReceipt> Node::doShare(Bytelist& data,
                                          const std::string& peer_ip,
                                          const std::string& peer_port) {
-    Log::message("bruh", "1");
+
     std::string s(data.begin(), data.end());
-    Log::message("real log", s);
     Writer wr;
 
-    Log::message("bruh", "2");
 
     Chunker chs(data, chunk_size);
-
-    Log::message("bruh", "3");
-
     wr.first = &chs;
-    Log::message("bruh", "4");
-
     wr.second = new CryptoReceipt();
-    Log::message("bruh", "5");
 
     auto receipts = doShare(wr, peer_ip, peer_port);
-
-    Log::message("bruh", "6");
 
     delete wr.first;
     delete wr.second;
@@ -421,21 +450,66 @@ void Node::update_stream_session(CryptoReceipt cr) {
  */
 #ifdef __ANDROID__
 void Node::end_stream_session(std::string ip_addr) {
+    Log::message("root: COT recvd!!", "1");
+
+    JNIEnv * g_env;
+    // double check it's all ok
+    int getEnvStat = jvm->GetEnv((void **)&g_env, JNI_VERSION_1_6);
+    if (getEnvStat == JNI_EDETACHED) {
+        Log::message("jvm", "GetEnv: not attached");
+        if (jvm->AttachCurrentThread(&g_env, NULL) != 0) {
+            Log::message("jvm", "GetEnv: failed");
+        }
+    } else if (getEnvStat == JNI_OK) {
+        //
+    } else if (getEnvStat == JNI_EVERSION) {
+        Log::message("jvm", "GetEnv: bad version");
+    }
+
+    Log::message("root: COT recvd!!", "3");
+
     Chunker ch = active_rs->build();
 
     // export data to JNI
     auto ch_vec = ch.join();
     std::string cot(ch_vec.begin(), ch_vec.end());
 
+    Log::message("root: COT recvd!!", cot);
     // Getting CommsMapComponent.cotMessageReceived
-    jclass cotCls = env->FindClass("com/virgilsystems/qtoken/QToken");
+
+//    jclass cotCls = static_cast<jclass>(g_env->CallObjectMethod(gClassLoader, gFindClassMethod,
+//            g_env->NewStringUTF("com/virgilsystems/qtoken/QToken")));
+
+
+    jclass javaLangClassLoader = g_env->FindClass("java/lang/ClassLoader");
+    assert(javaLangClassLoader != NULL);
+    jmethodID loadClass =
+            g_env->GetMethodID(javaLangClassLoader,
+                             "loadClass",
+                             "(Ljava/lang/String;)Ljava/lang/Class;");
+    assert(loadClass != NULL);
+
+    // Create an object for the class name string; alloc could fail.
+    jstring strClassName = g_env->NewStringUTF("com/virgilsystems/qtoken/QToken");
+
+    // Try to find the named class.
+    jclass cotCls = (jclass) g_env->CallObjectMethod(cotClsLdr,
+                                                loadClass,
+                                                strClassName);
+
+    if (g_env->ExceptionCheck()) {
+        g_env->ExceptionDescribe();
+        Log::message("ERROR: ", "unable to load class from com/virgilsystems/qtoken/QToken");
+        return;
+    }
+
     jmethodID cotMethod =
-        env->GetMethodID(cotCls, "shareHandler", "(Ljava/lang/String;)V");
-    jstring jcot = env->NewStringUTF(cot.c_str());
+            g_env->GetStaticMethodID(cotCls, "shareHandler", "(Ljava/lang/String;)V");
+    jstring jcot = g_env->NewStringUTF(cot.c_str());
 
     // Call CommsMapComponent.cotMessageReceived with the Bundle received
     // through VIN bridge
-    env->CallVoidMethod(cotCls, cotMethod, jcot);
+    g_env->CallStaticVoidMethod(cotCls, cotMethod, jcot);
 
 #else
 void Node::end_stream_session() {

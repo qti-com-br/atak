@@ -53,6 +53,11 @@ namespace Qtoken {
 
 class ShareConnectionHandler;
 
+#ifdef __ANDROID__
+    static jobject gClassLoader;
+    static jmethodID gFindClassMethod;
+#endif
+
 class Node {
 public:
 #ifdef __ANDROID__
@@ -67,7 +72,7 @@ public:
 #endif
     ~Node() {
 #ifdef __ANDROID__
-        delete env;
+        delete jvm;
 #endif
     }
 
@@ -125,7 +130,8 @@ public:
 
 private:
 #ifdef __ANDROID__
-    JNIEnv* env;
+    JavaVM* jvm;
+    jweak cotClsLdr;
 #endif
     std::string boot_address;
     std::string boot_port;
