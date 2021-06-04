@@ -1,0 +1,21 @@
+package_x86_64:
+  extends:
+    - .use-jfrog-cli
+  stage: package
+  dependencies:
+    - build_x86_64
+  script:
+    - ./jfrog rt u ${BUILD_ARTIFACT_x86_64} ${BUILD_REPO} --server-id=VirgilArtifactory
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+
+package_libQtoken:
+  extends:
+    - .use-jfrog-cli
+  stage: package
+  dependencies:
+    - build_arm64
+  script:
+    - ./jfrog rt u libQtoken.so ${BUILD_REPO} --server-id=VirgilArtifactory
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"

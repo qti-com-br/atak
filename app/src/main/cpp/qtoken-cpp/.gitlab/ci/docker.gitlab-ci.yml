@@ -1,0 +1,29 @@
+build-test-image:
+  extends:
+    - .use-kaniko
+  stage: docker
+  script:
+    - /kaniko/executor --context=${CI_PROJECT_DIR} --dockerfile=${CI_PROJECT_DIR}/docker/Dockerfile.test --destination=${TEST_IMAGE} --cache=true
+  rules:
+    - changes:
+      - docker/Dockerfile.test 
+
+build-build_x86_64-image:
+  extends:
+    - .use-kaniko
+  stage: docker
+  script:
+    - /kaniko/executor --context=${CI_PROJECT_DIR} --dockerfile=${CI_PROJECT_DIR}/docker/Dockerfile.build_x86_64 --destination=${BUILD_IMAGE_x86_64} --cache=true
+  rules:
+    - changes:
+      - docker/Dockerfile.build_x86_64
+
+build-build_arm64-image:
+  extends:
+    - .use-kaniko
+  stage: docker_extras
+  script:
+    - /kaniko/executor --context=${CI_PROJECT_DIR} --dockerfile=${CI_PROJECT_DIR}/docker/Dockerfile.build_arm64 --destination=${BUILD_IMAGE_arm64} --cache=true
+  rules:
+    - changes:
+      - docker/Dockerfile.build_arm64

@@ -1,0 +1,38 @@
+# Get Kademlia with ssh key
+# This is done in a seperate stage so that the ssh key
+# for the gitlab is not backed into the docker image.
+FROM alpine:latest as intermediate
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apk update && \
+    apk add git openssh
+
+# Use the ssh key passed to the build process for this container
+ARG SSH_PRIVATE_KEY
+RUN mkdir -p /root/.ssh/ && \
+    echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa && chmod 400 /root/.ssh/id_rsa && \
+    touch /root/.ssh/known_hosts && \
+    ssh-keyscan gitlab.optimusprime.ai >> /root/.ssh/known_hosts && \
+    git clone git@gitlab.optimusprime.ai:virgilsystems/prototypes/kademlia.git
+
+FROM ubuntu:focal
+
+COPY --from=intermediate /kademlia /root/kademlia
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+ENV ANDROID_NDK_HOME=/root/android-ndk-r21e
+ENV toolchains_path=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64
+ENV CC=clang
+ENV CXX=clang++
+ENV PATH=$toolchains_path/bin:$PATH
+ENV ANDROID_API=26
+
+RUN apt-get -y update && apt-get -y upgrade && \
+    apt-get -y install clang cmake sudo git wget ninja-build unzip zip curl && \
+    cd /root/ && \
+    curl -uanonymous: -O https://opai.jfrog.io/artifactory/VIN_assets/android-ndk-r21e-linux-x86_64.zip && \
+    unzip android-ndk-r21e-linux-x86_64.zip
+
+WORKDIR /root/

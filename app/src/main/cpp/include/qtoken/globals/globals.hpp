@@ -17,6 +17,7 @@ class Node;
 // doesn't need to be smart-ptr'd as it represents the daemon
 extern Node* global_node;
 extern std::unique_ptr<Poco::Event> server_wait_for_shutdown;
+extern std::string active_stream;
 
 }  // namespace Qtoken
 

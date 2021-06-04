@@ -1,0 +1,21 @@
+FROM ubuntu:focal
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get -y update && apt-get -y upgrade && \
+        # Ubuntu packages
+        apt-get -y install git valgrind unzip wget cppcheck curl apt-utils tmux
+        # # Install robotframework
+        # apt-get -y install software-properties-common && \
+        # add-apt-repository ppa:deadsnakes/ppa && \
+        # apt-get update && \
+        # apt -y install python3.8 python3-pip && \
+        # pip3 install robotframework && \
+        # pip3 install robotframework-sshlibrary && \
+        # # Install terraform
+        # curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - && \
+        # apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
+        # apt-get update && \
+        # apt-get -y install terraform
+
+WORKDIR /usr/src/VIN

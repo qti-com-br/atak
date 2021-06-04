@@ -1,0 +1,15 @@
+.use-kaniko:
+  image:
+    name: gcr.io/kaniko-project/executor:debug-v0.20.0
+    entrypoint: [""]
+  before_script:
+    #- source scripts/utils.sh
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+
+.use-jfrog-cli:
+  image: ${BUILD_IMAGE_x86_64}
+  before_script:
+    - curl -fL https://getcli.jfrog.io | sh
+    - ./jfrog config add VirgilArtifactory --url $K8S_SECRET_ARTIFACTORY_URL --user $K8S_SECRET_ARTIFACTORY_USER --apikey $K8S_SECRET_ARTIFACTORY_PASS --interactive=false
+    - ./jfrog c show

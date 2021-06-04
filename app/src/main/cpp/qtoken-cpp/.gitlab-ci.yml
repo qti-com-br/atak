@@ -1,0 +1,41 @@
+# When adding a new stage make sure it has it's own file
+# in the include stucture below.
+stages:
+  - docker
+  - docker_extras
+  - analysis
+  - build
+  - test
+  - package
+
+# Defaults for the entire pipeline and therefore every job in the include statement.
+# Be careful when editing this please.
+default:
+  interruptible: true
+  timeout: 30m
+
+# Put any env vars for the ci jobs here
+variables:
+  VIN_VERSION: 1.1.0
+  BUILD_IMAGE_x86_64:  ${CI_REGISTRY}/${CI_PROJECT_PATH}/master:build_x86_64
+  BUILD_IMAGE_arm64: ${CI_REGISTRY}/${CI_PROJECT_PATH}/master:build_arm64
+  BUILD_IMAGE_arm7l: ${BUILD_IMAGE_x86_64}
+  TEST_IMAGE:  ${CI_REGISTRY}/${CI_PROJECT_PATH}/${CI_COMMIT_REF_SLUG}:test
+  BUILD_LIBS_x86_IMAGE: ${CI_REGISTRY}/${CI_PROJECT_PATH}:build_libs_x86_64
+  BUILD_LIBS_arm64_IMAGE: ${BUILD_IMAGE_arm64}
+  BUILD_LIBS_x86_BUNDLE: x86_64_build_libs.zip
+  BUILD_LIBS_arm64_BUNDLE: arm64_build_libs.zip
+  BUILD_LIBS_arm7_BUNDLE: arm7l_build_libs.zip
+  BUILD_ARTIFACT_x86_64: QToken-CPP_${VIN_VERSION}-x86_64.deb
+  TEST_ARTIFACT: VIN_test.tar.gz
+  BUILD_REPO: VIN/
+  CI_BUILD_TAG: 0
+
+include:
+  - local: .gitlab/ci/global.gitlab-ci.yml
+  - local: .gitlab/ci/docker.gitlab-ci.yml
+  # - local: .gitlab/ci/build_libs.gitlab-ci.yml
+  - local: .gitlab/ci/build.gitlab-ci.yml
+  - local: .gitlab/ci/analysis.gitlab-ci.yml
+  - local: .gitlab/ci/test.gitlab-ci.yml
+  - local: .gitlab/ci/package.gitlab-ci.yml

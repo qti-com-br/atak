@@ -1,0 +1,85 @@
+mem_leak:
+  stage: test
+  image: ${TEST_IMAGE}
+  dependencies:
+    - build_x86_64
+  before_script:
+    - echo "Doing valgrind on node and bootstrap"
+    - touch valg_log.txt
+    - dpkg -i ${BUILD_ARTIFACT_x86_64}
+    - apt-get update
+    - apt --fix-broken install
+  script:
+    # Do a more robust valgrind test that this with the new cli
+    - tmux new-session -d -s vinSession "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valg_log.txt VIN -b"
+    - sleep 10
+    - tmux send-keys -t vinSession.0 "exit" ENTER
+    - sleep 10
+  after_script:
+    - echo $CI_PROJECT_DIR
+    - cat valg_log.txt
+  artifacts:
+    reports:
+    paths:
+      - ${CI_PROJECT_DIR}/valg_log.txt
+  # rules:
+  # - if: $CI_MERGE_REQUEST_IID
+  # - if: $CI_COMMIT_TAG
+  # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+unit_test:
+  stage: test
+  image: ${BUILD_IMAGE_x86_64}
+  dependencies:
+    - build_x86_64
+  before_script:
+    - dpkg -i ${BUILD_ARTIFACT_x86_64}
+    - mkdir unit_test
+    - mv ${TEST_ARTIFACT} unit_test
+    - cd unit_test
+    - tar -xzf ${TEST_ARTIFACT}
+    - cd build/test/
+  script:
+    - unit_tests/VIN_unit
+    - adversarial_tests/VIN_adv
+    - benchmark_tests/VIN_bench
+
+# networking-smoke-test:
+#   stage: test
+#   image: ${TEST_IMAGE}
+#   dependencies:
+#     - build
+#   before_script:
+#     - mkdir test/robot/resources/assets
+#     - cp -r ${BUILD_ARTIFACT} test/robot/resources/assets
+#     # Setup test architecture
+#     - cd test/terraform
+#     - terraform init
+#     - terraform apply -auto-approve
+#     # Setup all test resources
+#     - terraform output -json test_ips > ../robot/resources/assets/ips.json
+#     - terraform output -raw ssh_key > ../robot/resources/assets/test_net_key.perm
+#     - chmod 600 ../robot/resources/assets/test_net_key.perm
+#     - cd ../robot/resources/assets
+#     - "curl -uanonymous: -O https://opai.jfrog.io/artifactory/VIN_assets/test_image.jpg"
+#     - cd ../../testsuites
+#     # Give aws a second to make sure it's done
+#   script:
+#     # Execute tests
+#     - mkdir logs
+#     - ls -a
+#     - robot --console verbose -d ${CI_PROJECT_DIR} smoke-test.robot
+#   after_script:
+#     - ls -a
+#     - cd ${CI_PROJECT_DIR}/test/terraform
+#     - sleep 120
+#     - terraform destroy --target aws_instance.bootstrap --target aws_key_pair.generated_key -auto-approve
+#   artifacts:
+#     when: always
+#     reports:
+#     paths:
+#       - ${CI_PROJECT_DIR}/log.html
+#       - ${CI_PROJECT_DIR}/output.xml
+#       - ${CI_PROJECT_DIR}/report.html
+  
+  

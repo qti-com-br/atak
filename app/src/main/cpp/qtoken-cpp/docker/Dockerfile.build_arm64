@@ -1,0 +1,44 @@
+FROM gradle:latest
+
+USER root
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+ENV ANDROID_NDK_HOME=/root/android-ndk-r21e
+ENV toolchains_path=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64
+ENV CC=clang
+ENV CXX=clang++
+ENV PATH=$PATH:/usr/local/bin
+ENV PATH=$toolchains_path/bin:$PATH
+ENV ANDROID_API=26
+
+ENV ANDROID_HOME=/root/android-sdk
+ENV ANDROID_SDK_HOME=$ANDROID_HOME
+
+# Get libs
+RUN apt-get update -y && apt-get upgrade -y && \
+    apt-get install -y ninja-build wget unzip clang curl make libssl-dev apt-utils
+
+# Get cmake
+RUN cd /root/ && \
+    mkdir temp && cd temp && \
+    wget https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1.tar.gz && \
+    tar -xzvf cmake-3.18.1.tar.gz && \
+    cd cmake-3.18.1/ && \
+    ./bootstrap && \
+    make -j$(nproc) && \
+    make install
+
+# Get NDK
+RUN cd /root/ && \
+    curl -uanonymous: -O https://opai.jfrog.io/artifactory/VIN_assets/android-ndk-r21e-linux-x86_64.zip && \
+    unzip android-ndk-r21e-linux-x86_64.zip
+
+# Get SDK
+RUN cd /root/ && \
+    mkdir android-sdk && cd android-sdk && \
+    wget https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip && \
+    unzip commandlinetools-linux-6858069_latest.zip && \
+    cmdline-tools/bin/sdkmanager --update --sdk_root=$ANDROID_HOME && \
+    yes | cmdline-tools/bin/sdkmanager --licenses --sdk_root=$ANDROID_HOME && \
+    cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-28" "build-tools;28.0.3" --sdk_root=$ANDROID_HOME

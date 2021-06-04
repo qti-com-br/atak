@@ -1,0 +1,11 @@
+FROM ubuntu:focal
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get -y update && apt-get -y upgrade && \
+    apt-get -y install git cmake unzip curl wget cppcheck clang
+
+#install lvm
+# RUN curl -L -uanonymous: -O https://opai.jfrog.io/artifactory/LVM/lvm-1.0.0-Linux.deb && \
+#         dpkg -i lvm-1.0.0-Linux.deb
+WORKDIR /usr/src/VIN

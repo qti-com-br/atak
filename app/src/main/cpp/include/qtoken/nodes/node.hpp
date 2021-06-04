@@ -55,21 +55,10 @@ class ShareConnectionHandler;
 
 class Node {
 public:
-#ifdef __ANDROID__
-    // Android specific constructor that takes a JNI env
-    Node(const std::string& node_port, const std::string& node_receipt_port,
-         const std::string& node_server_port, const std::string& bootstrap_addr,
-         bool is_lib, JNIEnv* env);
-#else
     Node(const std::string& node_port, const std::string& node_receipt_port,
          const std::string& node_server_port, const std::string& bootstrap_addr,
          bool is_lib);
-#endif
-    ~Node() {
-#ifdef __ANDROID__
-        delete env;
-#endif
-    }
+    ~Node() {}
 
     int run();
 
@@ -84,6 +73,7 @@ public:
     Chunker doGather(const std::string& receipt_file_path);
     Chunker doGather(const CryptoReceipt& cr);
 
+    // Receipt passing
     // Receipt passing
     std::vector<CryptoReceipt> doShare(std::vector<unsigned char>& data,
                                        const std::string& peer_ip,
@@ -105,28 +95,12 @@ public:
                                        bool continue_stream);
 
     // Streaming
-    inline bool is_active_stream_session() {
-        // return active_streams.find(session_token) != active_streams.end();
-        return active_stream != "";
-    }
-
     void add_stream_session(std::string session_token);
     void update_stream_session(CryptoReceipt cr);
-    // TODO: update with multiple concurrent connections
     // void update_stream_session(std::string session_token, CryptoReceipt cr);
-
-#ifdef __ANDROID__
-    void end_stream_session(std::string ip_addr);
-#else
     void end_stream_session();
-#endif
-
-    std::string get_current_stream() { return active_stream; }
 
 private:
-#ifdef __ANDROID__
-    JNIEnv* env;
-#endif
     std::string boot_address;
     std::string boot_port;
     std::istream* input;
@@ -145,7 +119,6 @@ private:
     std::shared_ptr<kademlia::session> node;
 
     // std::unordered_map<Bytelist, std::unique_ptr<ReceiptService>>
-    std::string active_stream;
     std::unique_ptr<ReceiptService> active_rs;
     std::unique_ptr<ReceiptSession> active_stream_client;
 };

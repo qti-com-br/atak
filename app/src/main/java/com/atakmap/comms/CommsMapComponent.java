@@ -1724,7 +1724,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
                     if(type.equals("a-f-G-U-C")) {
                         commo.sendCoT(commoContacts, e.toString(), method);
                     } else {
-                        sendCoThroughTheVIN(e, (Contact[]) commoContacts.toArray());
+                        sendCoThroughTheVIN(e, commoContacts.toArray(new Contact[0]));
                     }
                 }
 
