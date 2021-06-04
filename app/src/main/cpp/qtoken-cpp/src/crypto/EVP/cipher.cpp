@@ -1,7 +1,7 @@
 #include <fstream>
 
-#include "crypto/exception.hpp"
-#include "crypto/EVP/cipher.hpp"
+#include "../crypto/exception.hpp"
+#include "../crypto/EVP/cipher.hpp"
 
 using namespace std;
 

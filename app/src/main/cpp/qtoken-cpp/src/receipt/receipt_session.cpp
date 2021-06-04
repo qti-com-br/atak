@@ -1,4 +1,4 @@
-#include "receipt/receipt_session.hpp"
+#include "../receipt/receipt_session.hpp"
 
 using namespace Qtoken;
 
@@ -18,7 +18,7 @@ ReceiptSession::ReceiptSession(Addr addr)
     }
 
     Log::message("root", "Receipt session started");
-    ss.setReceiveTimeout(5000000);
+    // ss.setReceiveTimeout(5000000);
 }
 
 /**
@@ -28,8 +28,9 @@ ReceiptSession::ReceiptSession(Addr addr)
 void ReceiptSession::start_session() {
     ss.sendBytes(init_stream_session.data(), init_stream_session.size());
     ss.receiveBytes(session_token.data(), UUID_LEN);
-    Log::message("root", "Session token obtained: " +
-                std::string(session_token.begin(), session_token.end()));
+    Log::message("root",
+                 "Session token obtained: " +
+                     std::string(session_token.begin(), session_token.end()));
 }
 
 /**
@@ -40,10 +41,14 @@ void ReceiptSession::send_receipts(std::vector<CryptoReceipt> crs) {
     for (int i = 0; i < crs.size(); i++) {
         Log::message("root", "Stream frame");
         auto timeStart = std::chrono::high_resolution_clock::now();
-        send_receipt(crs.at(i));        
+        send_receipt(crs.at(i));
         auto timeEnd = std::chrono::high_resolution_clock::now();
-        long long duration = std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart).count();
-        Log::message("root", "Streamed receipt " + std::to_string(i) + " : " + std::to_string(duration) + " ms.");
+        long long duration =
+            std::chrono::duration_cast<std::chrono::microseconds>(timeEnd -
+                                                                  timeStart)
+                .count();
+        Log::message("root", "Streamed receipt " + std::to_string(i) + " : " +
+                                 std::to_string(duration) + " ms.");
     }
 }
 
@@ -67,11 +72,11 @@ void ReceiptSession::send_receipt(CryptoReceipt cr) {
     cr_msg.insert(cr_msg.end(), receipt_bytes.begin(), receipt_bytes.end());
 
     ss.sendBytes(cr_msg.data(), cr_msg.size());
-    
+
     Bytelist resp(received_receipt.size());
     ss.receiveBytes(resp.data(), received_receipt.size());
 
-    if(resp.size() != received_receipt.size()){
+    if (resp.size() != received_receipt.size()) {
         Log::message("root", "Failed to send receipt");
     }
 }
@@ -89,8 +94,9 @@ ReceiptSession::~ReceiptSession() {
     end_stream_transmission.insert(end_stream_transmission.end(),
                                    end_stream_session.begin(),
                                    end_stream_session.end());
-    Log::message("root", "killing session: " +
-                std::string(session_token.begin(), session_token.end()));
+    Log::message("root",
+                 "killing session: " +
+                     std::string(session_token.begin(), session_token.end()));
     ss.sendBytes(end_stream_transmission.data(),
                  end_stream_transmission.size());
 }

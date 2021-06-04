@@ -100,7 +100,7 @@ public class RouteCreationDialog extends BroadcastReceiver implements
     private List<Map.Entry<String, RoutePlannerInterface>> _planners;
     private RoutePlannerInterface _autoPlan;
     private final File recentlyUsed = FileSystemUtils
-            .getItem("tools/route/recentlyused.txt");
+            .getItem("../tools/route/recentlyused.txt");
     private final LayoutInflater _inflater;
 
     public RouteCreationDialog(final MapView mapView) {

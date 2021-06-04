@@ -1,10 +1,10 @@
 #include <openssl/pem.h>
 #include <openssl/x509.h>
 
-#include "crypto/bio.hpp"
-#include "crypto/exception.hpp"
-#include "crypto/random.hpp"
-#include "crypto/rsakey.hpp"
+#include "../crypto/bio.hpp"
+#include "../crypto/exception.hpp"
+#include "../crypto/random.hpp"
+#include "../crypto/rsakey.hpp"
 
 using namespace std;
 

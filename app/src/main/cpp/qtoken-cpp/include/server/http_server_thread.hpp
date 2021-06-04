@@ -4,7 +4,7 @@
 #include "Poco/Util/ServerApplication.h"
 
 #include "http_form_server.hpp"
-#include "globals/logger.hpp"
+#include "../globals/logger.hpp"
 
 namespace Qtoken {
 

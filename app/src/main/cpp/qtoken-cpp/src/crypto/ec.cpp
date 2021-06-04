@@ -2,11 +2,11 @@
 
 #include <openssl/x509.h>
 
-#include "crypto/EVP/pkey.hpp"
-#include "crypto/bio.hpp"
-#include "crypto/ec.hpp"
-#include "crypto/exception.hpp"
-#include "crypto/random.hpp"
+#include "../crypto/EVP/pkey.hpp"
+#include "../crypto/bio.hpp"
+#include "../crypto/ec.hpp"
+#include "../crypto/exception.hpp"
+#include "../crypto/random.hpp"
 
 using namespace std;
 

@@ -7,7 +7,9 @@
 #include <string>
 #include <vector>
 
-#include "tools/types.hpp"
+#include "../tools/types.hpp"
+
+#include "../globals/logger.hpp"
 
 namespace Qtoken {
 
@@ -27,6 +29,8 @@ public:
         create_chunker(stream_vec, chunk_size);
     }
     Chunker(Bytelist& char_vec, int chunk_size) {
+        Log::message("WHYYYYY", "kjsafhgkahs");
+
         create_chunker(char_vec, chunk_size);
     }
     Chunker(const std::vector<Bytelist>& chunks, int file_size)
@@ -38,6 +42,7 @@ public:
     inline Bytelist& get(int i) { return chunks.at(i); };
     inline int get_chunk_size() { return chunks.at(0).size(); };
     ull get_file_size() { return file_size; };
+
     int get_tail_size();
     void rebuild(std::string output_file);
     std::vector<Bytelist>& get_padded_chunks() { return chunks; }
@@ -45,6 +50,8 @@ public:
     std::vector<Chunker> split(int num_shards);
     void write_chunks(const std::string& dir);
     void resize_chunks(int new_size);
+    Bytelist join();
+
     bool operator==(Chunker& rhs);
 
 private:

@@ -2,12 +2,12 @@
 
 #include "../../src/coders/pipeline.cpp"
 #include "bench_utils.hpp"
-#include "coders/decoder.hpp"
-#include "coders/encoder.hpp"
-#include "coders/pipeline.hpp"
-#include "receipt/crypto_receipt.hpp"
-#include "tools/chunker.hpp"
-#include "tools/types.hpp"
+#include "../coders/decoder.hpp"
+#include "../coders/encoder.hpp"
+#include "../coders/pipeline.hpp"
+#include "../receipt/crypto_receipt.hpp"
+#include "../tools/chunker.hpp"
+#include "../tools/types.hpp"
 
 static void EmptyPipeline(benchmark::State &state) {
     Pipeline<Encoder> p;

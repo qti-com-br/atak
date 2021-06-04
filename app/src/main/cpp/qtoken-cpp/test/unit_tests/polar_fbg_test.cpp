@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "coders/polar_fbg.hpp"
+#include "../coders/polar_fbg.hpp"
 
 class FBGFixture : public ::testing::TestWithParam<std::tuple<int, int>> {};
 

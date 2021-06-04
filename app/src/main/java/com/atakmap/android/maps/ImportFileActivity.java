@@ -51,7 +51,7 @@ public class ImportFileActivity extends MetricActivity {
         if (action.equals(Intent.ACTION_VIEW) ||
                 action.equals(Intent.ACTION_SEND)) {
 
-            final File sendtoLocation = FileSystemUtils.getItem("tools/sendto");
+            final File sendtoLocation = FileSystemUtils.getItem("../tools/sendto");
             FileSystemUtils.deleteDirectory(sendtoLocation, false);
 
             IOProviderFactory.mkdirs(sendtoLocation);

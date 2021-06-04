@@ -1,4 +1,4 @@
-#include "nodes/bootstrap.hpp"
+#include "../nodes/bootstrap.hpp"
 
 using namespace Qtoken;
 

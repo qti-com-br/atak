@@ -1,8 +1,8 @@
 #include <openssl/pem.h>
 
-#include "crypto/bio.hpp"
-#include "crypto/ec.hpp"
-#include "crypto/exception.hpp"
+#include "../crypto/bio.hpp"
+#include "../crypto/ec.hpp"
+#include "../crypto/exception.hpp"
 
 using namespace std;
 

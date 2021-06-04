@@ -44,7 +44,7 @@ public class ControllerPppd extends BroadcastReceiver implements Runnable {
         cancelled = false;
         try {
             FileSystemUtils.copyFile(new File(root, "options"),
-                    FileSystemUtils.getItem("tools/.options"),
+                    FileSystemUtils.getItem("../tools/.options"),
                     new DefaultIOProvider());
         } catch (Exception e) {
             Log.e(TAG, "error copying file over", e);
@@ -72,7 +72,7 @@ public class ControllerPppd extends BroadcastReceiver implements Runnable {
                                 s
                                         + " file "
                                         + FileSystemUtils
-                                                .getItem("tools/.options"));
+                                                .getItem("../tools/.options"));
                         i.putExtra("return", "com.atakmap.pppd");
                         AtakBroadcast.getInstance().sendSystemBroadcast(i);
                     } else {
@@ -96,7 +96,7 @@ public class ControllerPppd extends BroadcastReceiver implements Runnable {
         if (t != null)
             t.interrupt();
         t = null;
-        FileSystemUtils.getItem("tools/.options").delete();
+        FileSystemUtils.getItem("../tools/.options").delete();
     }
 
     /**

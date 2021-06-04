@@ -1,11 +1,11 @@
 #ifndef RECEIPT_SERVICE_H
 #define RECEIPT_SERVICE_H
 
-#include "globals/globals.hpp"
-#include "nodes/node.hpp"
-#include "receipt/crypto_receipt.hpp"
-#include "tools/chunker.hpp"
-#include "tools/types.hpp"
+#include "../globals/globals.hpp"
+#include "../nodes/node.hpp"
+#include "../receipt/crypto_receipt.hpp"
+#include "../tools/chunker.hpp"
+#include "../tools/types.hpp"
 
 namespace Qtoken {
 

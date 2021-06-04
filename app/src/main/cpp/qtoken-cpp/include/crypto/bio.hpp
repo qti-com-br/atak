@@ -5,10 +5,10 @@
 
 #include <openssl/bio.h>
 
-#include "tools/byte_vector.hpp"
-#include "crypto/EVP/pkey.hpp"
-#include "crypto/rsakey.hpp"
-#include "crypto/x509.hpp"
+#include "../tools/byte_vector.hpp"
+#include "../crypto/EVP/pkey.hpp"
+#include "../crypto/rsakey.hpp"
+#include "../crypto/x509.hpp"
 
 namespace Qtoken {
 namespace Crypto {

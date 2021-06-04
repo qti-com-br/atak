@@ -5,9 +5,9 @@
 #include <cstdlib>
 #include <fstream>
 
-#include "coders/decoder.hpp"
-#include "coders/encoder.hpp"
-#include "tools/chunker.hpp"
+#include "../coders/decoder.hpp"
+#include "../coders/encoder.hpp"
+#include "../tools/chunker.hpp"
 
 inline Bytelist get_test_file(int file_size = 1024) {
     std::string cmd_stub =

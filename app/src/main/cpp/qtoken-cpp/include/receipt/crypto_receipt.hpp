@@ -5,9 +5,9 @@
 #include <sstream>
 #include <unordered_map>
 
-#include "tools/types.hpp"
-#include "tools/utils.hpp"
-#include "tools/uuid.hpp"
+#include "../tools/types.hpp"
+#include "../tools/utils.hpp"
+#include "../tools/uuid.hpp"
 
 namespace Qtoken {
 

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include "coders/polar_decoder.hpp"
-#include "coders/polar_encoder.hpp"
+#include "../coders/polar_decoder.hpp"
+#include "../coders/polar_encoder.hpp"
 #include "test_utils.hpp"
 
 std::vector<int> polar_test_frames = {5, 99};

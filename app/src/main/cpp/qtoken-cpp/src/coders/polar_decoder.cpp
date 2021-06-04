@@ -1,4 +1,4 @@
-#include "coders/polar_decoder.hpp"
+#include "../coders/polar_decoder.hpp"
 
 /**
  * Creates a decoder containing functions for decoding binary or bytestream

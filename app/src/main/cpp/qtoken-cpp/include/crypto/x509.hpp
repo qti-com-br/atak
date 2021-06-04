@@ -3,8 +3,8 @@
 
 #include <openssl/x509.h>
 
-#include "tools/byte_vector.hpp"
-#include "crypto/EVP/pkey.hpp"
+#include "../tools/byte_vector.hpp"
+#include "../crypto/EVP/pkey.hpp"
 
 namespace Qtoken {
 namespace Crypto {

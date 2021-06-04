@@ -18,8 +18,8 @@
 #include <android/log.h>
 #endif
 
-#include "globals/config.hpp"
-#include "globals/globals.hpp"
+#include "../globals/config.hpp"
+#include "../globals/globals.hpp"
 
 namespace Qtoken {
 

@@ -1,4 +1,4 @@
-#include "receipt/share_connection_handler.hpp"
+#include "../receipt/share_connection_handler.hpp"
 
 using namespace Qtoken;
 
@@ -20,7 +20,7 @@ ShareConnectionHandler::ShareConnectionHandler(
                                              Poco::Net::ShutdownNotification>(
                                  *this, &ShareConnectionHandler::onShutdown));
 
-    _socket.setReceiveTimeout(5000000);
+    // _socket.setReceiveTimeout(5000000);
 }
 
 /**
@@ -53,6 +53,7 @@ void ShareConnectionHandler::onReadable(
         case START_STREAM_SESSION: {
             Log::message("cr-server", "Start stream session request received");
             handle_start_session();
+            Log::message("root", "handled start");
             break;
         }
         case RECEIPT_STREAM: {
@@ -83,8 +84,11 @@ void ShareConnectionHandler::onReadable(
 void ShareConnectionHandler::handle_start_session() {
     UUID id;
     std::string session_token(id.ToString());
+    Log::message("root", "adding stream session");
     global_node->add_stream_session(session_token);
+    Log::message("root", "added stream session");
     _socket.sendBytes(session_token.data(), session_token.size());
+    Log::message("root", "sent session ID");
 }
 
 /**
@@ -95,7 +99,9 @@ void ShareConnectionHandler::handle_cr(std::string session_token,
                                        const Bytelist& buff) {
     Bytelist receipt_bytes(buff.begin() + UUID_LEN, buff.end());
     CryptoReceipt cr(receipt_bytes);
+    Log::message("root", "updating stream session");
     global_node->update_stream_session(cr);
+    Log::message("root", "sent receipt ack");
     _socket.sendBytes(received_receipt.data(), received_receipt.size());
 }
 
@@ -104,7 +110,14 @@ void ShareConnectionHandler::handle_cr(std::string session_token,
  * @param session_token ID of the session to end
  */
 void ShareConnectionHandler::handle_end_session(std::string session_token) {
+#ifdef __ANDROID__
+    auto ip = _socket.peerAddress().toString();
+    ip.substr(0, ip.find(":"));
+    Log::message("root", "ending sessioyn");
+    global_node->end_stream_session(ip);
+#else
     global_node->end_stream_session();
+#endif
 }
 
 /**

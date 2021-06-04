@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include "receipt/crypto_receipt.hpp"
-#include "tools/types.hpp"
+#include "../receipt/crypto_receipt.hpp"
+#include "../tools/types.hpp"
 
 using namespace Qtoken;
 

@@ -9,10 +9,10 @@
 #include <Poco/Net/PartHandler.h>
 #include <Poco/URI.h>
 
-#include "globals/globals.hpp"
-#include "globals/config.hpp"
-#include "nodes/node.hpp"
-#include "receipt/crypto_receipt.hpp"
+#include "../globals/globals.hpp"
+#include "../globals/config.hpp"
+#include "../nodes/node.hpp"
+#include "../receipt/crypto_receipt.hpp"
 
 using Poco::Net::HTTPServerRequest;
 using Poco::Net::MessageHeader;

@@ -120,7 +120,7 @@ public class ImportVideoSort extends ImportResolver {
     public File getDestinationPath(File file) {
         if (file == null)
             return null;
-        return new File(FileSystemUtils.getItem("tools/videos"),
+        return new File(FileSystemUtils.getItem("../tools/videos"),
                 file.getName());
     }
 

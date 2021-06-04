@@ -1,10 +1,19 @@
-#include "nodes/node.hpp"
+#include "../nodes/node.hpp"
 
 using namespace Qtoken;
 
+#ifdef __ANDROID__
+Node::Node(const std::string& n_p, const std::string& n_rp,
+           const std::string& n_sp, const std::string& add, bool is_lib,
+           JNIEnv* env)
+    : env(env)
+    ,
+#else
 Node::Node(const std::string& n_p, const std::string& n_rp,
            const std::string& n_sp, const std::string& add, bool is_lib)
-    : svs(std::atoi(n_rp.c_str()))
+    :
+#endif
+    svs(std::atoi(n_rp.c_str()))
     , acceptor(svs, reactor)
     , is_lib(is_lib) {
     // If bootstrap port not given, use default
@@ -15,8 +24,8 @@ Node::Node(const std::string& n_p, const std::string& n_rp,
         boot_port = std::to_string(kademlia::session_base::DEFAULT_PORT);
     }
 
-    Log::message("root", "VIN Node created on " + n_p + " with receipt server on port " +
-                n_rp);
+    Log::message("root", "VIN Node created on " + n_p +
+                             " with receipt server on port " + n_rp);
     Log::message("root", "Node bootstrap located at " + add);
 
     node_port = stoi(n_p);
@@ -67,7 +76,7 @@ int Node::run() {
             main_loop_result.get();
         } catch (const std::system_error& e) {
             Log::message("root", "Kademlia startup failed with error " +
-                        std::string(e.what()));
+                                     std::string(e.what()));
             return EXIT_FAILURE;
         }
     }
@@ -77,12 +86,14 @@ int Node::run() {
     args.push_back(std::to_string(node_server_port));
     HTTPServerThread server_thread(args);
     thread.start(server_thread);
-    Log::message("root", "HTTP server socket started on port: " + std::to_string(node_server_port));
+    Log::message("root", "HTTP server socket started on port: " +
+                             std::to_string(node_server_port));
 
     // run the receipt server on a different thread
     try {
         receipt_thread.start(reactor);
-        Log::message("root", "Receipt server running on " + std::to_string(node_receipt_port));
+        Log::message("root", "Receipt server running on " +
+                                 std::to_string(node_receipt_port));
     } catch (...) {
         std::cerr << "Couldn't start receipt server!" << std::endl;
         throw("");
@@ -90,7 +101,7 @@ int Node::run() {
 
     // start main loop
     Log::message("root", "Running node at port " + std::to_string(node_port) +
-                ". Connecting to " + endpoint.address());
+                             ". Connecting to " + endpoint.address());
     // FIXME: try{}catch a std::system error here for handling failed
     // connections
     if (!is_lib) {
@@ -222,6 +233,36 @@ std::vector<CryptoReceipt> Node::doShare(Writer w, const std::string& peer_ip,
     return doShare(w, peer_ip, peer_port, false);
 }
 
+std::vector<CryptoReceipt> Node::doShare(Bytelist& data,
+                                         const std::string& peer_ip,
+                                         const std::string& peer_port) {
+    Log::message("bruh", "1");
+    std::string s(data.begin(), data.end());
+    Log::message("real log", s);
+    Writer wr;
+
+    Log::message("bruh", "2");
+
+    Chunker chs(data, chunk_size);
+
+    Log::message("bruh", "3");
+
+    wr.first = &chs;
+    Log::message("bruh", "4");
+
+    wr.second = new CryptoReceipt();
+    Log::message("bruh", "5");
+
+    auto receipts = doShare(wr, peer_ip, peer_port);
+
+    Log::message("bruh", "6");
+
+    delete wr.first;
+    delete wr.second;
+
+    return receipts;
+}
+
 std::vector<CryptoReceipt> Node::doShare(Writer w, const std::string& peer_ip,
                                          const std::string& peer_port,
                                          bool continue_stream) {
@@ -230,8 +271,9 @@ std::vector<CryptoReceipt> Node::doShare(Writer w, const std::string& peer_ip,
         throw("");
     }
 
-    if(!active_stream_client){
-        active_stream_client.reset(new ReceiptSession(Addr(peer_ip, peer_port)));
+    if (!active_stream_client) {
+        active_stream_client.reset(
+            new ReceiptSession(Addr(peer_ip, peer_port)));
         active_stream_client->start_session();
     }
 
@@ -331,7 +373,7 @@ Chunker Node::doGather(const CryptoReceipt& cr) {
         } else {
             Log::message("root", "Failed to find shard " + std::to_string(i));
         }
-        
+
         i++;
     }
 
@@ -377,15 +419,35 @@ void Node::update_stream_session(CryptoReceipt cr) {
  * nothing if token does not exist.
  * @param session_token Identifier for streaming session to end.
  */
+#ifdef __ANDROID__
+void Node::end_stream_session(std::string ip_addr) {
+    Chunker ch = active_rs->build();
+
+    // export data to JNI
+    auto ch_vec = ch.join();
+    std::string cot(ch_vec.begin(), ch_vec.end());
+
+    // Getting CommsMapComponent.cotMessageReceived
+    jclass cotCls = env->FindClass("com/virgilsystems/qtoken/QToken");
+    jmethodID cotMethod =
+        env->GetMethodID(cotCls, "shareHandler", "(Ljava/lang/String;)V");
+    jstring jcot = env->NewStringUTF(cot.c_str());
+
+    // Call CommsMapComponent.cotMessageReceived with the Bundle received
+    // through VIN bridge
+    env->CallVoidMethod(cotCls, cotMethod, jcot);
+
+#else
 void Node::end_stream_session() {
     Chunker ch = active_rs->build();
-    
+
     std::string output_file_path =
         Config::get("files.rebuilt") + std::to_string(get_rand_seed_uint32_t());
 
     Log::message("root", "File rebuilt at " + output_file_path);
 
     ch.rebuild(output_file_path);
+#endif
     active_rs.reset();
     active_stream = "";
 }

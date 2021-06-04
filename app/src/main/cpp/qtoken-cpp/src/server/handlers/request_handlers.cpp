@@ -1,9 +1,9 @@
 #include <iostream>
 
-#include "server/handlers/request_handlers.hpp"
-#include "server/handlers/share_part_handler.hpp"
-#include "server/handlers/spread_part_handler.hpp"
-#include "server/handlers/stream_part_handler.hpp"
+#include "../server/handlers/request_handlers.hpp"
+#include "../server/handlers/share_part_handler.hpp"
+#include "../server/handlers/spread_part_handler.hpp"
+#include "../server/handlers/stream_part_handler.hpp"
 
 using namespace Qtoken;
 

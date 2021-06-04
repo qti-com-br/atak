@@ -1,4 +1,4 @@
-#include "coders/entanglement_decoder.hpp"
+#include "../coders/entanglement_decoder.hpp"
 
 using namespace Qtoken;
 

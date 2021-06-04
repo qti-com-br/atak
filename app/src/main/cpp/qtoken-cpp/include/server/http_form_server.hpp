@@ -5,8 +5,8 @@
 #include "Poco/Net/HTTPServerParams.h"
 #include "Poco/Net/ServerSocket.h"
 
-#include "globals/globals.hpp"
-#include "globals/logger.hpp"
+#include "../globals/globals.hpp"
+#include "../globals/logger.hpp"
 #include "handlers/form_request_handler_factory.hpp"
 
 using Poco::Net::HTTPServer;

@@ -5,7 +5,7 @@
 
 #include <openssl/ec.h>
 
-#include "tools/byte_vector.hpp"
+#include "../tools/byte_vector.hpp"
 
 namespace Qtoken {
 namespace Crypto {

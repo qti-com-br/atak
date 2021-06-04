@@ -1,4 +1,5 @@
-#include "globals/config.hpp"
+#include "../../include/globals/config.hpp"
+
 
 using namespace Qtoken;
 

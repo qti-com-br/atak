@@ -41,7 +41,7 @@ public class RemoteResourceImporter extends ImportInPlaceResolver {
 
     private static final String TAG = "KMLNetworkLinkImporter";
     private static final File KML_FOLDER = FileSystemUtils
-            .getItem("tools/import/cache");
+            .getItem("../tools/import/cache");
 
     public static final String CONTENT_TYPE = "Remote Resource";
 

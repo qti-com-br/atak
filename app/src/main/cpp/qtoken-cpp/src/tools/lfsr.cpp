@@ -1,4 +1,4 @@
-#include "tools/lfsr.hpp"
+#include "../tools/lfsr.hpp"
 
 using namespace Qtoken;
 /**

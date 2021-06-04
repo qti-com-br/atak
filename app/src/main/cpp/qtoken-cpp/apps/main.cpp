@@ -1,11 +1,11 @@
 #include <signal.h>
 #include <iostream>
 
-#include "globals/globals.hpp"
-#include "globals/logger.hpp"
-#include "globals/config.hpp"
-#include "nodes/bootstrap.hpp"
-#include "nodes/node.hpp"
+#include "../globals/globals.hpp"
+#include "../globals/logger.hpp"
+#include "../globals/config.hpp"
+#include "../nodes/bootstrap.hpp"
+#include "../nodes/node.hpp"
 
 using namespace Qtoken;
 

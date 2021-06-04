@@ -1,9 +1,11 @@
 #ifndef SHARE_CONNECTION_HANDLER_H
 #define SHARE_CONNECTION_HANDLER_H
 
+#include <jni.h>
 #include <functional>
 #include <iostream>
 #include <memory>
+#include <string>
 
 #include "Poco/Exception.h"
 #include "Poco/NObserver.h"
@@ -15,12 +17,12 @@
 #include "Poco/Thread.h"
 #include "Poco/Util/ServerApplication.h"
 
-#include "globals/config.hpp"
-#include "globals/globals.hpp"
-#include "globals/logger.hpp"
-#include "nodes/node.hpp"
-#include "receipt/receipt_service.hpp"
-#include "tools/uuid.hpp"
+#include "../globals/config.hpp"
+#include "../globals/globals.hpp"
+#include "../globals/logger.hpp"
+#include "../nodes/node.hpp"
+#include "../receipt/receipt_service.hpp"
+#include "../tools/uuid.hpp"
 
 namespace Qtoken {
 

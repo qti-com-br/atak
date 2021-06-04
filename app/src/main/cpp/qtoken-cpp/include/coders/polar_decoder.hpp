@@ -1,9 +1,9 @@
 #ifndef POLAR_DECODER_H
 #define POLAR_DECODER_H
 
-#include "coders/decoder.hpp"
-#include "coders/polar_fbg.hpp"
-#include "tools/chunker.hpp"
+#include "../coders/decoder.hpp"
+#include "../coders/polar_fbg.hpp"
+#include "../tools/chunker.hpp"
 
 namespace Qtoken {
 

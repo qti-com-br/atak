@@ -8,10 +8,10 @@
 
 #include <Poco/Net/StreamSocket.h>
 
-#include "globals/logger.hpp"
-#include "globals/strings.hpp"
-#include "receipt/crypto_receipt.hpp"
-#include "tools/types.hpp"
+#include "../globals/logger.hpp"
+#include "../globals/strings.hpp"
+#include "../receipt/crypto_receipt.hpp"
+#include "../tools/types.hpp"
 
 namespace Qtoken {
 

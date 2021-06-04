@@ -5,8 +5,8 @@
 #include <Poco/Net/HTTPServerRequest.h>
 #include <Poco/Util/ServerApplication.h>
 
-#include "globals/logger.hpp"
-#include "server/handlers/request_handlers.hpp"
+#include "../globals/logger.hpp"
+#include "../server/handlers/request_handlers.hpp"
 
 namespace Qtoken {
 

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include "coders/concurrent_decoder.hpp"
-#include "coders/concurrent_encoder.hpp"
+#include "../coders/concurrent_decoder.hpp"
+#include "../coders/concurrent_encoder.hpp"
 #include "test_utils.hpp"
 
 // Encoded frames can not always be decoded if more than 1 info frame is

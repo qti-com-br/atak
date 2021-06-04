@@ -1,7 +1,7 @@
-#include "crypto/x509.hpp"
+#include "../crypto/x509.hpp"
 #include <string>
-#include "crypto/bio.hpp"
-#include "crypto/exception.hpp"
+#include "../crypto/bio.hpp"
+#include "../crypto/exception.hpp"
 
 #include <openssl/pem.h>
 

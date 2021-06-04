@@ -1,8 +1,9 @@
-#include "tools/chunker.hpp"
+#include "../tools/chunker.hpp"
 
 using namespace Qtoken;
 
 void Chunker::create_chunker(Bytelist& char_vec, int chunk_size) {
+    Log::message("chunk", "2");
     this->file_size = char_vec.size();
     if (chunk_size <= 0) {
         std::cerr << "Chunk size " << chunk_size << " is invalid" << std::endl;
@@ -10,6 +11,8 @@ void Chunker::create_chunker(Bytelist& char_vec, int chunk_size) {
     }
     ull total_chunks = 1 + ((file_size - 1) / chunk_size);
     auto beg = char_vec.begin();
+
+    Log::message("chunk", "2");
 
     for (ull i = 0; i < total_chunks; i++) {
         Bytelist curr_chunk;
@@ -28,6 +31,7 @@ void Chunker::create_chunker(Bytelist& char_vec, int chunk_size) {
 
         chunks.push_back(curr_chunk);
     }
+    Log::message("chunk", "2");
 }
 
 /**
@@ -130,6 +134,27 @@ int Chunker::get_byte_count(std::vector<Bytelist>& shards) {
         byte_count += shards[i].size();
     }
     return byte_count;
+}
+
+/**
+ * Rejoins the chunker back into a Bytelist.
+ * @return rebuilt chunker as a Bytelist
+ */
+Bytelist Chunker::join() {
+    Bytelist ret(0);
+
+    int tail_size = get_tail_size();
+
+    for (ull i = 0; i < chunks.size(); i++) {
+        // Truncate tail padding
+        if (i == chunks.size() - 1) {
+            ret.insert(ret.end(), chunks.at(i).begin(),
+                       std::next(chunks.at(i).begin(), tail_size));
+        } else {
+            ret.insert(ret.end(), chunks.at(i).begin(), chunks.at(i).end());
+        }
+    }
+    return ret;
 }
 
 /**

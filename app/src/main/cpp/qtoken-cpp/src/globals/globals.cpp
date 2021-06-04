@@ -1,4 +1,4 @@
-#include "globals/globals.hpp"
+#include "../globals/globals.hpp"
 
 namespace Qtoken {
 

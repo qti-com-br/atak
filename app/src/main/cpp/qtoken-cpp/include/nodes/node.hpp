@@ -26,28 +26,28 @@
 #include "Poco/Util/Option.h"
 #include "Poco/Util/OptionSet.h"
 
-#include "coders/concurrent_decoder.hpp"
-#include "coders/concurrent_encoder.hpp"
-#include "coders/decoder.hpp"
-#include "coders/encoder.hpp"
-#include "coders/entanglement_decoder.hpp"
-#include "coders/entanglement_encoder.hpp"
-#include "coders/pipeline.hpp"
-#include "coders/polar_decoder.hpp"
-#include "coders/polar_encoder.hpp"
-#include "globals/config.hpp"
-#include "globals/globals.hpp"
-#include "globals/logger.hpp"
-#include "globals/strings.hpp"
-#include "receipt/crypto_receipt.hpp"
-#include "receipt/receipt_service.hpp"
-#include "receipt/receipt_session.hpp"
-#include "receipt/share_connection_handler.hpp"
-#include "server/handlers/form_request_handler_factory.hpp"
-#include "server/http_form_server.hpp"
-#include "server/http_server_thread.hpp"
-#include "tools/chunker.hpp"
-#include "tools/types.hpp"
+#include "../coders/concurrent_decoder.hpp"
+#include "../coders/concurrent_encoder.hpp"
+#include "../coders/decoder.hpp"
+#include "../coders/encoder.hpp"
+#include "../coders/entanglement_decoder.hpp"
+#include "../coders/entanglement_encoder.hpp"
+#include "../coders/pipeline.hpp"
+#include "../coders/polar_decoder.hpp"
+#include "../coders/polar_encoder.hpp"
+#include "../globals/config.hpp"
+#include "../globals/globals.hpp"
+#include "../globals/logger.hpp"
+#include "../globals/strings.hpp"
+#include "../receipt/crypto_receipt.hpp"
+#include "../receipt/receipt_service.hpp"
+#include "../receipt/receipt_session.hpp"
+#include "../receipt/share_connection_handler.hpp"
+#include "../server/handlers/form_request_handler_factory.hpp"
+#include "../server/http_form_server.hpp"
+#include "../server/http_server_thread.hpp"
+#include "../tools/chunker.hpp"
+#include "../tools/types.hpp"
 
 namespace Qtoken {
 
@@ -55,10 +55,21 @@ class ShareConnectionHandler;
 
 class Node {
 public:
+#ifdef __ANDROID__
+    // Android specific constructor that takes a JNI env
+    Node(const std::string& node_port, const std::string& node_receipt_port,
+         const std::string& node_server_port, const std::string& bootstrap_addr,
+         bool is_lib, JNIEnv* env);
+#else
     Node(const std::string& node_port, const std::string& node_receipt_port,
          const std::string& node_server_port, const std::string& bootstrap_addr,
          bool is_lib);
-    ~Node() {}
+#endif
+    ~Node() {
+#ifdef __ANDROID__
+        delete env;
+#endif
+    }
 
     int run();
 
@@ -74,6 +85,9 @@ public:
     Chunker doGather(const CryptoReceipt& cr);
 
     // Receipt passing
+    std::vector<CryptoReceipt> doShare(std::vector<unsigned char>& data,
+                                       const std::string& peer_ip,
+                                       const std::string& peer_port);
     std::vector<CryptoReceipt> doShare(std::istream& file_istream,
                                        const std::string& peer_ip,
                                        const std::string& peer_port);
@@ -98,12 +112,21 @@ public:
 
     void add_stream_session(std::string session_token);
     void update_stream_session(CryptoReceipt cr);
+    // TODO: update with multiple concurrent connections
     // void update_stream_session(std::string session_token, CryptoReceipt cr);
+
+#ifdef __ANDROID__
+    void end_stream_session(std::string ip_addr);
+#else
     void end_stream_session();
+#endif
 
     std::string get_current_stream() { return active_stream; }
 
 private:
+#ifdef __ANDROID__
+    JNIEnv* env;
+#endif
     std::string boot_address;
     std::string boot_port;
     std::istream* input;

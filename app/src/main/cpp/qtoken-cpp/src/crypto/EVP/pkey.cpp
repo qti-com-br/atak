@@ -3,9 +3,9 @@
 #include <fstream>
 #include <string>
 
-#include "crypto/bio.hpp"
-#include "crypto/exception.hpp"
-#include "crypto/EVP/pkey.hpp"
+#include "../crypto/bio.hpp"
+#include "../crypto/exception.hpp"
+#include "../crypto/EVP/pkey.hpp"
 
 using namespace std;
 

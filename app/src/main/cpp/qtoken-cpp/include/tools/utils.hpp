@@ -1,6 +1,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <openssl/hmac.h>
+#include <openssl/sha.h>
 #include <algorithm>
 #include <chrono>
 #include <climits>
@@ -12,7 +14,7 @@
 
 #include "../crypto/EVP/digest.hpp"
 #include "byte_vector.hpp"
-#include "globals/logger.hpp"
+#include "../globals/logger.hpp"
 
 #include "types.hpp"
 

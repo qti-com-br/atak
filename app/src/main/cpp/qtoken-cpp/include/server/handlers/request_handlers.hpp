@@ -16,7 +16,7 @@
 #include "Poco/Process.h"
 #include "Poco/StreamCopier.h"
 
-#include "globals/globals.hpp"
+#include "../globals/globals.hpp"
 
 using Poco::Net::HTMLForm;
 using Poco::Net::HTTPServerRequest;

@@ -13,11 +13,11 @@
 
 #include <Poco/Util/ServerApplication.h>
 
-#include "globals/globals.hpp"
-#include "globals/logger.hpp"
-#include "globals/strings.hpp"
-#include "tools/chunker.hpp"
-#include "tools/types.hpp"
+#include "../globals/globals.hpp"
+#include "../globals/logger.hpp"
+#include "../globals/strings.hpp"
+#include "../tools/chunker.hpp"
+#include "../tools/types.hpp"
 
 namespace P = Poco;
 namespace P_U = P::Util;

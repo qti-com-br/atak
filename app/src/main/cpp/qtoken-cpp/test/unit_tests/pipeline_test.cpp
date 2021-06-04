@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
 
 #include "../../src/coders/pipeline.cpp"
-#include "coders/concurrent_decoder.hpp"
-#include "coders/concurrent_encoder.hpp"
-#include "coders/entanglement_decoder.hpp"
-#include "coders/entanglement_encoder.hpp"
-#include "coders/pipeline.hpp"
-#include "coders/polar_decoder.hpp"
-#include "coders/polar_encoder.hpp"
+#include "../coders/concurrent_decoder.hpp"
+#include "../coders/concurrent_encoder.hpp"
+#include "../coders/entanglement_decoder.hpp"
+#include "../coders/entanglement_encoder.hpp"
+#include "../coders/pipeline.hpp"
+#include "../coders/polar_decoder.hpp"
+#include "../coders/polar_encoder.hpp"
 #include "test_utils.hpp"
 
 // FIXME: add expect statements with GMock

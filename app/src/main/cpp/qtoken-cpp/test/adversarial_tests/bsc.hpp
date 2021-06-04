@@ -5,7 +5,7 @@
 #include <random>
 
 #include "channel.hpp"
-#include "tools/utils.hpp"
+#include "../tools/utils.hpp"
 
 class BSC : public Channel {
 public:

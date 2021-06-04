@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "tools/lfsr.hpp"
+#include "../tools/lfsr.hpp"
 
 TEST(LFSRTest, generates_5_bit_till_reset) {
     uint8_t curr_state = 0;

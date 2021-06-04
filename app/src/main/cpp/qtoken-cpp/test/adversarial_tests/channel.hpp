@@ -3,8 +3,8 @@
 
 #include <functional>
 
-#include "coders/encoder.hpp"
-#include "tools/chunker.hpp"
+#include "../coders/encoder.hpp"
+#include "../tools/chunker.hpp"
 
 class Channel : public Encoder {
 public:

@@ -21,7 +21,7 @@ public class QToken {
 
         System.loadLibrary("qtoken");
 
-        System.loadLibrary("vin-bridge");
+        System.loadLibrary("qtoken");
     }
 
     public static native int run(String bootstrapIp, String nodePort,

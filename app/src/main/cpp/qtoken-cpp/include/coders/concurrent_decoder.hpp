@@ -3,9 +3,9 @@
 
 #include <unordered_map>
 
-#include "coders/decoder.hpp"
-#include "tools/chunker.hpp"
-#include "tools/lfsr.hpp"
+#include "../coders/decoder.hpp"
+#include "../tools/chunker.hpp"
+#include "../tools/lfsr.hpp"
 
 namespace Qtoken {
 

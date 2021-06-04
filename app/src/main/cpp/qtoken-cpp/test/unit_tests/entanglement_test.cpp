@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include "coders/entanglement_decoder.hpp"
-#include "coders/entanglement_encoder.hpp"
+#include "../coders/entanglement_decoder.hpp"
+#include "../coders/entanglement_encoder.hpp"
 #include "test_utils.hpp"
 
 class EntanglementEncoderChunkerFixture

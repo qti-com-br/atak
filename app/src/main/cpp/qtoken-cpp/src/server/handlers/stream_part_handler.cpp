@@ -1,4 +1,4 @@
-#include "server/handlers/stream_part_handler.hpp"
+#include "../server/handlers/stream_part_handler.hpp"
 
 using namespace Qtoken;
 using Qtoken::CryptoReceipt;

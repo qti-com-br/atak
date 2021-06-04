@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "test_utils.hpp"
-#include "tools/chunker.hpp"
+#include "../tools/chunker.hpp"
 
 class ChunkerBuildingFixture
     : public ::testing::TestWithParam<std::tuple<int, int>> {};

@@ -1,4 +1,4 @@
-#include "server/handlers/spread_part_handler.hpp"
+#include "../server/handlers/spread_part_handler.hpp"
 
 using namespace Qtoken;
 using Qtoken::CryptoReceipt;

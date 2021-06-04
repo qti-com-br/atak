@@ -354,7 +354,7 @@ public class MetricReportMapComponent extends AbstractMapComponent
             int roll = prefs.getInt("metrics.detailscount." + name, 0);
             roll++;
 
-            File f = FileSystemUtils.getItem("tools/metrics/details/" + name);
+            File f = FileSystemUtils.getItem("../tools/metrics/details/" + name);
             if (!IOProviderFactory.exists(f))
                 if (!IOProviderFactory.mkdirs(f))
                     return;
@@ -381,7 +381,7 @@ public class MetricReportMapComponent extends AbstractMapComponent
             return;
 
         final String type = ce.getType();
-        File f = FileSystemUtils.getItem("tools/metrics/cot/" + type);
+        File f = FileSystemUtils.getItem("../tools/metrics/cot/" + type);
         if (!IOProviderFactory.exists(f))
             if (!IOProviderFactory.mkdirs(f))
                 return;

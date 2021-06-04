@@ -1785,7 +1785,7 @@ public class ATAKActivity extends MapActivity implements
         }
 
         try {
-            final File sendtoLocation = FileSystemUtils.getItem("tools/sendto");
+            final File sendtoLocation = FileSystemUtils.getItem("../tools/sendto");
             FileSystemUtils.deleteDirectory(sendtoLocation, false);
         } catch (Exception e) {
             Log.e(TAG, "error removing sendto directory", e);

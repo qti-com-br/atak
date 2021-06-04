@@ -1,7 +1,7 @@
 #include <fstream>
 
-#include "crypto/exception.hpp"
-#include "crypto/EVP/digest.hpp"
+#include "../crypto/exception.hpp"
+#include "../crypto/EVP/digest.hpp"
 
 using namespace std;
 

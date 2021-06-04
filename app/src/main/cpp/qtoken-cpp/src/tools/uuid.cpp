@@ -1,9 +1,9 @@
 #include <sstream>
 
-#include "crypto/random.hpp"
+#include "../crypto/random.hpp"
 
-#include "tools/byte_vector.hpp"
-#include "tools/uuid.hpp"
+#include "../tools/byte_vector.hpp"
+#include "../tools/uuid.hpp"
 
 using namespace std;
 

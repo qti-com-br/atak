@@ -1,4 +1,4 @@
-#include "crypto/exception.hpp"
+#include "../crypto/exception.hpp"
 
 #include <openssl/err.h>
 

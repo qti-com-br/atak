@@ -5,9 +5,9 @@
 #include <cstdlib>
 #include <fstream>
 
-#include "coders/decoder.hpp"
-#include "coders/encoder.hpp"
-#include "tools/chunker.hpp"
+#include "../coders/decoder.hpp"
+#include "../coders/encoder.hpp"
+#include "../tools/chunker.hpp"
 
 using namespace Qtoken;
 

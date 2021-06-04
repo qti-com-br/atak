@@ -1,13 +1,13 @@
 #include "benchmark/benchmark.h"
 
 #include "bench_utils.hpp"
-#include "coders/decoder.hpp"
-#include "coders/encoder.hpp"
-#include "coders/concurrent_decoder.hpp"
-#include "coders/concurrent_encoder.hpp"
-#include "coders/polar_decoder.hpp"
-#include "coders/polar_encoder.hpp"
-#include "tools/types.hpp"
+#include "../coders/decoder.hpp"
+#include "../coders/encoder.hpp"
+#include "../coders/concurrent_decoder.hpp"
+#include "../coders/concurrent_encoder.hpp"
+#include "../coders/polar_decoder.hpp"
+#include "../coders/polar_encoder.hpp"
+#include "../tools/types.hpp"
 
 static void ConcEncodeBits(benchmark::State &state) {
     int overlaid_frames = state.range(0);
