@@ -286,7 +286,7 @@ std::vector<CryptoReceipt> Node::doShare(Bytelist& data,
 
     auto receipts = doShare(wr, peer_ip, peer_port);
 
-    delete wr.first;
+//    delete wr.first;
     delete wr.second;
 
     return receipts;

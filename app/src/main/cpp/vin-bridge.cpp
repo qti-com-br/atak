@@ -163,8 +163,6 @@ extern "C" {
     Java_com_virgilsystems_qtoken_QToken_share(JNIEnv *env, jclass clazz, jbyteArray cot,
                                                jstring receiver_ip, jstring receiver_receipt_port) {
 
-        jbyte* bufferPtr = env->GetByteArrayElements(cot, nullptr);
-
         jsize lengthOfArray = env->GetArrayLength(cot);
         std::vector<unsigned char> input( lengthOfArray );
         env->GetByteArrayRegion( cot, jsize{0}, lengthOfArray, (jbyte*) input.data() );
@@ -172,37 +170,12 @@ extern "C" {
         std::string receiver_ip_cpp(env->GetStringUTFChars(receiver_ip, nullptr));
         std::string receiver_port_cpp(env->GetStringUTFChars(receiver_receipt_port, nullptr));
 
-        Log::message("### VIN", "### VIN | Java_com_virgilsystems_qtoken_QToken_share " + receiver_ip_cpp + " | " + receiver_port_cpp);
+        Log::message("### VIN", "### VIN | Java_com_virgilsystems_qtoken_QToken_share "
+            + receiver_ip_cpp + " | " + receiver_port_cpp);
 
         pNode->doShare(input, receiver_ip_cpp, receiver_port_cpp);
-
-        env->ReleaseByteArrayElements(cot, bufferPtr, 0);
     }
 
-    /**
-    * This function handle data received from QToken.share
-    * And send this data to com/atakmap/comms/CommsMapComponent.cotMessageReceived()
-    * @param env Environment where the SDK is running
-    * @param clazz Class that call this function
-    * @param cot String/XML (CoT, Shape, Chat message) ATAK model
-    * @param ip Destination IP
-    */
-    JNIEXPORT void JNICALL // share
-    Java_com_virgilsystems_qtoken_QToken_shareHandler(JNIEnv *env, jclass clazz, jstring cot) {
-
-        Log::message("### VIN", "### VIN | Java_com_virgilsystems_qtoken_QToken_shareHandler");
-
-        // Getting CommsMapComponent.cotMessageReceived
-        jclass cotCls = env->FindClass("com/atakmap/comms/CommsMapComponent");
-        jmethodID cotMethod = env->GetMethodID(cotCls, "cotMessageReceived", "(Ljava/lang/String;Ljava/lang/String;)V");
-        jfieldID instanceId = env->GetStaticFieldID(cotCls, "_instance","Lcom/atakmap/comms/CommsMapComponent;");
-        jobject instance = env->GetStaticObjectField(cotCls, instanceId);
-
-        jstring id = (jstring)id;
-
-        // Call CommsMapComponent.cotMessageReceived with the Bundle received
-        env->CallVoidMethod(instance, cotMethod, cot, id);
-    }
 
     /**
      * This function send a selected file to the network
