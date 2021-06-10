@@ -443,6 +443,8 @@ void Node::update_stream_session(CryptoReceipt cr) {
     active_rs->push(cr);
 }
 
+typedef unsigned char BYTE;
+
 /**
  * Ends an existing streaming session identified by session token. Do
  * nothing if token does not exist.
@@ -503,13 +505,31 @@ void Node::end_stream_session(std::string ip_addr) {
         return;
     }
 
+//    jmethodID cotMethod =
+//            g_env->GetStaticMethodID(cotCls, "shareHandler", "(Ljava/lang/String;)V");
+//    jstring jcot = g_env->NewStringUTF(cot.c_str());
+
     jmethodID cotMethod =
-            g_env->GetStaticMethodID(cotCls, "shareHandler", "(Ljava/lang/String;)V");
-    jstring jcot = g_env->NewStringUTF(cot.c_str());
+            g_env->GetStaticMethodID(cotCls, "shareHandler", "([B)V");
+
+//    std::vector<char> bytes(cot.begin(), cot.end());
+//    bytes.push_back('\0');
+//    char *byteArray = &bytes[0];
+//
+////    BYTE byte[cot.size()];
+////    strcpy(reinterpret_cast<char *const>(byte), cot.c_str());
+//
+//    jbyteArray array = g_env->NewByteArray(cot.size());
+//    g_env->SetByteArrayRegion(array, 0, cot.size(), (jbyte *) byteArray);
+
+    jbyteArray array = g_env->NewByteArray(ch_vec.size());
+    g_env->SetByteArrayRegion(array, 0, ch_vec.size(), (jbyte *) ch_vec.data());
+
+//    jstring jcot = g_env->NewStringUTF(cot.c_str());
 
     // Call CommsMapComponent.cotMessageReceived with the Bundle received
     // through VIN bridge
-    g_env->CallStaticVoidMethod(cotCls, cotMethod, jcot);
+    g_env->CallStaticVoidMethod(cotCls, cotMethod, array);
 
 #else
 void Node::end_stream_session() {

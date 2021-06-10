@@ -60,7 +60,7 @@ public class CotDispatcher {
     public List<String> dispatch(final CotEvent event, final Bundle data,
             final CoTSendMethod sendMethod) {
 
-        Log.d("### VIN", "CotDispatcher.dispatch 2");
+//        Log.d("### VIN", "CotDispatcher.dispatch 2");
 
         List<String> ret = new ArrayList<>();
         String[] toUIDs = null;

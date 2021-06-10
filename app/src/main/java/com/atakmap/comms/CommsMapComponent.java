@@ -5,6 +5,9 @@ import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.io.OutputStream;
 import java.net.*;
+import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.cert.Certificate;
 import java.util.*;
 import java.io.File;
@@ -1657,7 +1660,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
             String[] toUIDs,
             CoTSendMethod method) {
 
-        Log.d("### VIN: IP", "CommsMapComponent.sendCoT 22 ");
+//        Log.d("### VIN: IP", "CommsMapComponent.sendCoT 22 ");
 
         if (failedContactUids != null)
             failedContactUids.clear();
@@ -1683,12 +1686,12 @@ public class CommsMapComponent extends AbstractMapComponent implements
             try {
 //                final String event = e.toString();
                 if (commo != null) {
-                    Log.d("### VIN", "CommsMapComponent.senCoT 23 | "
-                            + e.toString() + " | " + method + " | " + type);
+//                    Log.d("### VIN", "CommsMapComponent.senCoT 23 | "
+//                            + e.toString() + " | " + method + " | " + type);
                     if(type.equals("a-f-G-U-C")) {
                         commo.broadcastCoT(e.toString(), method);
                     } else {
-                        sendCoThroughTheVIN(e, commo.getContacts());
+                        //sendCoThroughTheVIN(e, commo.getContacts());
                     }
                 }
 
@@ -1724,7 +1727,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
                     if(type.equals("a-f-G-U-C")) {
                         commo.sendCoT(commoContacts, e.toString(), method);
                     } else {
-                        sendCoThroughTheVIN(e, commoContacts.toArray(new Contact[0]));
+                        //sendCoThroughTheVIN(e, commoContacts.toArray(new Contact[0]));
                     }
                 }
 
@@ -1757,8 +1760,10 @@ public class CommsMapComponent extends AbstractMapComponent implements
     }
 
 
+    /**
+     *  Send CoT through the VIN
+     */
     private void sendCoThroughTheVIN(CotEvent e, Contact[] contacts) {
-        // -- Send CoT through VIN -------------------------------------------------- //
         final String event = e.toString();
 
         for(Contact contact : contacts) {
@@ -1775,15 +1780,9 @@ public class CommsMapComponent extends AbstractMapComponent implements
             ATAKActivity.VIN.share(event.getBytes(),
                     contactIp,
                     VINBridgeCPP.DEFAULT_RECEIPT_PORT);
-
-//                Intent intent = new Intent();
-//                intent.putExtra("cotEvent", event.getBytes());
-//                intent.putExtra("ip", contactIp);
-//                intent.putExtra("receiptPort", VINBridgeCPP.DEFAULT_RECEIPT_PORT);
-//                VINService.enqueueWork(mapView.getContext(), intent);
         }
-        // -------------------------------------------------- Send CoT through VIN -- //
     }
+
 
     /**
      * Send the specified CotEvent to all configured and connected TAK servers.
@@ -2744,22 +2743,22 @@ public class CommsMapComponent extends AbstractMapComponent implements
         void sendMissionPackage(String streamingId,
                 File file, String transferFilename,
                 MPSendListener listener) throws CommoException {
-            int id = commo.sendMissionPackageInit(streamingId,
-                    file, transferFilename);
-
-            MPTransferInfo info = new MPTransferInfo(id, listener);
-            synchronized (activeOutboundTransfers) {
-                activeOutboundTransfers.put(id, info);
-            }
-
-            try {
-                commo.startMissionPackageSend(id);
-            } catch (CommoException ex) {
-                synchronized (activeOutboundTransfers) {
-                    activeOutboundTransfers.remove(id);
-                }
-                throw ex;
-            }
+//            int id = commo.sendMissionPackageInit(streamingId,
+//                    file, transferFilename);
+//
+//            MPTransferInfo info = new MPTransferInfo(id, listener);
+//            synchronized (activeOutboundTransfers) {
+//                activeOutboundTransfers.put(id, info);
+//            }
+//
+//            try {
+//                commo.startMissionPackageSend(id);
+//            } catch (CommoException ex) {
+//                synchronized (activeOutboundTransfers) {
+//                    activeOutboundTransfers.remove(id);
+//                }
+//                throw ex;
+//            }
 
         }
 
@@ -2768,37 +2767,129 @@ public class CommsMapComponent extends AbstractMapComponent implements
                 String transferName,
                 MPSendListener listener) throws CommoException {
 
-            List<Contact> contactList = new ArrayList<>(contacts);
-            int id = commo.sendMissionPackageInit(contactList, file,
-                    transferFilename, transferName);
+            Log.d("### VIN", "CommsMapComponent.sendMissionPackage 1 | " +
+                    transferFilename + " | " + transferName + " | " + listener + " | " +
+                    file.getPath());
 
-            // Remove the invalid contacts
-            Set<Contact> sentTo = new HashSet<>(contacts);
-            sentTo.removeAll(contactList);
+            try {
+                byte[] separator = {'<','V','I','N','>'};
 
-            String[] sentToArray = new String[sentTo.size()];
-            int i = 0;
-            for (Contact c : sentTo)
-                sentToArray[i++] = c.contactUID;
+                byte[] arr1 = transferFilename.getBytes();
+                byte[] arr2 = transferName.getBytes();
+                byte[] arr3 = file.getPath().getBytes();
+                byte[] arr4 = fileToBytes(file.getPath());
 
-            MPTransferInfo info = new MPTransferInfo(id, sentTo, listener);
-            synchronized (activeOutboundTransfers) {
-                activeOutboundTransfers.put(id, info);
+                ByteBuffer allBytes =
+                        ByteBuffer.allocate(arr1.length + arr2.length +
+                            arr3.length + arr4.length + 15)
+                        .put(arr1)
+                        .put(separator)
+                        .put(arr2)
+                        .put(separator)
+                        .put(arr3)
+                        .put(separator)
+                        .put(arr4);
+
+                Log.d("### VIN",
+                        "CommsMapComponent.sendMissionPackage 2 length: " +
+                                allBytes.array().length);
+
+                sendPackageThroughTheVIN(allBytes.array(), contacts.toArray(new Contact[0]));
+
+            } catch(IOException e) {
+                e.getStackTrace();
             }
+
+//            List<Contact> contactList = new ArrayList<>(contacts);
+//            int id = commo.sendMissionPackageInit(contactList, file,
+//                    transferFilename, transferName);
+//
+//            // Remove the invalid contacts
+//            Set<Contact> sentTo = new HashSet<>(contacts);
+//            sentTo.removeAll(contactList);
+//
+//            String[] sentToArray = new String[sentTo.size()];
+//            int i = 0;
+//            for (Contact c : sentTo)
+//                sentToArray[i++] = c.contactUID;
+//
+//            MPTransferInfo info = new MPTransferInfo(id, sentTo, listener);
+//            synchronized (activeOutboundTransfers) {
+//                activeOutboundTransfers.put(id, info);
+//            }
 
             // Tell the listener about who actually is getting
             // this thing before starting up the transfer
-            listener.mpSendRecipients(sentToArray);
+//            listener.mpSendRecipients(sentToArray);
 
-            try {
-                commo.startMissionPackageSend(id);
-            } catch (CommoException ex) {
-                synchronized (activeOutboundTransfers) {
-                    activeOutboundTransfers.remove(id);
+//            try {
+//                commo.startMissionPackageSend(id);
+//            } catch (CommoException ex) {
+//                synchronized (activeOutboundTransfers) {
+//                    activeOutboundTransfers.remove(id);
+//                }
+//                throw ex;
+//            }
+        }
+
+
+        /**
+         *  Send Package through the VIN
+         */
+        private void sendPackageThroughTheVIN(byte[] bytes, Contact[] contacts) {
+
+            for(Contact contact : contacts) {
+                IndividualContact individualContact = (IndividualContact) Contacts
+                        .getInstance().getContactByUuid(contact.contactUID);
+                if (individualContact == null) {
+                    continue;
                 }
-                throw ex;
+
+                String contactIp = ContactUtil.getIpAddress(individualContact).getHost();
+
+                Log.d("### VIN: IP", contactIp + " | length: " + bytes.length);
+
+                ATAKActivity.VIN.share(bytes,
+                        contactIp,
+                        VINBridgeCPP.DEFAULT_RECEIPT_PORT);
             }
         }
+
+
+        private byte[] fileToBytes(String filePath) throws IOException {
+
+//            byte[] bytes = Files.readAllBytes(Paths.get(filePath));
+
+            File file = new File(filePath);
+            byte[] bytes = new byte[(int) file.length()];
+
+            FileInputStream fis = null;
+            try {
+
+                fis = new FileInputStream(file);
+
+                //read file into bytes[]
+                fis.read(bytes);
+
+            } finally {
+                if (fis != null) {
+                    fis.close();
+                }
+            }
+
+//            File file = new File(filePath);
+//            byte[] bytes = new byte[(int) file.length()];
+//
+//            try(FileInputStream fis = new FileInputStream(file)){
+//                fis.read(bytes);
+//            }
+
+//            Log.d("### VIN", "CommsMapComponent.fileToBytes "
+//                    + Arrays.toString(bytes));
+
+            return bytes;
+        }
+
 
     }
 

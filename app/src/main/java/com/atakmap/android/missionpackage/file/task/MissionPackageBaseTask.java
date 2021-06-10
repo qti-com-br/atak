@@ -112,7 +112,7 @@ public abstract class MissionPackageBaseTask extends
                                     _progressDialog.cancel();
                                 }
                             });
-                    _progressDialog.show();
+//                    _progressDialog.show();
                 } else {
                     // update title as progress dialog may have been passed off from another aysnc task
                     _progressDialog.setMessage(getProgressDialogMessage());
