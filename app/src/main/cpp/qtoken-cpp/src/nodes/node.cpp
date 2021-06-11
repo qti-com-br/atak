@@ -474,9 +474,9 @@ void Node::end_stream_session(std::string ip_addr) {
 
     // export data to JNI
     auto ch_vec = ch.join();
-    std::string cot(ch_vec.begin(), ch_vec.end());
+//    std::string cot(ch_vec.begin(), ch_vec.end());
 
-    Log::message("root: COT recvd!!", cot);
+//    Log::message("root: COT recvd!!", cot);
     // Getting CommsMapComponent.cotMessageReceived
 
 //    jclass cotCls = static_cast<jclass>(g_env->CallObjectMethod(gClassLoader, gFindClassMethod,

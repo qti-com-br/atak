@@ -3,11 +3,9 @@ package com.atakmap.comms;
 
 import java.io.FileInputStream;
 import java.io.OutputStream;
-import java.io.OutputStream;
 import java.net.*;
 import java.nio.ByteBuffer;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
 import java.security.cert.Certificate;
 import java.util.*;
 import java.io.File;
@@ -76,9 +74,8 @@ import com.atakmap.android.util.NotificationUtil;
 import com.atakmap.net.AtakAuthenticationCredentials;
 import com.atakmap.net.AtakCertificateDatabaseIFace;
 import com.atakmap.util.zip.IoUtils;
-import com.virgilsystems.qtoken.QToken;
 import com.virgilsystems.qtoken.VINBridgeCPP;
-import com.virgilsystems.qtoken.VINService;
+import com.virgilsystems.qtoken.VINShareType;
 
 public class CommsMapComponent extends AbstractMapComponent implements
         CoTMessageListener, ContactPresenceListener, InterfaceStatusListener,
@@ -1662,6 +1659,8 @@ public class CommsMapComponent extends AbstractMapComponent implements
 
 //        Log.d("### VIN: IP", "CommsMapComponent.sendCoT 22 ");
 
+        byte[] byte0 = {VINShareType.BYTE_0};
+
         if (failedContactUids != null)
             failedContactUids.clear();
 
@@ -1690,8 +1689,17 @@ public class CommsMapComponent extends AbstractMapComponent implements
 //                            + e.toString() + " | " + method + " | " + type);
                     if(type.equals("a-f-G-U-C")) {
                         commo.broadcastCoT(e.toString(), method);
+
                     } else {
-                        //sendCoThroughTheVIN(e, commo.getContacts());
+                        byte[] vinType = {1};
+
+                        mpio.sendByteArrayThroughTheVIN(
+                                VINShareType.BYTE_COT,
+                                byte0,
+                                byte0,
+                                e.toString().getBytes(),
+                                commo.getContacts()
+                                );
                     }
                 }
 
@@ -1726,8 +1734,16 @@ public class CommsMapComponent extends AbstractMapComponent implements
                             + e.toString() + " | " + method + " | " + type);
                     if(type.equals("a-f-G-U-C")) {
                         commo.sendCoT(commoContacts, e.toString(), method);
+
                     } else {
-                        //sendCoThroughTheVIN(e, commoContacts.toArray(new Contact[0]));
+
+                        mpio.sendByteArrayThroughTheVIN(
+                                VINShareType.BYTE_COT,
+                                byte0,
+                                byte0,
+                                e.toString().getBytes(),
+                                commoContacts.toArray(new Contact[0])
+                        );
                     }
                 }
 
@@ -1753,34 +1769,8 @@ public class CommsMapComponent extends AbstractMapComponent implements
                     }
                 }
             }
-
-//            contacts = (Contact[]) commoContacts.toArray();
         }
 
-    }
-
-
-    /**
-     *  Send CoT through the VIN
-     */
-    private void sendCoThroughTheVIN(CotEvent e, Contact[] contacts) {
-        final String event = e.toString();
-
-        for(Contact contact : contacts) {
-            IndividualContact individualContact = (IndividualContact) Contacts
-                    .getInstance().getContactByUuid(contact.contactUID);
-            if (individualContact == null) {
-                continue;
-            }
-
-            String contactIp = ContactUtil.getIpAddress(individualContact).getHost();
-
-            Log.d("### VIN: IP", contactIp + " | event: " + event);
-
-            ATAKActivity.VIN.share(event.getBytes(),
-                    contactIp,
-                    VINBridgeCPP.DEFAULT_RECEIPT_PORT);
-        }
     }
 
 
@@ -1909,6 +1899,8 @@ public class CommsMapComponent extends AbstractMapComponent implements
     @Override
     public void cotMessageReceived(final String message,
             final String rxEndpointId) {
+
+        Log.e("### VIN", "CoomsMapComponent.cotMessageReceived | " + message);
 
         // Check if the map components have finished loading before processing
         if (!componentsLoaded) {
@@ -2768,37 +2760,44 @@ public class CommsMapComponent extends AbstractMapComponent implements
                 MPSendListener listener) throws CommoException {
 
             Log.d("### VIN", "CommsMapComponent.sendMissionPackage 1 | " +
-                    transferFilename + " | " + transferName + " | " + listener + " | " +
-                    file.getPath());
+                    transferFilename + " | " + transferName + " | " + file.getPath());
 
-            try {
-                byte[] separator = {'<','V','I','N','>'};
+            // Get path bytes
+            byte[] pathBytes = file.getPath().getBytes();
 
-                byte[] arr1 = transferFilename.getBytes();
-                byte[] arr2 = transferName.getBytes();
-                byte[] arr3 = file.getPath().getBytes();
-                byte[] arr4 = fileToBytes(file.getPath());
-
-                ByteBuffer allBytes =
-                        ByteBuffer.allocate(arr1.length + arr2.length +
-                            arr3.length + arr4.length + 15)
-                        .put(arr1)
-                        .put(separator)
-                        .put(arr2)
-                        .put(separator)
-                        .put(arr3)
-                        .put(separator)
-                        .put(arr4);
-
-                Log.d("### VIN",
-                        "CommsMapComponent.sendMissionPackage 2 length: " +
-                                allBytes.array().length);
-
-                sendPackageThroughTheVIN(allBytes.array(), contacts.toArray(new Contact[0]));
-
-            } catch(IOException e) {
-                e.getStackTrace();
+            // Get last path index\
+            byte[] lastPathIndex = {(byte)(pathBytes.length + 2)}; // calc index to start
+            Log.d("### VIN", "CommsMapComponent.sendMissionPackage 23 | " +
+                    lastPathIndex[0]);
+            byte[] arr4Bytes = null;
+            try (FileInputStream fis = new FileInputStream(new File(file.getPath()))) {
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    byte[] buffer = new byte[(int) file.length()];
+                    int read = -1;
+                    while ((read = fis.read(buffer)) != -1) {
+                        baos.write(buffer, 0, read);
+                    }
+                    arr4Bytes = baos.toByteArray();
+                }
+            } catch (IOException exp) {
+                exp.printStackTrace();
             }
+
+            assert arr4Bytes != null;
+            Log.d("### VIN",
+                        "CommsMapComponent.sendMissionPackage 2 length: " +
+                                arr4Bytes.length);
+
+            sendByteArrayThroughTheVIN(
+                    VINShareType.BYTE_PKG,
+                    lastPathIndex,
+                    pathBytes,
+                    arr4Bytes,
+                    contacts.toArray(new Contact[0]));
+
+//            } catch(IOException e) {
+//                e.getStackTrace();
+//            }
 
 //            List<Contact> contactList = new ArrayList<>(contacts);
 //            int id = commo.sendMissionPackageInit(contactList, file,
@@ -2836,7 +2835,21 @@ public class CommsMapComponent extends AbstractMapComponent implements
         /**
          *  Send Package through the VIN
          */
-        private void sendPackageThroughTheVIN(byte[] bytes, Contact[] contacts) {
+        private void sendByteArrayThroughTheVIN(
+                byte type,              // type [1=CoT, 2=DataPackage]
+                byte[] lastPathIndex,   // Last Path index (for DataPackage)
+                byte[] pathBytes,       // FullPath + FileName bytes (for DataPackage)
+                byte[] objBytes,        // File bytes
+                Contact[] contacts) {
+
+            int totalSize = 1 + lastPathIndex.length +
+                    pathBytes.length + objBytes.length;
+
+            ByteBuffer allBytes = ByteBuffer.allocate(totalSize)
+                            .put(type)
+                            .put(lastPathIndex)
+                            .put(pathBytes)
+                            .put(objBytes);
 
             for(Contact contact : contacts) {
                 IndividualContact individualContact = (IndividualContact) Contacts
@@ -2847,48 +2860,15 @@ public class CommsMapComponent extends AbstractMapComponent implements
 
                 String contactIp = ContactUtil.getIpAddress(individualContact).getHost();
 
-                Log.d("### VIN: IP", contactIp + " | length: " + bytes.length);
+                Log.d("### VIN: IP", contactIp + " | length: " +
+                        totalSize);
 
-                ATAKActivity.VIN.share(bytes,
+                ATAKActivity.VIN.share(allBytes.array(),
                         contactIp,
                         VINBridgeCPP.DEFAULT_RECEIPT_PORT);
             }
         }
 
-
-        private byte[] fileToBytes(String filePath) throws IOException {
-
-//            byte[] bytes = Files.readAllBytes(Paths.get(filePath));
-
-            File file = new File(filePath);
-            byte[] bytes = new byte[(int) file.length()];
-
-            FileInputStream fis = null;
-            try {
-
-                fis = new FileInputStream(file);
-
-                //read file into bytes[]
-                fis.read(bytes);
-
-            } finally {
-                if (fis != null) {
-                    fis.close();
-                }
-            }
-
-//            File file = new File(filePath);
-//            byte[] bytes = new byte[(int) file.length()];
-//
-//            try(FileInputStream fis = new FileInputStream(file)){
-//                fis.read(bytes);
-//            }
-
-//            Log.d("### VIN", "CommsMapComponent.fileToBytes "
-//                    + Arrays.toString(bytes));
-
-            return bytes;
-        }
 
 
     }

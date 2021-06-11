@@ -1,25 +1,15 @@
 package com.virgilsystems.qtoken;
 
 
-import android.os.Bundle;
 import android.util.Log;
 
 import com.atakmap.comms.CommsMapComponent;
 import com.atakmap.coremap.cot.event.CotEvent;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Vector;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 public class QToken {
 
@@ -51,150 +41,97 @@ public class QToken {
 
     public static void shareHandler(byte[] bytes) {
 
-        new Thread( new Runnable() { @Override public void run() {
+        Log.d("### VIN", "QToken.shareHandler type: " + bytes[0]);
 
-            String allAsString = new String(bytes, StandardCharsets.UTF_8);
+        int type = (int)bytes[0];
 
-            String[] stringParts = allAsString.split("<VIN>");
+        switch(bytes[0]) {
 
-            byte[] arr1 = stringParts[0].getBytes(); // transferFilename
-            byte[] arr2 = stringParts[1].getBytes(); // transferName
-            byte[] arr3 = stringParts[2].getBytes(); // file.getPath()
-            byte[] arr4 = stringParts[3].getBytes(); // fileToBytes()
+            case VINShareType.BYTE_COT: // CoT
 
+                Log.d("### VIN", "QToken.shareHandler 1.1 ");
 
-//            byte[] arr1 = getPartOfByteArray(1, bytes); // transferFilename
-//            byte[] arr2 = getPartOfByteArray(2, bytes); // transferName
-//            byte[] arr3 = getPartOfByteArray(3, bytes); // file.getPath()
-//            byte[] arr4 = getPartOfByteArray(4, bytes); // fileToBytes()
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
 
-            String path = new String(arr3, StandardCharsets.UTF_8);
+                        byte[] cotBytes = Arrays.copyOfRange(bytes,
+                                3, bytes.length);
 
-            String transfer = "/storage/emulated/0/atak/tools/datapackage/transfer/";
+                        String cot = new String(cotBytes, StandardCharsets.UTF_8);
 
-            Log.d("### VIN", "QToken.shareHandler 1 | " + arr4.length + " | " + path);
+                        Log.d("### VIN", "QToken.shareHandler 2 " + cot);
 
-            try {
-                String[] arrPath = path.split("/");
+                        CommsMapComponent instance = CommsMapComponent.getInstance();
 
-//                for (int x=1; x<arrPath.length-1; x++) {
-//                    Log.d("### VIN", "QToken.shareHandler 2 | " + arrPath[x]);
-//                    File file = new File(arrPath[x]);
-//                    if (!file.exists()) {
-//                        file.createNewFile();
-//                    }
-//                }
+                        CotEvent cotEvent = CotEvent.parse(cot);
 
-                String hashPath = transfer + arrPath[arrPath.length-2];
+                        Log.d("### VIN", "QToken.shareHandler 3 | " + cotEvent);
 
-                Log.d("### VIN", "QToken.shareHandler 2 | " + arrPath[arrPath.length-2]);
-                File hash = new File(hashPath);
-                if (!hash.exists()) {
-                    hash.mkdirs();
-                }
+                        String endpoint = cotEvent.getDetail().getChild(1).getAttribute("endpoint");
 
-                // byte[] to file
-                Log.d("### VIN", "QToken.shareHandler 3 | " + arrPath[arrPath.length-1]);
-//                File file = new File(hashPath + "/" + arrPath[arrPath.length-1]);
+                        Log.d("### VIN", "QToken.shareHandler 4 | " + cotEvent + " | " + endpoint);
 
-
-//                File file = new File(hashPath + "/", arrPath[arrPath.length-1]);
-
-//                Path path2 = Paths.get("C:\\myfile.pdf");
-//                Files.write(path2, bytes);
-
-                ZipInputStream zipInputStream = new ZipInputStream(new ByteArrayInputStream(arr4));
-//                ZipEntry entry = null;
-//                while ((entry = zipInputStream.getNextEntry()) != null) {
-//
-//                    String entryName = entry.getName();
-//
-//                    FileOutputStream out = new FileOutputStream(entryName);
-//
-//                    byte[] byteBuff = new byte[arr4.length];
-//                    int bytesRead = 0;
-//                    while ((bytesRead = zipInputStream.read(byteBuff)) != -1)
-//                    {
-//                        out.write(byteBuff, 0, bytesRead);
-//                    }
-//
-//                    out.close();
-//                    zipInputStream.closeEntry();
-//                }
-//                zipInputStream.close();
-
-                ZipEntry zipEntry = zipInputStream.getNextEntry();
-
-                byte[] buffer = new byte[arr4.length];
-                int readLength;
-
-                while(zipEntry != null){
-                    File newFile = new File(hashPath + "/", arrPath[arrPath.length-1]);
-
-                    if (!zipEntry.isDirectory()) {
-                        FileOutputStream fos = new FileOutputStream(newFile);
-                        while ((readLength = zipInputStream.read(buffer)) > 0) {
-                            fos.write(buffer, 0, readLength);
-                        }
-                        fos.close();
-                    } else {
-                        newFile.mkdirs();
+                        instance.cotMessageReceived(cot, endpoint);
                     }
+                }).start();
 
-                    Log.i("zip file path = ", newFile.getPath());
-                    zipInputStream.closeEntry();
-                    zipEntry = zipInputStream.getNextEntry();
-                }
-
-                zipInputStream.closeEntry();
-                zipInputStream.close();
-
-
-//                if (!file.exists()) {
-//                    file.createNewFile();
-//                }
-//                FileOutputStream fos = new FileOutputStream(file);
-//                fos.write(zipStream);
-//                fos.close();
-
-            } catch (Exception e) {
-                Log.e("### VIN", "QToken.shareHandler 4 " + e.getMessage());
-            }
-
-        } } ).start();
-
-//        new Thread( new Runnable() { @Override public void run() {
-//            Log.d("### VIN", "QToken.shareHandler 2 " + cot);
-//
-//            CommsMapComponent instance = CommsMapComponent.getInstance();
-//
-//            CotEvent cotEvent = CotEvent.parse(cot);
-//
-//            Log.d("### VIN", "QToken.shareHandler 3 | " + cotEvent);
-//
-//            String endpoint = cotEvent.getDetail().getChild(1).getAttribute("endpoint");
-//
-//            Log.d("### VIN", "QToken.shareHandler 4 | " + cotEvent + " | " + endpoint);
-//
-//            instance.cotMessageReceived(cot, endpoint);
-//        } } ).start();
-    }
-
-    private static byte[] getPartOfByteArray(int whichOne, byte[] arr) {
-        int indexStart = -1;
-        int indexEnd = 0;
-        int arrCount = 1;
-        for(int x=0; x<arr.length; x++) {
-            if(arr[x] == '|') {
-                arrCount++;
-            } else if(whichOne == arrCount && indexStart == -1) {
-                indexStart = x;
-            } else if(whichOne < arrCount) {
-                indexEnd = x -1;
                 break;
-            }
+
+            case VINShareType.BYTE_PKG: // Data Package
+
+                Log.d("### VIN", "QToken.shareHandler 1.2 ");
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        Log.d("### VIN", "QToken.shareHandler 1 | " + bytes.length);
+
+                        try {
+
+                            // Get Path
+                            int pathByteLength = bytes[1];
+                            byte[] pathBytes = Arrays.copyOfRange(bytes, 2, pathByteLength);
+                            String pathString = new String(pathBytes, StandardCharsets.UTF_8);
+
+                            // Get file bytes
+                            byte[] zipFileBytes = Arrays.copyOfRange(bytes,
+                                    pathByteLength, bytes.length);
+                            Log.d("### VIN", "QToken.shareHandler 23 | " + pathByteLength + " | " + pathString);
+                            String[] arrPath = pathString.split("/");
+                            String hashPath = arrPath[arrPath.length - 2];
+                            String fileName = arrPath[arrPath.length - 1];
+
+                            Log.d("### VIN", "QToken.shareHandler 2 | " +
+                                    hashPath + " | " + fileName);
+
+                            String transfer = "/storage/emulated/0/atak/tools/datapackage/files/";
+
+                            File hash = new File(transfer + hashPath);
+                            if (!hash.exists()) {
+                                hash.mkdir();
+                            }
+
+                            // Create ZIP file
+                            File zipFile = new File(transfer + hashPath + "/", fileName);
+
+                            zipFile.createNewFile(); // if file already exists will do nothing
+                            FileOutputStream fos = new FileOutputStream(zipFile, false);
+                            fos.write(zipFileBytes);
+                            fos.close();
+
+                        } catch (Exception e) {
+                            Log.e("### VIN", "QToken.shareHandler 4 " + e.getMessage());
+                        }
+
+                    }
+                }).start();
+
+                break;
         }
-        return Arrays.copyOfRange(arr, indexStart, indexEnd);
+
+
     }
 
 }
