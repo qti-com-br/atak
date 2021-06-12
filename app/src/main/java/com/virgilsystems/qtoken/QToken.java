@@ -1,8 +1,18 @@
 package com.virgilsystems.qtoken;
 
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
+import com.atakmap.android.maps.MapView;
+import com.atakmap.android.missionpackage.MissionPackageMapComponent;
+import com.atakmap.android.missionpackage.MissionPackageReceiver;
+import com.atakmap.android.missionpackage.api.MissionPackageApi;
+import com.atakmap.android.missionpackage.file.MissionPackageConfiguration;
+import com.atakmap.android.missionpackage.file.MissionPackageManifest;
+import com.atakmap.app.ATAKActivity;
+import com.atakmap.commoncommo.MissionPackageTransferException;
 import com.atakmap.comms.CommsMapComponent;
 import com.atakmap.coremap.cot.event.CotEvent;
 
@@ -41,6 +51,8 @@ public class QToken {
 
     public static void shareHandler(byte[] bytes) {
 
+        CommsMapComponent comms = CommsMapComponent.getInstance();
+
         Log.d("### VIN", "QToken.shareHandler type: " + bytes[0]);
 
         int type = (int)bytes[0];
@@ -62,8 +74,6 @@ public class QToken {
 
                         Log.d("### VIN", "QToken.shareHandler 2 " + cot);
 
-                        CommsMapComponent instance = CommsMapComponent.getInstance();
-
                         CotEvent cotEvent = CotEvent.parse(cot);
 
                         Log.d("### VIN", "QToken.shareHandler 3 | " + cotEvent);
@@ -72,7 +82,7 @@ public class QToken {
 
                         Log.d("### VIN", "QToken.shareHandler 4 | " + cotEvent + " | " + endpoint);
 
-                        instance.cotMessageReceived(cot, endpoint);
+                        comms.cotMessageReceived(cot, endpoint);
                     }
                 }).start();
 
@@ -106,20 +116,50 @@ public class QToken {
                             Log.d("### VIN", "QToken.shareHandler 2 | " +
                                     hashPath + " | " + fileName);
 
-                            String transfer = "/storage/emulated/0/atak/tools/datapackage/files/";
+                            String transfer = "/storage/emulated/0/atak/tools/datapackage/";
 
-                            File hash = new File(transfer + hashPath);
+                            File hash = new File(transfer);
                             if (!hash.exists()) {
                                 hash.mkdir();
                             }
 
                             // Create ZIP file
-                            File zipFile = new File(transfer + hashPath + "/", fileName);
+                            File zipFile = new File(transfer, fileName);
 
                             zipFile.createNewFile(); // if file already exists will do nothing
                             FileOutputStream fos = new FileOutputStream(zipFile, false);
                             fos.write(zipFileBytes);
                             fos.close();
+
+//                            // Process it on ATAK
+//                            MissionPackageReceiver mpr =
+//                                    new MissionPackageReceiver(MapView.getMapView(),
+//                                            MissionPackageMapComponent.getInstance());
+
+//                            MissionPackageManifest manifest = new MissionPackageManifest();
+//                            manifest.addFile(zipFile, hashPath);
+//                            MissionPackageConfiguration.ImportInstructions inst =
+//                                    manifest.getConfiguration().getImportInstructions();
+//                            manifest.getConfiguration()
+
+//                            MissionPackageManifest manifest = extras.getParcelable(
+//                                    MissionPackageApi.INTENT_EXTRA_MISSIONPACKAGEMANIFEST);
+
+//                            // Run in the UI Thread
+//                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+//                                @Override
+//                                public void run() {
+////                                    try {
+//                                        mpr.initiateReceive(fileName, fileName.split(".")[0],
+//                                                hashPath, zipFileBytes.length, "PIGGY");
+//
+////                                        comms.mpio.missionPackageReceiveInit(fileName, fileName.split(".")[0],
+////                                                hashPath, zipFileBytes.length, "PIGGY");
+////                                    } catch (MissionPackageTransferException e) {
+////                                        e.printStackTrace();
+////                                    }
+//                                }
+//                            });
 
                         } catch (Exception e) {
                             Log.e("### VIN", "QToken.shareHandler 4 " + e.getMessage());

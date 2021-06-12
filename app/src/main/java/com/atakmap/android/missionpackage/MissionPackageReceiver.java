@@ -1462,7 +1462,7 @@ public class MissionPackageReceiver extends BroadcastReceiver implements
         /**
          * This postprocessing taken from legacy GetFileTransferOperation 
          */
-        private MissionPackageManifest postProcessTempFileGFTO(
+        public MissionPackageManifest postProcessTempFileGFTO(
                 MissionPackageManifest manifest) throws Exception {
 
             // update notification

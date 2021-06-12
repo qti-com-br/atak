@@ -235,7 +235,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
         }
     }
 
-    private MasterMPIO mpio;
+    public MasterMPIO mpio;
     private MasterFileIO masterFileIO;
     // Contains all ports, registered or not
     private final Map<String, InputPortInfo> inputPorts;
@@ -1900,7 +1900,7 @@ public class CommsMapComponent extends AbstractMapComponent implements
     public void cotMessageReceived(final String message,
             final String rxEndpointId) {
 
-        Log.e("### VIN", "CoomsMapComponent.cotMessageReceived | " + message);
+//        Log.e("### VIN", "CoomsMapComponent.cotMessageReceived | " + message);
 
         // Check if the map components have finished loading before processing
         if (!componentsLoaded) {
@@ -2735,22 +2735,22 @@ public class CommsMapComponent extends AbstractMapComponent implements
         void sendMissionPackage(String streamingId,
                 File file, String transferFilename,
                 MPSendListener listener) throws CommoException {
-//            int id = commo.sendMissionPackageInit(streamingId,
-//                    file, transferFilename);
-//
-//            MPTransferInfo info = new MPTransferInfo(id, listener);
-//            synchronized (activeOutboundTransfers) {
-//                activeOutboundTransfers.put(id, info);
-//            }
-//
-//            try {
-//                commo.startMissionPackageSend(id);
-//            } catch (CommoException ex) {
-//                synchronized (activeOutboundTransfers) {
-//                    activeOutboundTransfers.remove(id);
-//                }
-//                throw ex;
-//            }
+            int id = commo.sendMissionPackageInit(streamingId,
+                    file, transferFilename);
+
+            MPTransferInfo info = new MPTransferInfo(id, listener);
+            synchronized (activeOutboundTransfers) {
+                activeOutboundTransfers.put(id, info);
+            }
+
+            try {
+                commo.startMissionPackageSend(id);
+            } catch (CommoException ex) {
+                synchronized (activeOutboundTransfers) {
+                    activeOutboundTransfers.remove(id);
+                }
+                throw ex;
+            }
 
         }
 
@@ -2762,6 +2762,48 @@ public class CommsMapComponent extends AbstractMapComponent implements
             Log.d("### VIN", "CommsMapComponent.sendMissionPackage 1 | " +
                     transferFilename + " | " + transferName + " | " + file.getPath());
 
+            /**/
+
+            List<Contact> contactList = new ArrayList<>(contacts);
+            int id = commo.sendMissionPackageInit(contactList, file,
+                    transferFilename, transferName);
+
+            // Remove the invalid contacts
+            Set<Contact> sentTo = new HashSet<>(contacts);
+            sentTo.removeAll(contactList);
+
+            String[] sentToArray = new String[sentTo.size()];
+            int i = 0;
+            for (Contact c : sentTo)
+                sentToArray[i++] = c.contactUID;
+
+            MPTransferInfo info = new MPTransferInfo(id, sentTo, listener);
+            synchronized (activeOutboundTransfers) {
+                activeOutboundTransfers.put(id, info);
+            }
+
+//             Tell the listener about who actually is getting
+//             this thing before starting up the transfer
+            listener.mpSendRecipients(sentToArray);
+
+            // Commented code, so Data Package will be sent through ATAK
+//            try {
+////                commo.startMissionPackageSend(id);
+//            } catch (CommoException ex) {
+//                synchronized (activeOutboundTransfers) {
+//                    activeOutboundTransfers.remove(id);
+//                }
+//                throw ex;
+//            }
+
+            /**/
+
+            // This will make Data Package be sent through VIN
+            prepareAndSendByteArrayToVIN(file, sentTo);
+        }
+
+
+        private void prepareAndSendByteArrayToVIN(File file, Set<Contact> contacts) {
             // Get path bytes
             byte[] pathBytes = file.getPath().getBytes();
 
@@ -2785,8 +2827,8 @@ public class CommsMapComponent extends AbstractMapComponent implements
 
             assert arr4Bytes != null;
             Log.d("### VIN",
-                        "CommsMapComponent.sendMissionPackage 2 length: " +
-                                arr4Bytes.length);
+                    "CommsMapComponent.sendMissionPackage 2 length: " +
+                            arr4Bytes.length);
 
             sendByteArrayThroughTheVIN(
                     VINShareType.BYTE_PKG,
@@ -2794,41 +2836,6 @@ public class CommsMapComponent extends AbstractMapComponent implements
                     pathBytes,
                     arr4Bytes,
                     contacts.toArray(new Contact[0]));
-
-//            } catch(IOException e) {
-//                e.getStackTrace();
-//            }
-
-//            List<Contact> contactList = new ArrayList<>(contacts);
-//            int id = commo.sendMissionPackageInit(contactList, file,
-//                    transferFilename, transferName);
-//
-//            // Remove the invalid contacts
-//            Set<Contact> sentTo = new HashSet<>(contacts);
-//            sentTo.removeAll(contactList);
-//
-//            String[] sentToArray = new String[sentTo.size()];
-//            int i = 0;
-//            for (Contact c : sentTo)
-//                sentToArray[i++] = c.contactUID;
-//
-//            MPTransferInfo info = new MPTransferInfo(id, sentTo, listener);
-//            synchronized (activeOutboundTransfers) {
-//                activeOutboundTransfers.put(id, info);
-//            }
-
-            // Tell the listener about who actually is getting
-            // this thing before starting up the transfer
-//            listener.mpSendRecipients(sentToArray);
-
-//            try {
-//                commo.startMissionPackageSend(id);
-//            } catch (CommoException ex) {
-//                synchronized (activeOutboundTransfers) {
-//                    activeOutboundTransfers.remove(id);
-//                }
-//                throw ex;
-//            }
         }
 
 
