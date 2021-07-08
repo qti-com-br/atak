@@ -3,4 +3,5 @@
 	url = https://github.com/synesissoftware/STLSoft-1.9.git
 [submodule "atak/ATAK"]
 	path = atak/ATAK
-	url = git@gitlab.optimusprime.ai:virgilsystems/prototypes/vintak.git
+	url = ../vintak
+	branch = dev
