@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Locale;
 
 import android.os.Parcel;
@@ -339,6 +340,27 @@ public class CotEvent implements Parcelable {
     public CotDetail getDetail() {
         return _detail;
     }
+
+
+    /**
+     * Get this event endpoint
+     * @return String endpoint or null if it doesn't find the tag
+     */
+    public String getEndpoint() {
+        String endpoint = this.getDetail().getChild(1)
+                .getAttribute("endpoint");
+
+        if(endpoint == null) {
+            List<CotDetail> cotDetail = this.getDetail()
+                    .getChildrenByName("__serverdestination");
+            if(cotDetail.size() > 0){
+                endpoint = cotDetail.get(0).getAttribute("destinations");
+            }
+        }
+
+        return endpoint;
+    }
+
 
     /**
      * Find a detail element

@@ -7,6 +7,9 @@ This is how to setup ATAK for VINTAK. (_You just need to do this once._)
 <br />git submodule update --init --recursive
 <br /><br />
 
+```
+Before anything else: make sure android studio is installed, and make sure NDK (side by side) and cmake are added under SDK Tools.
+```
 
 **Ubuntu Dependencies:**
 ```
@@ -58,19 +61,24 @@ git clone https://gitlab.optimusprime.ai/virgilsystems/prototypes/atak.git
 ```
 mkdir takengine/thirdparty
 cd takengine/thirdparty
+git rm -r stlsoft/
 git submodule add https://github.com/synesissoftware/STLSoft-1.9.git stlsoft
 
-cd ..
-cd ..
-cp depends/gdal-2.4.4-mod.tar.gz .
-tar xf gdal-2.4.4-mod.tar.gz
 ```
 
 
 **VINTAK**
 ```
 cd atak
+git rm -r ATAK/
+```
+** HTTP **
+```
 git submodule add https://gitlab.optimusprime.ai/virgilsystems/prototypes/vintak.git ATAK
+```
+** SSL **
+```
+git submodule add git@gitlab.optimusprime.ai:virgilsystems/prototypes/vintak.git ATAK
 ```
 
 
