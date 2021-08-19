@@ -24,7 +24,7 @@ import com.atakmap.coremap.filesystem.FileSystemUtils;
 
 /**
  * Represents a Cursor on Target event
- * 
+ *
  * http://cot.mitre.org
  */
 public class CotEvent implements Parcelable {
@@ -140,7 +140,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Determine if the event is valid
-     * 
+     *
      * @return the validity of the event.
      */
     public boolean isValid() {
@@ -160,7 +160,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Create the event from its Parcel representation.
-     * 
+     *
      * @param source the source Parcel
      */
     public CotEvent(final Parcel source) {
@@ -192,7 +192,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Retrieves a date as a formatted string useful for using as part of a file name.
-     * 
+     *
      * @return a logging date/time string based on the current system time in yyyyMMdd_HHmm_ss
      *         format.
      */
@@ -286,7 +286,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Get this 'version' attribute
-     * 
+     *
      * @return a String indicating the version number
      */
     public String getVersion() {
@@ -295,7 +295,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Get this event 'type' attribute
-     * 
+     *
      * @return the type attribute
      */
     public String getType() {
@@ -304,7 +304,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Get this event UID
-     * 
+     *
      * @return the uid
      */
     public String getUID() {
@@ -313,7 +313,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Get this event point as a CotPoint
-     * 
+     *
      * @return the cot point.
      */
     public CotPoint getCotPoint() {
@@ -322,7 +322,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * From the CotPoint, derive the correct GeoPoint. (convienence method)
-     * 
+     *
      * @return the GeoPoint derived from a CotPoint or null if the CotPoint is null.
      */
     public GeoPoint getGeoPoint() {
@@ -334,7 +334,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Get this event root detail
-     * 
+     *
      * @return
      */
     public CotDetail getDetail() {
@@ -347,16 +347,26 @@ public class CotEvent implements Parcelable {
      * @return String endpoint or null if it doesn't find the tag
      */
     public String getEndpoint() {
-        String endpoint = this.getDetail().getChild(1)
-                .getAttribute("endpoint");
+        String endpoint = null;
+        try {
+            CotDetail cotDetailObj = this.getDetail();
+            if (cotDetailObj != null) {
+                endpoint = cotDetailObj.getChild(1)
+                        .getAttribute("endpoint");
 
-        if(endpoint == null) {
-            List<CotDetail> cotDetail = this.getDetail()
-                    .getChildrenByName("__serverdestination");
-            if(cotDetail.size() > 0){
-                endpoint = cotDetail.get(0).getAttribute("destinations");
+                if (endpoint == null) {
+                    List<CotDetail> cotDetail = cotDetailObj.getChildrenByName("__serverdestination");
+                    if (cotDetail != null) {
+                        if(cotDetail.size() > 0) {
+                            endpoint = cotDetail.get(0).getAttribute("destinations");
+                        }
+                    }
+                }
             }
+        } catch(NullPointerException e) {
+            Log.e("CoTEvent", "CotEvent.getEndPoint: " + e.getMessage());
         }
+        Log.d("VIN", "CotEvent.getEndpoint endpoint: " + endpoint);
 
         return endpoint;
     }
@@ -400,7 +410,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Get this event stale time
-     * 
+     *
      * @return the stale time as a coordinated time.
      */
     public CoordinatedTime getStale() {
@@ -409,7 +419,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Get this event how
-     * 
+     *
      * @return the HOW
      */
     public String getHow() {
@@ -469,54 +479,69 @@ public class CotEvent implements Parcelable {
     }
 
     private void buildXmlImpl(Appendable b) throws IOException {
-        b.append(
-                "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><event");
-        if (_vers != null && !_vers.equals("")) {
-            b.append(" version='");
-            b.append(_vers);
-            b.append("'");
+        try {
+            b.append("<?xml version='1.0' encoding='UTF-8' standalone='yes'?><event");
+            if (_vers != null && !_vers.equals("")) {
+                b.append(" version='");
+                b.append(_vers);
+                b.append("'");
+            }
+            if(_uid != null) {
+                b.append(" uid='");
+                b.append(escapeXmlText(_uid));
+            }
+            if(_type != null) {
+                b.append("' type='");
+                b.append(_type);
+            }
+            if(_time != null) {
+                b.append("' time='");
+                b.append(_time.toString());
+            }
+            if(_start != null) {
+                b.append("' start='");
+                b.append(_start.toString());
+            }
+            if(_stale != null) {
+                b.append("' stale='");
+                b.append(_stale.toString());
+            }
+            if(_how != null) {
+                b.append("' how='");
+                b.append(_how);
+                b.append("'");
+            }
+            if (_opex != null) {
+                b.append(" opex='");
+                b.append(_opex);
+                b.append("'");
+            }
+            if (_qos != null) {
+                b.append(" qos='");
+                b.append(_qos);
+                b.append("'");
+            }
+            if (_access != null) {
+                b.append(" access='");
+                b.append(_access);
+                b.append("'");
+            }
+            b.append(">");
+            if (_point != null) {
+                _point.buildXml(b);
+            }
+            if (_detail != null) {
+                _detail.buildXml(b);
+            }
+            b.append("</event>");
+        } catch(Exception e) {
+            Log.d("VIN", "CotEvent.buildXmlImpl " + e.getMessage());
         }
-        b.append(" uid='");
-        b.append(escapeXmlText(_uid));
-        b.append("' type='");
-        b.append(_type);
-        b.append("' time='");
-        b.append(_time.toString());
-        b.append("' start='");
-        b.append(_start.toString());
-        b.append("' stale='");
-        b.append(_stale.toString());
-        b.append("' how='");
-        b.append(_how);
-        b.append("'");
-        if (_opex != null) {
-            b.append(" opex='");
-            b.append(_opex);
-            b.append("'");
-        }
-        if (_qos != null) {
-            b.append(" qos='");
-            b.append(_qos);
-            b.append("'");
-        }
-        if (_access != null) {
-            b.append(" access='");
-            b.append(_access);
-            b.append("'");
-        }
-        b.append(">");
-        if (_point != null) {
-            _point.buildXml(b);
-        }
-        if (_detail != null) {
-            _detail.buildXml(b);
-        }
-        b.append("</event>");
     }
 
     /**
      * Parse a event from an XML string
-     * 
+     *
      * @param xml
      * @return a CoT Event that can either be valid or invalid.
      */
@@ -635,7 +660,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the version attribute. If not set, the value by default is "2.0".
-     * 
+     *
      * @param vers the version if it is other than 2.0
      */
     public void setVersion(String vers) {
@@ -650,7 +675,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the CoT type (e.g. a-f-G).
-     * 
+     *
      * @param type the type of the CoT event
      */
     public void setType(String type) {
@@ -665,7 +690,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the unique identifier for the object the event describes
-     * 
+     *
      * @param uid the unique identifier.   Should be opaque and not used for interpretation.
      */
     public void setUID(String uid) {
@@ -677,7 +702,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the point tag details
-     * 
+     *
      * @throws IllegalArgumentException if point is null
      * @param point the point
      */
@@ -689,9 +714,13 @@ public class CotEvent implements Parcelable {
         _point = point;
     }
 
+    public void removePoint() {
+        _point = null;
+    }
+
     /**
      * Set the detail tag. This must be named "detail" or be null.
-     * 
+     *
      * @throws IllegalArgumentException if the CotDetail element name isn't "detail"
      * @param detail the detail tag
      */
@@ -708,7 +737,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the time this event was generated
-     * 
+     *
      * @param time the time based on coordinated time.
      */
     public void setTime(final CoordinatedTime time) {
@@ -722,7 +751,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the time this event starts scope
-     * 
+     *
      * @param start the start time of the event.
      */
     public void setStart(final CoordinatedTime start) {
@@ -735,7 +764,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the time this event leaves from scope
-     * 
+     *
      * @param stale the stale time of the event
      */
     public void setStale(final CoordinatedTime stale) {
@@ -748,7 +777,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the 'how' attribute of the event (e.g. m-g)
-     * 
+     *
      * @param how the how for the event.
      */
     public void setHow(String how) {
@@ -756,7 +785,7 @@ public class CotEvent implements Parcelable {
             how = how.trim();
 
         if (how == null || how.equals("")) {
-            // we used to be less permissive and throw a IllegalStateException if the 
+            // we used to be less permissive and throw a IllegalStateException if the
             // how field was incorrect - now we should just flag it as machine-generated-garbage
             how = "m-g-g";
         }
@@ -765,7 +794,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the 'opex' attribute of the event
-     * 
+     *
      * @param opex
      */
     public void setOpex(String opex) {
@@ -774,7 +803,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the 'qos' (quality of service) attribute of the event
-     * 
+     *
      * @param qos
      */
     public void setQos(String qos) {
@@ -783,7 +812,7 @@ public class CotEvent implements Parcelable {
 
     /**
      * Set the 'access' attribute of the event
-     * 
+     *
      * @param access
      */
     public void setAccess(String access) {
