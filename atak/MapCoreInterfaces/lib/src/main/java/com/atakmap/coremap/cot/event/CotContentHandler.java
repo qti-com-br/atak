@@ -11,6 +11,7 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 
+import java.io.InputStream;
 import java.io.StringReader;
 import java.util.Stack;
 
@@ -68,7 +69,15 @@ class CotContentHandler implements ContentHandler {
                 reader.setContentHandler(this);
             }
 
-            reader.parse(new InputSource(new StringReader(xml)));
+            StringReader sr = new StringReader(xml);
+            InputSource is = new InputSource(sr);
+            is.setEncoding("UTF-8");
+
+            try {
+                reader.parse(is);
+            } catch(Exception e) {
+                Log.e("VIN", "CotContentHandler.parseXML | " + is);
+            }
 
         } catch (Exception e) {
             Log.v(TAG, "Bad message encountered: " + xml);
